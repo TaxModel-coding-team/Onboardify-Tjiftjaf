@@ -6,16 +6,15 @@
 
 <div class="accordion" class="list-group"  id="accordionExample">
     <div *ngFor="let task of tasks" class="accordion-item">
-      <h2 class="accordion-header" attr.id="heading{{task.name}}">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + task.name" aria-expanded="true" attr.aria-controls="collapse{{task.name}}">
-          {{task.name}}
+      <h2 class="accordion-header" attr.id="heading{{task.title}}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + task.title" aria-expanded="true" attr.aria-controls="collapse{{task.title}}">
+          {{task.title}}
         </button>
       </h2>
-      <div attr.id="collapse{{task.name}}" class="accordion-collapse collapse show" attr.aria-labelledby="heading{{task.name}}" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-           {{task.description}}
-        </div>
+    <div attr.id="collapse{{task.title}}" class="accordion-collapse collapse show" attr.aria-labelledby="heading{{task.title}}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          {{task.description}}
       </div>
-    </div>  
-  </div>
+    </div>
+  </div>  
 </div>
