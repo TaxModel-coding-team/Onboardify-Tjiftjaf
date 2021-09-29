@@ -8,15 +8,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private taskURL = "localhost:44329/api/task/all"
+  private taskURL = "https://localhost:44329/api/task/all"
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
   constructor(
-    private http: HttpClient
-  ){ }
+    private http: HttpClient){ }
   
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.taskURL);
