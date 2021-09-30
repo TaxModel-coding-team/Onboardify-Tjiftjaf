@@ -10,7 +10,7 @@
       </h2>
     <div attr.id="collapse{{quest.title}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-          <ul *ngFor="let subquest of quest.subQuests" >
+          <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
             <li style="text-align: left;">
               {{subquest.description}} 
               <button class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="sendExp(subquest.experience)">Done</button>
