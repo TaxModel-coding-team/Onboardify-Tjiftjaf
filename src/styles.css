@@ -42,3 +42,7 @@ body {
     padding: .25em;
     text-align: center
 }
+
+.center {
+    text-align: center;
+}

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Task } from './task';
+import { Quest } from './quest';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {  
-  private taskURL = "https://localhost:44329/api/task/all"
+export class QuestService {  
+  private questURL = "https://localhost:44329/api/task/all"
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,7 +16,7 @@ export class TaskService {
   constructor(
     private http: HttpClient){ }
   
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.taskURL);
+  getQuests(): Observable<Quest[]> {
+    return this.http.get<Quest[]>(this.questURL);
   }
 }
