@@ -9,5 +9,18 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script>
+    var width = 20;
+
+function move() {
+  var elem = document.getElementById("progressskrrt");
+    if (width < 100) {
+      width+=10;
+      elem.style.width = width + '%';
+      elem.innerHTML = width * 1 + '%';
+    }
+  }
+    </script>
 </body>
 </html>
