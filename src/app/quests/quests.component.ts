@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestService } from '../quest.service';
 import { Quest } from '../quest';
 
@@ -10,6 +10,7 @@ import { Quest } from '../quest';
 export class QuestsComponent implements OnInit {
 
   quests: Quest[] = [];
+  @Input() gainedExp: number = 0;
 
   constructor(private questService: QuestService) { }
 
@@ -40,5 +41,10 @@ export class QuestsComponent implements OnInit {
     return greeting;
   }
 
+  sendExp(exp: number) : void
+  {
+    this.gainedExp += exp;
+    console.log(this.gainedExp);
+  }
 
 }
