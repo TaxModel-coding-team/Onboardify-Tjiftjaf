@@ -11,6 +11,7 @@ export class QuestsComponent implements OnInit {
 
   quests: Quest[] = [];
   @Input() gainedExp: number = 0;
+  @Input() totalExp: number = 0;
 
   constructor(private questService: QuestService) { }
 
@@ -39,6 +40,14 @@ export class QuestsComponent implements OnInit {
       greeting = 'Good evening';
     }
     return greeting;
+  }
+
+  getTotalExp(): void{
+    this.quests.forEach(quest => {
+      quest.subQuests.forEach(subQuest => {
+        this.totalExp += subQuest.experience;
+      });
+    });
   }
 
   sendExp(exp: number) : void
