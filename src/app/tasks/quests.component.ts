@@ -11,14 +11,14 @@ export class QuestsComponent implements OnInit {
 
   quests: Quest[] = [];
 
-  constructor(private taskService: QuestService) { }
+  constructor(private questService: QuestService) { }
 
   ngOnInit(): void {
     this.getQuests();
   }
 
   getQuests(): void {
-    this.taskService.getQuests()
+    this.questService.getQuests()
       .subscribe(quest => this.quests = quest);
   }
 
