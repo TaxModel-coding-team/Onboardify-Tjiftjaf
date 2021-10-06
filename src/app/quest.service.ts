@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestService {  
-  private questURL = "https://localhost:44329/api/task/all"
+  private questURL = "https://localhost:44329/quests"
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

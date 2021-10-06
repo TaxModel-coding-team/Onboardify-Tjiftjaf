@@ -14,15 +14,13 @@
             <li style="text-align: left;">
               <span attr.id="ID {{subquest.id}} description">{{subquest.description}}</span>
               <!--(click)="sendExp(subquest.experience)-->
-              <!-- <button class="btn btn-success" style="float: right; margin-bottom: 10px;" onclick="move()">Done</button> -->
-              <button attr.id="ID {{subquest.id}} button" class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="sendExp(subquest.id, subquest.experience)">Done</button>
+              <button attr.id="ID {{subquest.id}} button" class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="updateExp(subquest.id, subquest.experience)">Exp: {{subquest.experience}}</button>
             </li>              
           </ul>         
       </div>
     </div>
   </div>  
 </div><br/>
-
-<div class="progress" style="width: 315px; margin: auto; ">
-  <div id="progressskrrt" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="1000"></div>
+<div class="list-group">
+  <progress-bar progress="{{gainedExp}}"></progress-bar>
 </div>
