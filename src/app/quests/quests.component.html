@@ -13,7 +13,8 @@
           <ul *ngFor="let subquest of quest.subQuests" >
             <li style="text-align: left;">
               {{subquest.description}} 
-              <button class="btn btn-success" style="float: right;" onclick="move()">Done</button>
+              <!--(click)="sendExp(subquest.experience)-->
+              <button class="btn btn-success" style="float: right; margin-bottom: 10px;" onclick="move()">Exp: {{subquest.experience}}</button>
             </li>              
           </ul>         
       </div>
