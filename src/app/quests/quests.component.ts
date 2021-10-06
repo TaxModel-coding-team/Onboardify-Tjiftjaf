@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestService } from '../quest.service';
 import { Quest } from '../quest';
+import { QuestService } from '../quest.service';
 
 @Component({
   selector: 'app-quests',
@@ -10,6 +10,8 @@ import { Quest } from '../quest';
 export class QuestsComponent implements OnInit {
 
   quests: Quest[] = [];
+  gainedExp: number = 0;
+  totalExp: number = 1850;
 
   constructor(private questService: QuestService) { }
 
@@ -23,6 +25,13 @@ export class QuestsComponent implements OnInit {
     this.questService.getQuests()
       .subscribe(quest => this.quests = quest);
 
+  }
+
+  updateExp(exp: number): void
+  {
+    var experience = exp / this.totalExp * 100;
+    this.gainedExp += experience;
+    console.log(this.gainedExp);
   }
 
   getGreeting(): String{
