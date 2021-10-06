@@ -50,10 +50,15 @@ export class QuestsComponent implements OnInit {
     });
   }
 
-  sendExp(exp: number) : void
+  sendExp(id :number, exp: number) : void
   {
     this.gainedExp += exp;
     console.log(this.gainedExp);
+    
+    (document.getElementById('ID ' + id.toString() + ' description') as HTMLSpanElement).style.color = "grey";
+    
+
+    (document.getElementById('ID ' + id.toString() + ' button') as HTMLButtonElement).disabled = true;
   }
 
 }

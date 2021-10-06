@@ -12,9 +12,10 @@
       <div class="accordion-body">
           <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
             <li style="text-align: left;">
-              {{subquest.description}} 
+              <span attr.id="ID {{subquest.id}} description">{{subquest.description}}</span>
               <!--(click)="sendExp(subquest.experience)-->
-              <button class="btn btn-success" style="float: right; margin-bottom: 10px;" onclick="move()">Done</button>
+              <!-- <button class="btn btn-success" style="float: right; margin-bottom: 10px;" onclick="move()">Done</button> -->
+              <button attr.id="ID {{subquest.id}} button" class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="sendExp(subquest.id, subquest.experience)">Done</button>
             </li>              
           </ul>         
       </div>
