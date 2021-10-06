@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestsComponent } from './quests/quests.component';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { QuestsComponent } from './quests/quests.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
