@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestService } from '../quest.service';
 import { Quest } from '../quest';
 
@@ -10,6 +10,8 @@ import { Quest } from '../quest';
 export class QuestsComponent implements OnInit {
 
   quests: Quest[] = [];
+  @Input() gainedExp: number = 0;
+  @Input() totalExp: number = 0;
 
   constructor(private questService: QuestService) { }
 
@@ -40,5 +42,23 @@ export class QuestsComponent implements OnInit {
     return greeting;
   }
 
+  getTotalExp(): void{
+    this.quests.forEach(quest => {
+      quest.subQuests.forEach(subQuest => {
+        this.totalExp += subQuest.experience;
+      });
+    });
+  }
+
+  sendExp(id :number, exp: number) : void
+  {
+    this.gainedExp += exp;
+    console.log(this.gainedExp);
+    
+    (document.getElementById('ID ' + id.toString() + ' description') as HTMLSpanElement).style.color = "grey";
+    
+
+    (document.getElementById('ID ' + id.toString() + ' button') as HTMLButtonElement).disabled = true;
+  }
 
 }
