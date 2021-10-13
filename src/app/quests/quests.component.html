@@ -13,7 +13,6 @@
           <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
             <li style="text-align: left;">
               <span attr.id="ID {{subquest.id}} description">{{subquest.description}}</span>
-              <!--(click)="sendExp(subquest.experience)-->
               <button attr.id="ID {{subquest.id}} button" class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="updateExp(subquest.id, subquest.experience)">Exp: {{subquest.experience}}</button>
             </li>              
           </ul>         

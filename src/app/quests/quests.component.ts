@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Quest } from '../quest';
-import { QuestService } from '../quest.service';
+import { Quest } from '../Models/quest';
+import { QuestService } from '../Services/quest.service';
 
 @Component({
   selector: 'app-quests',
@@ -12,19 +12,17 @@ export class QuestsComponent implements OnInit {
   quests: Quest[] = [];
   gainedExp: number = 0;
   totalExp: number = 1850;
+  greeting: String = '';
 
   constructor(private questService: QuestService) { }
 
   ngOnInit(): void {
     this.getQuests();
-
-    console.log(this.quests);
   }
 
   getQuests(): void {
     this.questService.getQuests()
       .subscribe(quest => this.quests = quest);
-
   }
 
   updateExp(id: number, exp: number): void
@@ -34,24 +32,22 @@ export class QuestsComponent implements OnInit {
     console.log(this.gainedExp);
 
     (document.getElementById('ID ' + id.toString() + ' description') as HTMLSpanElement).style.color = "grey";
-    
-
     (document.getElementById('ID ' + id.toString() + ' button') as HTMLButtonElement).disabled = true;
   }
 
   getGreeting(): String{
-    var greeting: String;
+    
     var today = new Date()
     var curHr = today.getHours()
 
     if (curHr < 12) {
-      greeting = 'Good morning';
+      this.greeting = 'Good morning';
     } else if (curHr < 18) {
-      greeting = 'Good afternoon';
+      this.greeting = 'Good afternoon';
     } else {
-      greeting = 'Good evening';
+      this.greeting = 'Good evening';
     }
-    return greeting;
+    return this.greeting;
   }
 
   getTotalExp(): void{
@@ -61,13 +57,4 @@ export class QuestsComponent implements OnInit {
       });
     });
   }
-
-  sendExp(id :number, exp: number) : void
-  {
-    this.gainedExp += exp;
-    console.log(this.gainedExp);
-    
-    
-  }
-
 }
