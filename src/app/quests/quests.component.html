@@ -1,10 +1,16 @@
-<h1 class="center" style="padding-bottom: 30px;">{{getGreeting()}} user!</h1>
+<h1 class="center" style="padding-bottom: 30px;">{{greeting}} user!</h1>
 <h2 class="center">Quests</h2>
 
-<div class="accordion" class="list-group"  id="accordionExample">
+<div class="accordion" class="list-group" id="accordionExample">
     <div *ngFor="let quest of quests" class="accordion-item">
       <h2 class="accordion-header" attr.id="heading{{quest.title}}">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + quest.title" aria-expanded="true" attr.aria-controls="collapse{{quest.title}}">
+        <button 
+          class="accordion-button collapsed" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          [attr.data-bs-target]="'#collapse' + quest.title" 
+          aria-expanded="true" 
+          attr.aria-controls="collapse{{quest.title}}">
           {{quest.description}}
         </button>
       </h2>
@@ -12,8 +18,14 @@
       <div class="accordion-body">
           <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
             <li style="text-align: left;">
-              <span attr.id="ID {{subquest.id}} description">{{subquest.description}}</span>
-              <button attr.id="ID {{subquest.id}} button" class="btn btn-success" style="float: right; margin-bottom: 10px;" (click)="updateExp(subquest.id, subquest.experience)">Exp: {{subquest.experience}}</button>
+              <span>{{subquest.description}}</span>
+              <button 
+                class="btn btn-success" 
+                [disabled]="subquest.completed" 
+                [ngClass]="{'completed': subquest.completed}" 
+                (click)="updateExp(subquest.id, subquest.experience)">
+                Exp: {{subquest.experience}}
+              </button>
             </li>              
           </ul>         
       </div>

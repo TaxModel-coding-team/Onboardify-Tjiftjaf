@@ -4,4 +4,10 @@
 .btn {
     width: 90px;
     height: auto;
+    float: right; 
+    margin-bottom: 10px;
+}
+
+.completed{
+    color:grey;
 }

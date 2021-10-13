@@ -18,6 +18,7 @@ export class QuestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuests();
+    this.getGreeting();
   }
 
   getQuests(): void {
@@ -29,13 +30,17 @@ export class QuestsComponent implements OnInit {
   {
     var experience = exp / this.totalExp * 100;
     this.gainedExp += experience;
-    console.log(this.gainedExp);
 
-    (document.getElementById('ID ' + id.toString() + ' description') as HTMLSpanElement).style.color = "grey";
-    (document.getElementById('ID ' + id.toString() + ' button') as HTMLButtonElement).disabled = true;
+    var subQuest;
+    this.quests.forEach(quest => {
+      if(subQuest = quest.subQuests.find(subQuest => subQuest.id == id)){
+        subQuest.completed = true;
+        return;
+      }
+    });
   }
 
-  getGreeting(): String{
+  getGreeting(): void{
     
     var today = new Date()
     var curHr = today.getHours()
@@ -47,7 +52,6 @@ export class QuestsComponent implements OnInit {
     } else {
       this.greeting = 'Good evening';
     }
-    return this.greeting;
   }
 
   getTotalExp(): void{
