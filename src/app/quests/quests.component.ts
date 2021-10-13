@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Quest } from '../Models/quest';
 import { QuestService } from '../Services/quest.service';
 
@@ -7,12 +8,14 @@ import { QuestService } from '../Services/quest.service';
   templateUrl: './quests.component.html',
   styleUrls: ['./quests.component.css']
 })
-export class QuestsComponent implements OnInit {
+export class QuestsComponent implements OnInit, OnDestroy {
 
-  quests: Quest[] = [];
-  gainedExp: number = 0;
-  totalExp: number = 1850;
-  greeting: String = '';
+  //Fields
+  public quests: Quest[] = [];
+  public gainedExp: number = 0;
+  private totalExp: number = 1850;
+  public greeting: String = '';
+  private subscription: Subscription = this.getQuests();
 
   constructor(private questService: QuestService) { }
 
@@ -21,9 +24,9 @@ export class QuestsComponent implements OnInit {
     this.getGreeting();
   }
 
-  getQuests(): void {
-    this.questService.getQuests()
-      .subscribe(quest => this.quests = quest);
+  getQuests(): Subscription {
+    return this.questService.getQuests()
+      .subscribe(quest => this.quests = quest)      
   }
 
   updateExp(id: number, exp: number): void
@@ -60,5 +63,10 @@ export class QuestsComponent implements OnInit {
         this.totalExp += subQuest.experience;
       });
     });
+  }
+
+  ngOnDestroy()
+  {
+    this.subscription.unsubscribe();
   }
 }
