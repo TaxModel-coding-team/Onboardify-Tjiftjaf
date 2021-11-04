@@ -6,7 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - uses: pangzineng/Github-Action-One-Click-Docker@v1.1.1
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: bats -v
+    
+  # You may pin to the exact commit or the version.
+  # uses: pangzineng/Github-Action-One-Click-Docker@bfb4a810c8cb823f4a87c24da145caa707e297e9
+    
