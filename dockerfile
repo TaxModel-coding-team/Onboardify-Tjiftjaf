@@ -4,10 +4,10 @@
 FROM node:latest as build
 
 # Set the working directory
-WORKDIR /usr/local/app
+WORKDIR /app
 
 # Add the source code to app
-COPY ./ /usr/local/app/
+COPY . .
 
 # Install all the dependencies
 RUN npm install
