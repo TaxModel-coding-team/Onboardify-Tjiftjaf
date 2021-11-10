@@ -5,4 +5,5 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build --prod
-EXPOSE 80 443
+RUN ng serve -o
+EXPOSE 4200 443
