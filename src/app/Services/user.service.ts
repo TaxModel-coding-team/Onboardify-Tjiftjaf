@@ -20,6 +20,6 @@ export class UserService {
     private http: HttpClient){ }
   
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.userURL, user)
+    return this.http.post<User>(this.userURL, user, this.httpOptions)
   }
 }

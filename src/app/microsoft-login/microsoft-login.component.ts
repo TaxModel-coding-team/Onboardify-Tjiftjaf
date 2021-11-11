@@ -3,6 +3,7 @@ import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-common';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-microsoft-login',
@@ -11,7 +12,7 @@ import { UserService } from '../Services/user.service';
 })
 export class MicrosoftLoginComponent implements OnInit {
 
-  constructor(private msalService: MsalService, private userService: UserService) {
+  constructor(private msalService: MsalService, private userService: UserService, private http: HttpClient) {
 
   }
 
@@ -32,7 +33,9 @@ export class MicrosoftLoginComponent implements OnInit {
     this.msalService.loginPopup().subscribe( (response: AuthenticationResult) => {
       this.msalService.instance.setActiveAccount(response.account)
       this.logincheck = true
-      this.newUser.email = this.msalService.instance.getActiveAccount()!.username
+      console.log(this.msalService.instance.getActiveAccount()!.username)
+      // this.newUser.email = 
+      this.msalService.instance.getActiveAccount()!.username
       this.addUser()
     } )
   }
