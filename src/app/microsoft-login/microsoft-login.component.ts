@@ -10,14 +10,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './microsoft-login.component.html',
   styleUrls: ['./microsoft-login.component.css']
 })
+
 export class MicrosoftLoginComponent implements OnInit {
 
+  
+  newUser: string
   constructor(private msalService: MsalService, private userService: UserService, private http: HttpClient) {
-
+    this.newUser = '';
   }
 
   logincheck : boolean = false;
-  newUser!: User;
+  
 
   ngOnInit(): void {
     this.msalService.instance.handleRedirectPromise().then(
@@ -33,9 +36,10 @@ export class MicrosoftLoginComponent implements OnInit {
     this.msalService.loginPopup().subscribe( (response: AuthenticationResult) => {
       this.msalService.instance.setActiveAccount(response.account)
       this.logincheck = true
-      console.log(this.msalService.instance.getActiveAccount()!.username)
-      // this.newUser.email = 
+      
+      this.newUser = 
       this.msalService.instance.getActiveAccount()!.username
+      console.log(this.newUser)
       this.addUser()
     } )
   }
