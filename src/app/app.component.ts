@@ -36,7 +36,7 @@ login() {
 
 logout() {
   this.msalService.logout();
-  // this.logincheck = false
+  this.logincheck = false
 }
 
 }
