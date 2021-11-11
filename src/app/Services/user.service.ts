@@ -19,7 +19,7 @@ export class UserService {
   constructor(
     private http: HttpClient){ }
   
-  addUser(user: string): Observable<string> {
-    return this.http.post<string>(this.userURL, user, this.httpOptions)
+  addUser(User: User): Observable<User> {
+    return this.http.post<User>(this.userURL, User, this.httpOptions)
   }
 }

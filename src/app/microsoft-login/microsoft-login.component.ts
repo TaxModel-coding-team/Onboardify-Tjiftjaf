@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { AuthenticationResult } from '@azure/msal-common';
 import { User } from '../Models/user';
@@ -14,13 +14,13 @@ import { HttpClient } from '@angular/common/http';
 export class MicrosoftLoginComponent implements OnInit {
 
   
-  newUser: string
   constructor(private msalService: MsalService, private userService: UserService, private http: HttpClient) {
-    this.newUser = '';
+    
   }
 
   logincheck : boolean = false;
   
+  newUser : User = {} as User;
 
   ngOnInit(): void {
     this.msalService.instance.handleRedirectPromise().then(
@@ -30,6 +30,7 @@ export class MicrosoftLoginComponent implements OnInit {
         }
       }
     )
+    
   }
 
   login() {
@@ -37,9 +38,9 @@ export class MicrosoftLoginComponent implements OnInit {
       this.msalService.instance.setActiveAccount(response.account)
       this.logincheck = true
       
-      this.newUser = 
+      this.newUser.email = 
       this.msalService.instance.getActiveAccount()!.username
-      console.log(this.newUser)
+      // console.log(this.email)
       this.addUser()
     } )
   }
@@ -49,9 +50,20 @@ export class MicrosoftLoginComponent implements OnInit {
     this.logincheck = false
   }
 
+  
   addUser() {
     this.userService.addUser(this.newUser)
-    .subscribe(user => this.newUser = user)
+    .subscribe(
+    (user) => {
+      this.newUser = user
+    },
+    (error) => {
+      if ( error.error === "User doesn't exist")
+      {
+        //Redirect to create username page. To fill in username and post this to backend.
+      }
+            
+    })
   }
 
   
