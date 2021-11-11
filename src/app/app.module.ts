@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { GlassModule } from 'angular-glass';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     AppRoutingModule,
     HttpClientModule,
     ProgressBarModule,
-    MsalModule
+    MsalModule,
+    GlassModule
   ],
   providers: [
     {
