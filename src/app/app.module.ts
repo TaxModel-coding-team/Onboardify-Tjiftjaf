@@ -8,6 +8,7 @@ import { QuestsComponent } from './quests/quests.component';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { MicrosoftLoginComponent } from './microsoft-login/microsoft-login.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -21,7 +22,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
 @NgModule({
   declarations: [
     AppComponent,
-    QuestsComponent
+    QuestsComponent,
+    MicrosoftLoginComponent
   ],
   imports: [
     BrowserModule,
