@@ -13,6 +13,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BadgesComponent } from './badges/badges.component';
 import { AchievementsComponent } from './achievements/achievements.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -30,7 +31,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     ProfilePageComponent,
     HeaderComponent,
     BadgesComponent,
-    AchievementsComponent
+    AchievementsComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,
