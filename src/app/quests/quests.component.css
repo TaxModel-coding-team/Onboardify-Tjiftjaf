@@ -31,6 +31,22 @@
     text-align: center
 }
 
+html,
+body,
+header,
+header section {
+  height: 100%;
+}
+
+.mask-custom {
+  backdrop-filter: blur(15px);
+  background-color: rgba(255,255,255,.2);
+  border-radius: 3em;
+  border: 2px solid rgba(255,255,255,.1);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
 .btn {
     width: 90px;
     height: auto;
