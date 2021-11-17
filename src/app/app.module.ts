@@ -9,6 +9,9 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { HeaderComponent } from './header/header.component';
+import { BadgesComponent } from './badges/badges.component';
+import { AchievementsComponent } from './achievements/achievements.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -23,7 +26,10 @@ export function MSALInstanceFactory(): IPublicClientApplication{
   declarations: [
     AppComponent,
     QuestsComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    HeaderComponent,
+    BadgesComponent,
+    AchievementsComponent
   ],
   imports: [
     BrowserModule,
