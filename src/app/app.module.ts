@@ -2,21 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { GlassModule } from 'angular-glass';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestsComponent } from './quests/quests.component';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
-<<<<<<< HEAD
 import { MicrosoftLoginComponent } from './microsoft-login/microsoft-login.component';
-=======
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BadgesComponent } from './badges/badges.component';
 import { AchievementsComponent } from './achievements/achievements.component';
->>>>>>> Development
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -31,14 +27,11 @@ export function MSALInstanceFactory(): IPublicClientApplication{
   declarations: [
     AppComponent,
     QuestsComponent,
-<<<<<<< HEAD
-    MicrosoftLoginComponent
-=======
+    MicrosoftLoginComponent,
     ProfilePageComponent,
     HeaderComponent,
     BadgesComponent,
     AchievementsComponent
->>>>>>> Development
   ],
   imports: [
     BrowserModule,
