@@ -1,0 +1,24 @@
+.shell{
+    height: 10%;
+    background: rgba(255, 255, 255, 0.199);
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px -5px #000000;
+    margin: 2%;
+    display: block;
+}
+
+.qrcode{
+    height: 100%;
+    padding: 0%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: inline-block;
+}
+
+.profiledetails{
+    font-weight: bold;
+    color: white;
+    margin-left: 15%;
+    vertical-align: middle;
+    display: inline-block;
+}
