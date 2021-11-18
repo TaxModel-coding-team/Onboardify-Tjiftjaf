@@ -1,21 +1,35 @@
 <meta name="referrer" content="unsafe-url">
-<form ngNativeValidate #userForm="ngForm">{{userForm.value | json}}
-    <label>Submit username:</label><br>
-    <input type="text" id="username" name="username" ngModel>
-    <button type="submit" (click)="registrate(userForm.value)">
-        Submit
+
+<ng-template #content let-modal>
+    <button (click)="openModal(content)">
+
     </button>
-</form>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form ngNativeValidate #userForm="ngForm">{{userForm.value | json}}
+        <label>Submit username:</label><br>
+        <input type="text" id="username" name="username" ngModel>
+        <button type="submit" (click)="registrate(userForm.value)">
+            Submit
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="openModal(content)">Launch demo modal</button>
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
+  
 
 
-<!-- <div class = "container">
-    <ul class ="nav nav-tabs justify-content-center">
-        <li class="nav-item">
-            <label>Submit username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <button>
-                Submit
-            </button>
-        </li>
-    </ul>
-</div> -->
+

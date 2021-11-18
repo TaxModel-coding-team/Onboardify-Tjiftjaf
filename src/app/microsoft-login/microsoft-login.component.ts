@@ -58,7 +58,8 @@ export class MicrosoftLoginComponent implements OnInit {
     (error) => {
       if ( error.error === "User doesn't exist")
       {
-        //Redirect to create username page. To fill in username and post this to backend.
+      //  this.registrationComponent.openModal
+
       }
             
     })
