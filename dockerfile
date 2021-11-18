@@ -9,3 +9,4 @@ COPY . /app
 RUN npm run build
 RUN chmod +X /app/entrypoint.sh
 ENTRYPOINT ["/app/entrypoint.sh"]
+
