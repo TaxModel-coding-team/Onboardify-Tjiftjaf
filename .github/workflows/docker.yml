@@ -8,6 +8,7 @@ on:
   push:
     branches: 
         - ci-cd
+        - development
   pull_request:
     branches: [ main, Development ]
 
