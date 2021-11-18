@@ -4,6 +4,7 @@ import { AuthenticationResult } from '@azure/msal-common';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpClient } from '@angular/common/http';
+import { RegistrationServiceService } from '../Services/registration-service.service';
 
 @Component({
   selector: 'app-microsoft-login',
@@ -14,7 +15,12 @@ import { HttpClient } from '@angular/common/http';
 export class MicrosoftLoginComponent implements OnInit {
 
   
-  constructor(private msalService: MsalService, private userService: UserService, private http: HttpClient) {
+  constructor(
+     private msalService: MsalService,
+     private userService: UserService, 
+     private http: HttpClient,
+     private registration: RegistrationServiceService
+     ) {
     
   }
 
@@ -58,7 +64,7 @@ export class MicrosoftLoginComponent implements OnInit {
     (error) => {
       if ( error.error === "User doesn't exist")
       {
-      //  this.registrationComponent.openModal
+      this.registration.popup.next('open')
 
       }
             

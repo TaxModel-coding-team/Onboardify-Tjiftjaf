@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { RegistrationServiceService } from '../Services/registration-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,13 +12,28 @@ import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./registration.component.css']
 })
 
+
+
 export class RegistrationComponent {
+  @ViewChild('content')
+  private modalRef?: TemplateRef<any>;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }  
 
-  constructor(private msalService: MsalService, private userService: UserService, private modalService: NgbModal) { }
+  constructor(private msalService: MsalService,
+               private userService: UserService, 
+               private modalService: NgbModal,
+               private registration: RegistrationServiceService) 
+               { 
+                 this.registration.popup.subscribe((val) => {
+                   if(val === 'open')
+                   {
+                     this.openModal(this.modalRef)
+                   }
+                 } )
+               }
 
   newUser : User = {} as User;
   public closeResult = '';

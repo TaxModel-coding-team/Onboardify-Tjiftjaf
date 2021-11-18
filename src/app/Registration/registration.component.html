@@ -1,34 +1,21 @@
 <meta name="referrer" content="unsafe-url">
 
 <ng-template #content let-modal>
-    <button (click)="openModal(content)">
-
-    </button>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <h4 class="modal-title" id="modal-basic-title">A new challenger approaches!</h4>
     </div>
     <div class="modal-body">
-      <form ngNativeValidate #userForm="ngForm">{{userForm.value | json}}
-        <label>Submit username:</label><br>
-        <input type="text" id="username" name="username" ngModel>
-        <button type="submit" (click)="registrate(userForm.value)">
-            Submit
-        </button>
+      <form ngNativeValidate #userForm="ngForm">
+        <div class="form-group text-center" >
+          <label>Who is that pokemon!?</label><br>
+          <input required class="form-control" type="text" id="username" name="username" ngModel>
+        </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="registrate(userForm.value)" (click)="modal.close('Save click')">Save</button>
     </div>
   </ng-template>
-  
-  <button class="btn btn-lg btn-outline-primary" (click)="openModal(content)">Launch demo modal</button>
-  
-  <hr>
-  
-  <pre>{{ closeResult }}</pre>
   
 
 
