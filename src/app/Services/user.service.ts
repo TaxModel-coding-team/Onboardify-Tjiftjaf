@@ -9,9 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {  
   
-  private API_URL= environment.USER_API_URL;
-  private userURL= this.API_URL + '/users/Login';
-  private createURL = this.API_URL + '/users/create';
+
+  
+  public API_URL: string = environment.USER_API_URL;
+  public userURL: string = this.API_URL + '/users/Login';
+  private createURL: string = this.API_URL + '/users/create';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
