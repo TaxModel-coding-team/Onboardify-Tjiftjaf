@@ -1,1 +1,29 @@
-<p>achievements works!</p>
+<div asGlass [borderRadius]=9>
+
+    <div class="accordion list-group"  id="accordionExample">
+        <div *ngFor="let achievement of achievements" class="accordion-item"  style="background-color: transparent;">
+            <div  class="accordion-header" attr.id="heading{{achievement.name}}"  asGlass [borderRadius]=9 >
+              <button 
+                class="accordion-button collapsed" 
+                type="button" 
+                style="background-color: transparent;"
+                data-bs-toggle="collapse" 
+                [attr.data-bs-target]="'#collapse' + achievement.name" 
+                aria-expanded="true" 
+                attr.aria-controls="collapse{{achievement.name}}">
+                {{achievement.name}}
+              </button>
+            </div>
+    
+            <div attr.id="collapse{{achievement.name}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{achievement.name}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
+                <div class="accordion-body achievement-info">
+                    <ul>
+                        <li>
+                            <span>{{achievement.description}}</span>
+                        </li>              
+                    </ul>         
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
