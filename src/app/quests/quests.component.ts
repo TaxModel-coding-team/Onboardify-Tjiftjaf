@@ -15,18 +15,18 @@ export class QuestsComponent implements OnInit, OnDestroy {
   public gainedExp: number = 0;
   private totalExp: number = 1850;
   public greeting: String = '';
-  private subscription: Subscription = this.getQuests();
+  private subscription: Subscription = new Subscription();
 
   constructor(private questService: QuestService) { }
 
   ngOnInit(): void {
-    this.getQuests();
+    this.getQuests() 
     this.getGreeting();
   }
 
   getQuests(): Subscription {
-    return this.questService.getQuests()
-      .subscribe(quest => this.quests = quest)      
+    return this.subscription.add(this.questService.getQuests()
+      .subscribe(quest => this.quests = quest))     
   }
 
   updateExp(id: number, exp: number): void
