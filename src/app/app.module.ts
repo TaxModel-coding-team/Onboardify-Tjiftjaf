@@ -9,6 +9,8 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { MicrosoftLoginComponent } from './microsoft-login/microsoft-login.component';
+import { RegistrationComponent } from './Registration/registration.component';
+import { FormsModule } from '@angular/forms';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BadgesComponent } from './badges/badges.component';
@@ -29,6 +31,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     AppComponent,
     QuestsComponent,
     MicrosoftLoginComponent,
+    RegistrationComponent,
     ProfilePageComponent,
     HeaderComponent,
     BadgesComponent,
@@ -41,6 +44,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     HttpClientModule,
     ProgressBarModule,
     MsalModule,
+    FormsModule,
     GlassModule
   ],
   providers: [
