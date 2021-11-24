@@ -1,0 +1,33 @@
+ul 
+{
+    padding-left: 0px;
+    margin:0px;
+}
+
+li
+{
+    text-align: left;
+}
+
+.list-group
+{
+    border: 0px;
+}
+
+.accordion-item
+{
+    border: 0px;
+}
+
+.accordion-button:focus, .accordion-button:not(.collapsed)
+{
+    outline:none;
+    box-shadow: none;
+    text-decoration: none;
+    color:currentColor;
+}
+
+.achievement-info
+{
+    padding: 10px !important;
+}
