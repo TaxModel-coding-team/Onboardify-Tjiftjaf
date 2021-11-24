@@ -1,0 +1,27 @@
+.shell{
+    height: 10%;
+    background: rgba(255, 255, 255, 0.199);
+    border-radius: 10px;
+    margin: 2%;
+    margin-top: 5%;
+    display: block;
+    backdrop-filter: none;
+    box-shadow: rgba(31, 38, 135, 0.37) 0px 8px 32px 0px; 
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.qrcode{
+    height: 100%;
+    padding: 0%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: inline-block;
+}
+
+.profiledetails{
+    font-weight: bold;
+    color: white;
+    margin-left: 15%;
+    vertical-align: middle;
+    display: inline-block;
+}
