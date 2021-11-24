@@ -9,10 +9,20 @@ import { Directive } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  public active(buttonvalue: string): void{
-      console.log(buttonvalue);
+  activequests: boolean = false;
+  activeprofile: boolean = true;
+
+  public active(button: string): void{
+    if(button == "quests"){
+      this.activequests = true;
+      this.activeprofile = false;
+    }
+    else if(button == "profile"){
+      this.activequests = false;
+      this.activeprofile = true;
+    }
   }
-  
+
   ngOnInit(): void {
   }
 
