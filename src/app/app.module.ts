@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { GlassModule } from 'angular-glass';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestsComponent } from './quests/quests.component';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { MicrosoftLoginComponent } from './microsoft-login/microsoft-login.component';
+import { RegistrationComponent } from './Registration/registration.component';
+import { FormsModule } from '@angular/forms';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BadgesComponent } from './badges/badges.component';
 import { AchievementsComponent } from './achievements/achievements.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -27,10 +31,14 @@ export function MSALInstanceFactory(): IPublicClientApplication{
   declarations: [
     AppComponent,
     QuestsComponent,
+    MicrosoftLoginComponent,
+    RegistrationComponent,
     ProfilePageComponent,
     HeaderComponent,
     BadgesComponent,
-    AchievementsComponent
+    AchievementsComponent,
+    ProfileDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,9 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     HttpClientModule,
     ProgressBarModule,
     MsalModule,
-    GlassModule
+    FormsModule,
+    GlassModule,
+    NgbModule
   ],
   providers: [
     {

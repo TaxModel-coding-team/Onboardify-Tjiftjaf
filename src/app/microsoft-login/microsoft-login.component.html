@@ -1,0 +1,20 @@
+<meta name="referrer" content="unsafe-url">
+<div class = "container"> 
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item" >
+          <button (click)="login()" *ngIf= "!logincheck" class="nav-link" href="#" >
+              <img src="https://i.gyazo.com/f645966e66edae69b860383427ecdddc.png" width="111" height="100">
+        </button>
+        <button (click)="logout()" *ngIf= "logincheck" class="nav-link" href="#" >
+            <img src="https://i.gyazo.com/f645966e66edae69b860383427ecdddc.png" width="111" height="100">
+      </button>
+        </li>
+      </ul>
+</div>
+
+<div *ngIf="logincheck">
+  <h3>You are logged in!</h3>
+</div>
+
+
+<router-outlet></router-outlet>
