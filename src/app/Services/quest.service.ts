@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class QuestService {  
   
+  //Url's fetched from enviroments.ts 
   private API_URL= environment.API_URL;
   private questURL= this.API_URL + '/quests'
 
@@ -19,7 +20,8 @@ export class QuestService {
   constructor(
     private http: HttpClient){ }
   
-  getQuests(): Observable<Quest[]> {
+  //GET: fetches all quests
+  public getQuests(): Observable<Quest[]> {
     return this.http.get<Quest[]>(this.questURL);
   }
 }
