@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { BadgesComponent } from './badges/badges.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -36,7 +37,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     HeaderComponent,
     BadgesComponent,
     AchievementsComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     ProgressBarModule,
     MsalModule,
     FormsModule,
-    GlassModule
+    GlassModule,
+    NgbModule
   ],
   providers: [
     {

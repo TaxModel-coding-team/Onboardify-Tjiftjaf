@@ -1,21 +1,22 @@
 <meta name="referrer" content="unsafe-url">
-<form ngNativeValidate #userForm="ngForm">{{userForm.value | json}}
-    <label>Submit username:</label><br>
-    <input type="text" id="username" name="username" ngModel>
-    <button type="submit" (click)="registrate(userForm.value)">
-        Submit
-    </button>
-</form>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">A new challenger approaches!</h4>
+    </div>
+    <div class="modal-body">
+      <form ngNativeValidate #userForm="ngForm">
+        <div class="form-group text-center" >
+          <label>Who is that pokemon!?</label><br>
+          <input required class="form-control" type="text" id="username" name="username" ngModel>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="registrate(userForm.value)" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
 
 
-<!-- <div class = "container">
-    <ul class ="nav nav-tabs justify-content-center">
-        <li class="nav-item">
-            <label>Submit username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <button>
-                Submit
-            </button>
-        </li>
-    </ul>
-</div> -->
+
