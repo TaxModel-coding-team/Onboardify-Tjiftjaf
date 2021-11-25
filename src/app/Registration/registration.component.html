@@ -1,20 +1,22 @@
 <meta name="referrer" content="unsafe-url">
 
 <ng-template #content let-modal>
+  <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">A new challenger approaches!</h4>
+      <h5 class="modal-title" id="modal-basic-title">A new challenger approaches!</h5>
     </div>
     <div class="modal-body">
       <form ngNativeValidate #userForm="ngForm">
-        <div class="form-group text-center" >
-          <label>Who is that pokemon!?</label><br>
-          <input required class="form-control" type="text" id="username" name="username" ngModel>
+        <div class="form-group text-center text-dark" >
+          <h4>Who is that pokemon!?</h4><br>
+          <input required class="form-control" placeholder="Please enter a username" type="text" id="username" name="username" ngModel>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="registrate(userForm.value)" (click)="modal.close('Save click')">Save</button>
+      <a type="button" class="btn btn-primary" (click)="registrate(userForm.value)" (click)="modal.close('Save click')">Start your journey</a>
     </div>
+  </div>
 </ng-template>
   
 

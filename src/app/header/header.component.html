@@ -2,12 +2,8 @@
     <div class="logodiv">
         <img class="logo" src="./assets/pictures/Taxmodel_logo.jpg" alt="logo"/>
     </div>
-    <div class="pill">
-        <button class="button questpill">
-            Quests
-        </button>
-        <button class="button profilepill">
-            Profile
-        </button>
+    <div class="pillshell">
+        <button class="button pill" [routerLink]="['/Quests']" value="quests" (click)="active('quests')">Quests</button>
+        <button class="button pill" [routerLink]="['/Profile']" value="profile" (click)="active('profile')">Profile</button>
     </div>
 </div>
