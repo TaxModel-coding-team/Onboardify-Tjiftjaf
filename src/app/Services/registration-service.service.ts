@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistrationServiceService {
-
   public popup: Subject<any> = new Subject<any>();
 
   constructor() { }

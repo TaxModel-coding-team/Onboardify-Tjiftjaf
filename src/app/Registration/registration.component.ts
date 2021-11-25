@@ -12,33 +12,51 @@ import { RegistrationServiceService } from '../Services/registration-service.ser
   styleUrls: ['./registration.component.css']
 })
 
-
-
 export class RegistrationComponent {
+
+  //Gets data from Ng-template
   @ViewChild('content')
   private modalRef?: TemplateRef<any>;
+  private newUser : User = {} as User;
+  public closeResult = '';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }  
 
-  constructor(private msalService: MsalService,
-               private userService: UserService, 
-               private modalService: NgbModal,
-               private registration: RegistrationServiceService) 
-               { 
-                 this.registration.popup.subscribe((val) => {
-                   if(val === 'open')
-                   {
-                     this.openModal(this.modalRef)
-                   }
-                 } )
-               }
+  constructor(
+    private msalService: MsalService,
+    private userService: UserService, 
+    private modalService: NgbModal,
+    private registration: RegistrationServiceService) 
+    { 
+      this.registration.popup.subscribe((val) => {
+       if(val === 'open')
+        {
+          this.openModal(this.modalRef)
+        }
+        });
+    }
 
-  newUser : User = {} as User;
-  public closeResult = '';
+    //Opens the modal when registationService 
+    public openModal(content: any) : void {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+  
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else {
+        return `with: ${reason}`;
+      }
+    }
 
-  registrate(user : User) {
+  //On first login with microsoft account create a new User with data from Microsoft + your own username
+  public registrate(user : User) : void {
     this.newUser.email =
     this.msalService.instance.getActiveAccount()!.username
     this.newUser.username = user.username 
@@ -50,23 +68,4 @@ export class RegistrationComponent {
       }
     )
   }
-
-  openModal(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
 }

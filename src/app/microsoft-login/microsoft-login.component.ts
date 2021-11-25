@@ -17,7 +17,10 @@ import { Router } from '@angular/router';
 
 export class MicrosoftLoginComponent implements OnInit {
 
-  
+  //Properties
+  public logincheck : boolean = false; 
+  private newUser : User = {} as User;
+
   constructor(
      private msalService: MsalService,
      private userService: UserService, 
@@ -28,56 +31,49 @@ export class MicrosoftLoginComponent implements OnInit {
     
   }
 
-  logincheck : boolean = false;
-  
-  newUser : User = {} as User;
-
   ngOnInit(): void {
+    //Checking for account from popup, when redirected this is called
     this.msalService.instance.handleRedirectPromise().then(
       res => {
         if (res != null && res.account != null) {
           this.msalService.instance.setActiveAccount(res.account)
-        }
-      }
-    )
-    
+        } 
+      })  
   }
+
   public btnLogin() {
     this.router.navigateByUrl('/quests')
   }
-  login() {
-    this.msalService.loginPopup().subscribe( (response: AuthenticationResult) => {
+
+  public login() : void {
+    this.msalService.loginPopup().subscribe((response: AuthenticationResult) => 
+    {
       this.msalService.instance.setActiveAccount(response.account)
       this.logincheck = true     
-      this.newUser.email = 
-      this.msalService.instance.getActiveAccount()!.username
+      this.newUser.email = this.msalService.instance.getActiveAccount()!.username
       this.addUser()
       console.log(this.newUser);
       this.btnLogin()
     } )
   }
 
-  logout() {
+  public logout() : void {
     this.msalService.logout();
     this.logincheck = false
   }
 
-  
-  addUser() {
-    this.userService.addUser(this.newUser)
-    .subscribe(
-    (user) => {
+  public addUser() : void{
+    this.userService.verifyIfUserExists(this.newUser)
+    .subscribe((user) => 
+    {
       this.newUser = user
     },
-    (error) => {
+    (error) => 
+    {
       if ( error.error === "User doesn't exist")
       {
       this.registration.popup.next('open')
-
-      }
-            
+      }     
     })
-  }
-
-  
+  } 
 }
