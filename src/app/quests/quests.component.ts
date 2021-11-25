@@ -24,12 +24,15 @@ export class QuestsComponent implements OnInit, OnDestroy {
     this.getGreeting();
   }
 
-  getQuests(): Subscription {
+  //Getting all quests from API and caching to observable
+  public getQuests(): Subscription {
     return this.subscription.add(this.questService.getQuests()
       .subscribe(quest => this.quests = quest))     
   }
 
-  updateExp(id: number, exp: number): void
+  //On quest completion add expierence in % (will be changed into amount of quests completed,
+  //and will be moved to backend.)
+  public updateExp(id: number, exp: number): void
   {
     var experience = exp / this.totalExp * 100;
     this.gainedExp += experience;
@@ -43,7 +46,17 @@ export class QuestsComponent implements OnInit, OnDestroy {
     });
   }
 
-  getGreeting(): void{
+  //Calculates total expierence from all quests
+  public getTotalExp(): void{
+    this.quests.forEach(quest => {
+      quest.subQuests.forEach(subQuest => {
+        this.totalExp += subQuest.experience;
+      });
+    });
+  }
+
+  //Simple greeting based on your time of day
+  public getGreeting(): void{
     
     var today = new Date()
     var curHr = today.getHours()
@@ -57,14 +70,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
     }
   }
 
-  getTotalExp(): void{
-    this.quests.forEach(quest => {
-      quest.subQuests.forEach(subQuest => {
-        this.totalExp += subQuest.experience;
-      });
-    });
-  }
-
+  //Unsubscribe from all made subscriptions to prevent background processes and possible memory leakage.
   ngOnDestroy()
   {
     this.subscription.unsubscribe();
