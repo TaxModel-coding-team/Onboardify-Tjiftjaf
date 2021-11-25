@@ -22,7 +22,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getQuests() 
     this.getGreeting();
-
+    
   }
 
   getQuests(): Subscription {

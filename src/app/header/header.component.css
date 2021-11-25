@@ -10,6 +10,7 @@
     text-align: center;
 }
 
+
 .logodiv{
     display: inline-block;
     height: 100%;
@@ -49,8 +50,7 @@
     z-index: 0;
 }
 
-.activepill{
-    
+.activepill{    
     background: gray;
     color: white;
     font-weight: bold;

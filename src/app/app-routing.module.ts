@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'quests', component: QuestsComponent},
   { path: 'profile', component: ProfilePageComponent },
   { path: 'achievements', component: AchievementsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

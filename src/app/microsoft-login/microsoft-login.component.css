@@ -6,14 +6,14 @@ button {
     border-radius: 50%;
 }
 .container {
-    padding-top: 20px;
+    padding-top: 60px;
 }
 .nav-tabs {
     border-bottom: 0px !important;
 }
 .loginBox {
     position:relative;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .box {
     position: relative;
@@ -26,4 +26,8 @@ button {
     position:relative;
     margin:auto;
     padding-top: 18%;
+}
+
+.buttoncolor{
+    background-color: #4758F3;
 }
