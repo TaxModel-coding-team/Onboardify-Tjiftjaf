@@ -5,6 +5,9 @@ import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { RegistrationServiceService } from '../Services/registration-service.service';
+import { AppRoutingModule } from '../app-routing.module';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-microsoft-login',
@@ -22,7 +25,8 @@ export class MicrosoftLoginComponent implements OnInit {
      private msalService: MsalService,
      private userService: UserService, 
      private http: HttpClient,
-     private registration: RegistrationServiceService
+     private registration: RegistrationServiceService,
+     private router:Router
      ) {
     
   }
@@ -37,6 +41,10 @@ export class MicrosoftLoginComponent implements OnInit {
       })  
   }
 
+  public btnLogin() {
+    this.router.navigateByUrl('/quests')
+  }
+
   public login() : void {
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) => 
     {
@@ -44,6 +52,8 @@ export class MicrosoftLoginComponent implements OnInit {
       this.logincheck = true     
       this.newUser.email = this.msalService.instance.getActiveAccount()!.username
       this.addUser()
+      console.log(this.newUser);
+      this.btnLogin()
     } )
   }
 

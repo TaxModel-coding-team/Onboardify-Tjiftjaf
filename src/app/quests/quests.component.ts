@@ -22,6 +22,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getQuests() 
     this.getGreeting();
+    
   }
 
   //Getting all quests from API and caching to observable

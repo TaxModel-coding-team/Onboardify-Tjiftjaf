@@ -9,11 +9,8 @@ import { Directive } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  public active(buttonvalue: string): void{
-      console.log(buttonvalue);
-  }
-  
   ngOnInit(): void {
+    
   }
 
 }

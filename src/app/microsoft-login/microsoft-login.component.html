@@ -2,14 +2,33 @@
 <div class = "container"> 
     <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item" >
-          <button (click)="login()" *ngIf= "!logincheck" class="nav-link" href="#" >
-              <img src="https://i.gyazo.com/f645966e66edae69b860383427ecdddc.png" width="111" height="100">
-        </button>
-        <button (click)="logout()" *ngIf= "logincheck" class="nav-link" href="#" >
-            <img src="https://i.gyazo.com/f645966e66edae69b860383427ecdddc.png" width="111" height="100">
-      </button>
+            <img class="tm-logo" src="./assets/pictures/Taxmodel_logo.jpg"width="200" height="200">
         </li>
       </ul>
 </div>
+
+<br/>
+<br/>
+<br/>
+<div class="loginBox">
+  <div class="box" asGlass [borderRadius]=9>
+    <div class="btnContainer">
+      <div class="row">
+        <div class="col text-center">
+          <button (click)="login()" *ngIf="!logincheck" type="button" class="btn btn-primary btn-lg buttoncolor" href="#">             
+            <img class="mc-logo" src="./assets/pictures/mc-logo.png"width="30" height="30">
+            Microsoft Login</button>
+          <button (click)="logout()" *ngIf="logincheck" type="button" class="btn btn-primary btn-lg" href="#">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="logincheck">
+  <h3>You are logged in!</h3>
+  <button type="button" class="btn btn-primary" (click)="btnLogin()">Continue</button>
+</div>
+
+<app-registration></app-registration>
 
 <router-outlet></router-outlet>
