@@ -1,7 +1,73 @@
+
 .list-group {
     width: 350px;
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    border: 0px solid #ccc;
 }
+
+.list-group li {
+    border-top: 0px solid #ccc;
+    padding: .5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group li:first-child {
+    border-top: 0;
+}
+
+.list-group .badge {
+    background-color: rebeccapurple;
+    color: #fff;
+    font-weight: bold;
+    font-size: 80%;
+    border-radius: 10em;
+    min-width: 1.5em;
+    padding: .25em;
+    text-align: center
+}
+
+html,
+body,
+header,
+header section {
+  height: 100%;
+}
+
+.mask-custom {
+  backdrop-filter: blur(15px);
+  background-color: rgba(255,255,255,.2);
+  border-radius: 3em;
+  border: 2px solid rgba(255,255,255,.1);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
 .btn {
     width: 90px;
     height: auto;
+    float: right; 
+    margin-bottom: 10px;
 }
+
+.completed{
+    color:grey;
+}
+
+.favicon-size
+{
+    width: 100%;
+    height: 80px;
+}
+
+:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+  }

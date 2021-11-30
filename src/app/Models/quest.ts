@@ -1,5 +1,6 @@
 import { Subquest } from "./subquest";
 
+
 export interface Quest {
     id: number;
     title: string;

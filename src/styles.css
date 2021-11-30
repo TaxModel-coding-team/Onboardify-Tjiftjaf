@@ -2,12 +2,9 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-body {
-    background-color: #fff;
-    color: #333;
-    font: 1.2em / 1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 0;
-    margin: 1em;
+body{
+    height: 830px;
+    background: linear-gradient(154deg, #4758F3 -2.45%, rgba(243, 129, 245, 0.49) 60.55%, rgba(255, 237, 70, 0.53) 104.6%);
 }
 
 .list-group {
