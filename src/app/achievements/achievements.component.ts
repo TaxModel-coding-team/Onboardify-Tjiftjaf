@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Achievement } from '../Models/achievement';
+import { AchievementService } from '../Services/achievement.service';
 
 @Component({
   selector: 'app-achievements',
@@ -8,15 +10,23 @@ import { Achievement } from '../Models/achievement';
 })
 export class AchievementsComponent implements OnInit {
 
+  private subscription: Subscription = new Subscription();
+  
   public achievements: Achievement[] = [];
 
-  constructor() { }
+  constructor(private service: AchievementService) { }
 
   ngOnInit(): void {
     this.achievements.push({name: "Achievement1", description: "Description 1"} as Achievement);
     this.achievements.push({name: "Achievement2", description: "Description 2"} as Achievement);
     this.achievements.push({name: "Achievement3", description: "Description 3"} as Achievement);
     this.achievements.push({name: "Achievement4", description: "Description 4"} as Achievement);
+  }
+
+  getAchievements(): void 
+  {
+    this.service.getAchievements()
+      .subscribe(achievements => this.achievements = achievements);
   }
 
 }

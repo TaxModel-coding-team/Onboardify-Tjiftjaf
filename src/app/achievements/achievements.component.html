@@ -1,10 +1,10 @@
-<div asGlass [borderRadius]=9>
+<div class="achievement group" asGlass [borderRadius]=9>
 
     <div class="accordion list-group"  id="accordionExample">
-        <div *ngFor="let achievement of achievements" class="accordion-item"  style="background-color: transparent;">
+        <div *ngFor="let achievement of achievements" class="accordion-item achievement header">
             <div  class="accordion-header" attr.id="heading{{achievement.name}}"  asGlass [borderRadius]=9 >
               <button 
-                class="accordion-button collapsed" 
+                class="accordion-button collapsed text-white" 
                 type="button" 
                 style="background-color: transparent;"
                 data-bs-toggle="collapse" 
@@ -15,8 +15,9 @@
               </button>
             </div>
     
-            <div attr.id="collapse{{achievement.name}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{achievement.name}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
-                <div class="accordion-body achievement-info">
+            <div attr.id="collapse{{achievement.name}}" class="accordion-collapse collapse"
+                attr.aria-labelledby="heading{{achievement.name}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=10 [r]=20 [g]=20 [b]=20>
+                <div class="accordion-body achievement info">
                     <ul>
                         <li>
                             <span>{{achievement.description}}</span>
