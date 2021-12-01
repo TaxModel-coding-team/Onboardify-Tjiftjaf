@@ -4,9 +4,11 @@
 } */
 
 .header{
-    background: rgba(255, 255, 255, 0.7);
+    position: sticky;
+    top: 0;
+    background: rgb(226, 215, 233);
     height: 10%;
-    width: 100%;
+    width: 100vw;
     text-align: center;
 }
 
@@ -20,7 +22,7 @@
     height: 100%;
     border-radius: 50%;
     padding: 10%;
-    /* display: inline-block; */
+    display: inline-block;
 }
 
 .button {
@@ -45,12 +47,12 @@
     font-weight: bold;
     display: inline-block;
     width: 120px;
-    border-radius: 15px;    
+    border-radius: 15px;
     margin-right: -20px;
     z-index: 0;
 }
 
-.activepill{    
+.activepill{
     background: gray;
     color: white;
     font-weight: bold;
