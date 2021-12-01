@@ -4,7 +4,7 @@ import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { RegistrationServiceService } from '../Services/registration-service.service';
+import { RegistrationService } from '../Services/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -20,15 +20,11 @@ export class RegistrationComponent {
   private newUser : User = {} as User;
   public closeResult = '';
 
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  }  
-
   constructor(
     private msalService: MsalService,
     private userService: UserService, 
     private modalService: NgbModal,
-    private registration: RegistrationServiceService) 
+    private registration: RegistrationService) 
     { 
       this.registration.popup.subscribe((val) => {
        if(val === 'open')
@@ -64,7 +60,6 @@ export class RegistrationComponent {
     .subscribe(
       (user) => {
         this.newUser = user
-        console.log(user)
       }
     )
   }

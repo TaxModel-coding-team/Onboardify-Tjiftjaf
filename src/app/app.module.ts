@@ -28,6 +28,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
   })
 }
 
+
 @NgModule({
   declarations: [
     AppComponent,
