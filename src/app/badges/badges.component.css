@@ -13,10 +13,12 @@
 .achievement{
     height: 100px;
     width: 100px;
+    margin: auto;
     border-radius: 50%;
     background: rgb(59,59,120);
     background: linear-gradient(323deg, rgba(59,59,120,0.3) 16%, rgba(104,230,255,0.3) 100%);
     text-align: center;
+    vertical-align: middle;
 }
 
 .helper {
@@ -25,18 +27,7 @@
     vertical-align: middle;
 }
 
-.achievement img{
-    vertical-align: middle;
-    height: 80%;
-    border: double 4px transparent;
-    border-radius: 80px;
-    background-image: linear-gradient(white, gold), radial-gradient(circle at top left, white,gold);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-}
-
-table {
-    height: 100%;
+table{
     width: 100%;
-    margin-left: 10px;
-  }
+    height: 100%;
+}
