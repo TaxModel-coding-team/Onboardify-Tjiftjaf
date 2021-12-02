@@ -52,7 +52,15 @@ export class MicrosoftLoginComponent implements OnInit {
       this.logincheck = true     
       this.newUser.email = this.msalService.instance.getActiveAccount()!.username
       this.addUser()
-      console.log(this.newUser);
+
+      //gets the user data.
+      this.userService.verifyIfUserExists(this.newUser)
+      .subscribe(
+      (user) => {
+        this.newUser = user
+      }
+      )
+
       this.btnLogin()
     } )
   }
