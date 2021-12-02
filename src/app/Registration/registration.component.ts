@@ -53,9 +53,8 @@ export class RegistrationComponent {
 
   //On first login with microsoft account create a new User with data from Microsoft + your own username
   public registrate(user : User) : void {
-    this.newUser.email =
-    this.msalService.instance.getActiveAccount()!.username
-    this.newUser.username = user.username 
+    this.newUser.email = this.msalService.instance.getActiveAccount()!.username;
+    this.newUser.username = user.username;
     this.userService.createUser(this.newUser)
     .subscribe(
       (user) => {
