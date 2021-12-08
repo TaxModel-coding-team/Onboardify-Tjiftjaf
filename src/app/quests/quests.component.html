@@ -28,9 +28,9 @@
                 <button 
                   class="btn btn-success" 
                   [disabled]="subquest.completed" 
-                  [ngClass]="{'completed': subquest.completed}" 
-                  (click)="updateExp(subquest.id, subquest.experience)">
-                  Exp: {{subquest.experience}}
+                  [ngClass]="{'completed': subquest.completed}"
+                  (click)="completeQuest(subquest.id)" >
+                	Complete
                 </button>
               </li>              
             </ul>         
@@ -38,9 +38,10 @@
       </div>
     </div>  
   </div><br/>
-  <div class="list-group" style="border: none; padding-bottom: 50px;">
+  
+  <!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
     <progress-bar progress="{{gainedExp}}"></progress-bar>
-  </div>
+  </div> -->
   
 
 

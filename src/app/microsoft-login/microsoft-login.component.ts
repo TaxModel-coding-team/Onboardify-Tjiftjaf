@@ -4,7 +4,7 @@ import { AuthenticationResult } from '@azure/msal-common';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpClient } from '@angular/common/http';
-import { RegistrationServiceService } from '../Services/registration-service.service';
+import { RegistrationService } from '../Services/registration.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router } from '@angular/router';
 
@@ -25,7 +25,7 @@ export class MicrosoftLoginComponent implements OnInit {
      private msalService: MsalService,
      private userService: UserService, 
      private http: HttpClient,
-     private registration: RegistrationServiceService,
+     private registration: RegistrationService,
      private router:Router
      ) {
     
@@ -77,11 +77,8 @@ export class MicrosoftLoginComponent implements OnInit {
       this.newUser = user
     },
     (error) => 
-    {
-      if ( error.error === "User doesn't exist")
-      {
-      this.registration.popup.next('open')
-      }     
+    {     
+      this.registration.popup.next('open')      
     })
   } 
 }
