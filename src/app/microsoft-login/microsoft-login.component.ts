@@ -4,7 +4,7 @@ import { AuthenticationResult } from '@azure/msal-common';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { HttpClient } from '@angular/common/http';
-import { RegistrationServiceService } from '../Services/registration-service.service';
+import { RegistrationService } from '../Services/registration.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -25,7 +25,7 @@ export class MicrosoftLoginComponent implements OnInit {
      private msalService: MsalService,
      private userService: UserService, 
      private http: HttpClient,
-     private registration: RegistrationServiceService,
+     private registration: RegistrationService,
      private router:Router,
      private cookieService: CookieService
      ) {
@@ -53,7 +53,15 @@ export class MicrosoftLoginComponent implements OnInit {
       this.logincheck = true     
       this.newUser.email = this.msalService.instance.getActiveAccount()!.username
       this.addUser()
-      console.log(this.newUser);
+
+      //gets the user data.
+      this.userService.verifyIfUserExists(this.newUser)
+      .subscribe(
+      (user) => {
+        this.newUser = user
+      }
+      )
+
       this.btnLogin()
     } )
   }
@@ -80,5 +88,6 @@ export class MicrosoftLoginComponent implements OnInit {
       this.cookieService.set("user", JSON.stringify(this.newUser));
     }
     )
+
   } 
 }

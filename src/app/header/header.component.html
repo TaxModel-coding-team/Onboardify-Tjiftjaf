@@ -1,9 +1,9 @@
-<div class="header text-center">
+<nav class="header text-center">
     <div class="logodiv">
         <img class="logo" src="./assets/pictures/Taxmodel_logo.jpg" alt="logo"/>
     </div>
     <div class="pillshell">
-        <button class="button pill activepill" [routerLink]="['/quests']" >Quests</button>
-        <button class="button pill" [routerLink]="['/profile']">Profile</button>
+        <a class="button pill" [routerLink]="['/quests']" routerLinkActive="activepill" >Quests</a>
+        <a class="button pill" [routerLink]="['/profile']" routerLinkActive="activepill">Profile</a>
     </div>
-</div>
+</nav>
