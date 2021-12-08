@@ -5,6 +5,9 @@ import { UserService } from '../Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationService } from '../Services/registration.service';
+import { CookieService } from 'ngx-cookie-service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +27,9 @@ export class RegistrationComponent {
     private msalService: MsalService,
     private userService: UserService, 
     private modalService: NgbModal,
-    private registration: RegistrationService) 
+    private registration: RegistrationService,
+    private cookieService: CookieService) 
+
     { 
       this.registration.popup.subscribe((val) => {
        if(val === 'open')
@@ -53,12 +58,15 @@ export class RegistrationComponent {
 
   //On first login with microsoft account create a new User with data from Microsoft + your own username
   public registrate(user : User) : void {
-    this.newUser.email = this.msalService.instance.getActiveAccount()!.username;
-    this.newUser.username = user.username;
+
+    var _user: User = {} as User
+    this.newUser.email = this.msalService.instance.getActiveAccount()!.username
+    this.newUser.username = user.username 
     this.userService.createUser(this.newUser)
     .subscribe(
       (user) => {
         this.newUser = user
+        this.cookieService.set("user", JSON.stringify(user));
       }
     )
   }

@@ -30,6 +30,7 @@
     "cors": "^2.8.5",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^7.0.0",
+    "ngx-cookie-service": "^13.0.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",

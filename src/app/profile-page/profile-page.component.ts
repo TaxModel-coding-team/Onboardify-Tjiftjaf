@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { User } from '../Models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cookieService:CookieService, private router:Router) { }
+
+  user:User = {} as User
 
   ngOnInit(): void {
+
   }
 
 }

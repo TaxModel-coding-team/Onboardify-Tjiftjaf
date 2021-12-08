@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegistrationService } from '../Services/registration.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-microsoft-login',
@@ -26,7 +26,8 @@ export class MicrosoftLoginComponent implements OnInit {
      private userService: UserService, 
      private http: HttpClient,
      private registration: RegistrationService,
-     private router:Router
+     private router:Router,
+     private cookieService: CookieService
      ) {
     
   }
@@ -77,8 +78,16 @@ export class MicrosoftLoginComponent implements OnInit {
       this.newUser = user
     },
     (error) => 
-    {     
-      this.registration.popup.next('open')      
-    })
+    {
+      if ( error.error === "User doesn't exist")
+      {
+      this.registration.popup.next('open')
+      }     
+    },
+    () => {
+      this.cookieService.set("user", JSON.stringify(this.newUser));
+    }
+    )
+
   } 
 }

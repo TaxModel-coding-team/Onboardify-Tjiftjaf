@@ -24,11 +24,9 @@
     </div>
   </div>
 </div>
-<div *ngIf="logincheck">
-  <h3>You are logged in!</h3>
-  <button type="button" class="btn btn-primary" (click)="btnLogin()">Continue</button>
+<div *ngIf="!logincheck">
+  <app-registration></app-registration>
 </div>
 
-<app-registration></app-registration>
 
 <router-outlet></router-outlet>
