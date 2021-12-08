@@ -11,7 +11,8 @@
                 [attr.data-bs-target]="'#collapse' + achievement.name" 
                 aria-expanded="true" 
                 attr.aria-controls="collapse{{achievement.name}}">
-                {{achievement.name}}
+                <!-- using 1 only replaces 1 instance, can't find a way to replace all in 1 go... -->
+                {{achievement.name.replace('_', ' ').replace('_', ' ')}}
               </button>
             </div>
     

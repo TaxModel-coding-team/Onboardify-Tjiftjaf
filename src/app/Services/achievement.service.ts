@@ -16,7 +16,8 @@ export class AchievementService {
   
     private achievementURL = this.API_URL + "/achievements";
 
-  getAchievements(): Observable<Achievement[]> {
-    return this.http.get<Achievement[]>(this.achievementURL);
+  getAchievements(): Observable<Achievement[]> 
+  {
+    return this.http.get<Achievement[]>(this.achievementURL); 
   }
 }
