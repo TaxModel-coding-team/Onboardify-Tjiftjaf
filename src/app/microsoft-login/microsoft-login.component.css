@@ -1,0 +1,33 @@
+button {
+    width: 250px;
+    height: 60px;
+}
+.corporation-logo {
+    border-radius: 50%;
+}
+.container {
+    padding-top: 60px;
+}
+.nav-tabs {
+    border-bottom: 0px !important;
+}
+.loginBox {
+    position:relative;
+    padding-top: 30px;
+}
+.box {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    align-items: center;
+    margin:auto;
+}
+.btnContainer {
+    position:relative;
+    margin:auto;
+    padding-top: 18%;
+}
+
+.buttoncolor{
+    background-color: #4758F3;
+}

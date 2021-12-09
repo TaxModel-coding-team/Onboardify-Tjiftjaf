@@ -4,9 +4,8 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationServiceService {
-
-  public popup: Subject<any> = new Subject<any>();
+export class RegistrationService {
+  public popup: Subject<string> = new Subject<string>();
 
   constructor() { }
 }

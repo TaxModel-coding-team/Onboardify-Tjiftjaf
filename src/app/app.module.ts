@@ -17,6 +17,7 @@ import { BadgesComponent } from './badges/badges.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -26,6 +27,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     }
   })
 }
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     MsalModule,
     FormsModule,
     GlassModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   providers: [
     {

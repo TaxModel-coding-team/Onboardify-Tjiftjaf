@@ -1,1 +1,15 @@
-<p>profile-details works!</p>
+<button type="button" class="btn btn-primary" (click)="logout()">Logout
+</button>
+
+<div class="shell">
+    <img class="qrcode" src="./assets/pictures/qrcode.png" alt="qr-cde"/>
+    <div class="profiledetails">
+        {{user.username}}<br/>
+        {{user.email}}<br/>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 100px" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+    </div>
+</div>
+
+<br/>

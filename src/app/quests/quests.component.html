@@ -1,13 +1,15 @@
-<header style="min-height: 87.2vh; background: linear-gradient(154deg, #4758F3 -2.45%, rgba(243, 129, 245, 0.49) 60.55%, rgba(255, 237, 70, 0.53) 104.6%);">
-  <h1 class="center" style="padding-bottom: 30px;">{{greeting}} user!</h1>
-  <h2 class="center">Quests</h2>
+<app-header></app-header>
+
+
+  <h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}} user!</h1>
+  <h2 class="center text-white" style="margin-bottom: 2%;">Quests</h2>
   
   
   <div class="accordion list-group"  id="accordionExample">
       <div *ngFor="let quest of quests" class="accordion-item"  style="background-color: transparent;">
           <div  class="accordion-header" attr.id="heading{{quest.title}}"  asGlass [borderRadius]=9 >
             <button 
-              class="accordion-button collapsed" 
+              class="accordion-button collapsed text-white" 
               type="button" 
               style="background-color: transparent;"
               data-bs-toggle="collapse" 
@@ -22,13 +24,13 @@
         <div class="accordion-body">
             <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
               <li style="text-align: left;">
-                <span>{{subquest.description}}</span>
+                <span class="text-white" style="max-width: 200px;">{{subquest.description}}</span>
                 <button 
                   class="btn btn-success" 
                   [disabled]="subquest.completed" 
-                  [ngClass]="{'completed': subquest.completed}" 
-                  (click)="updateExp(subquest.id, subquest.experience)">
-                  Exp: {{subquest.experience}}
+                  [ngClass]="{'completed': subquest.completed}"
+                  (click)="completeQuest(subquest.id)" >
+                	Complete
                 </button>
               </li>              
             </ul>         
@@ -36,11 +38,10 @@
       </div>
     </div>  
   </div><br/>
-  <div class="list-group" style="border: none; padding-bottom: 50px;">
+  
+  <!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
     <progress-bar progress="{{gainedExp}}"></progress-bar>
-  </div>
+  </div> -->
   
-  
-  
-  
-</header>
+
+
