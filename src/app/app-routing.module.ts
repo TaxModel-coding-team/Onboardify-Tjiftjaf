@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: '', component: MicrosoftLoginComponent, pathMatch: 'full'},
   { path: 'quests', component: QuestsComponent},
   { path: 'profile', component: ProfilePageComponent, children: [
+    { path: '', component: BadgesComponent, pathMatch: 'full'},
     { path: 'badges', component: BadgesComponent},
     { path: 'achievements', component: AchievementsComponent} ]
   }

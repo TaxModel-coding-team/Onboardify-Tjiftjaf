@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfilePageComponent implements OnInit {
 
   constructor() { }
-  public badgeBtn: boolean = false;
+  public badgeBtn: boolean = true;
   public achievementBtn: boolean = false;
 
   ngOnInit(): void {
