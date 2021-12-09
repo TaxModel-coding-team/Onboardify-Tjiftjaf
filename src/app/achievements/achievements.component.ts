@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Achievement } from '../Models/achievement';
 import { AchievementService } from '../Services/achievement.service';
 
