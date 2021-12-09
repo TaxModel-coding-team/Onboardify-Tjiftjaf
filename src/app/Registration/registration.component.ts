@@ -6,7 +6,6 @@ import { HttpHeaders } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationService } from '../Services/registration.service';
 import { CookieService } from 'ngx-cookie-service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
