@@ -1,5 +1,8 @@
 .shell{
-    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
     background: rgba(255, 255, 255, 0.199);
     border-radius: 10px;
     margin: 2%;
@@ -12,8 +15,8 @@
 }
 
 .achievement{
-    height: 50px;
-    width: 50px;
+    width: 15vw;
+    height: 15vw;
     margin: auto;
     border-radius: 50%;
     background: rgb(59,59,120);
@@ -23,7 +26,6 @@
     margin-top: 10%;
     margin-bottom: 10%;
 }
-
 
 .helper {
     display: inline-block;
