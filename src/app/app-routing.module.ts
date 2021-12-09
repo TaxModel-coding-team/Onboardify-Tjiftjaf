@@ -5,12 +5,15 @@ import { MicrosoftLoginComponent } from './microsoft-login/microsoft-login.compo
 import { RegistrationComponent } from './Registration/registration.component';
 import { QuestsComponent } from './quests/quests.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { BadgesComponent } from './badges/badges.component';
 
 const routes: Routes = [
   { path: '', component: MicrosoftLoginComponent, pathMatch: 'full'},
   { path: 'quests', component: QuestsComponent},
-  { path: 'profile', component: ProfilePageComponent },
-  { path: 'achievements', component: AchievementsComponent }
+  { path: 'profile', component: ProfilePageComponent, children: [
+    { path: 'badges', component: BadgesComponent},
+    { path: 'achievements', component: AchievementsComponent} ]
+  }
 ];
 
 @NgModule({

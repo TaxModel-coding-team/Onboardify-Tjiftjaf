@@ -1,4 +1,7 @@
 <app-header></app-header>
 <app-profile-details></app-profile-details>
-<app-badges></app-badges>
-<!-- <app-achievements></app-achievements> -->
+<div class="pillshell">
+    <a class="button pill" routerLink='/profile/badges' routerLinkActive="activepill">Badges</a>
+    <a class="button pill" routerLink='/profile/achievements' routerLinkActive="activepill">Achievements</a>
+</div>
+<router-outlet></router-outlet>
