@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
   public badgeBtn: boolean = true;
   public achievementBtn: boolean = false;
   constructor(private cookieService:CookieService, private router:Router) { }
