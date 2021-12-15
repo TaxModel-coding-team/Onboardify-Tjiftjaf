@@ -13,7 +13,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   constructor(private cookieService: CookieService, private router:Router) { }
 
-  user: User = {} as User
+  public user: User = {} as User
 
   ngOnInit(): void {
     this.getUserDetails();
@@ -21,7 +21,7 @@ export class ProfileDetailsComponent implements OnInit {
   private getUserDetails() : void {
     this.user = (JSON.parse(this.cookieService.get("user")));
   }
-  public logout() {
+  public logout(): void {
     this.cookieService.delete("user");
     this.router.navigateByUrl("")
   }
