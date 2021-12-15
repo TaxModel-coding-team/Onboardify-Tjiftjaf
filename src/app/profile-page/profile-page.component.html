@@ -1,3 +1,7 @@
 <app-header></app-header>
 <app-profile-details></app-profile-details>
-<app-badges></app-badges>
+<div class="pillshell">
+    <button class="btn btn-primary" id="btnBadge" type="submit" style="margin-right: 10px;" [disabled]="badgeBtn" (click)="badgeBtnClick()" routerLink='/profile/badges' asGlass>Badges</button>
+    <button class="btn btn-primary" type="submit" [disabled]="achievementBtn" (click)="achievementBtnClick()" routerLink='/profile/achievements' asGlass>Achievements</button>
+</div>
+<router-outlet></router-outlet>

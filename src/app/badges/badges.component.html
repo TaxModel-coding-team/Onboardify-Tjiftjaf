@@ -1,46 +1,12 @@
 <div class="shell">
-    <table>
-        <tr>
-            <td>
-                <div class="achievement">
-                    <span class="helper"></span>
-                    <img src="./assets/pictures/coffee_achievement.png" alt="coffee_achievement"/>
-                </div>
-            </td>
-            <td>
-                <div class="achievement">
-                    <span class="helper"></span>
-                    <img src="./assets/pictures/beer_achievement.png" alt="coffee_achievement"/>
-                </div>
-            </td>
-            <td>
-                <div class="achievement">
-                    <span class="helper"></span>
-                    <img src="./assets/pictures/colleague_achievement.png" alt="coffee_achievement"/>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="achievement"></div>
-            </td>
-            <td>
-                <div class="achievement"></div>
-            </td>
-            <td>
-                <div class="achievement"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="achievement"></div>
-            </td>
-            <td>
-                <div class="achievement"></div>
-            </td>
-            <td>
-                <div class="achievement"></div>
-            </td>
-        </tr>
-    </table>
+      <div class="form-group">
+        <div class="row">
+           <div class="col-4" *ngFor="let badge of badges; let index = index">
+            <div class="achievement">
+                <span class="helper"></span>
+                <i class="bi bi-{{badge.name}}" style="font-size: 10vw;"></i>
+            </div>
+           </div>
+        </div>
+     </div>
 </div>

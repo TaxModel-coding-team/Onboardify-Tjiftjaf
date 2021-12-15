@@ -1,5 +1,29 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
 .shell{
-    height: 50%;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
     background: rgba(255, 255, 255, 0.199);
     border-radius: 10px;
     margin: 2%;
@@ -8,15 +32,20 @@
     backdrop-filter: none;
     box-shadow: rgba(31, 38, 135, 0.37) 0px 8px 32px 0px; 
     border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow-x: hidden;
 }
 
 .achievement{
-    height: 100px;
-    width: 100px;
+    width: 15vw;
+    height: 15vw;
+    margin: auto;
     border-radius: 50%;
     background: rgb(59,59,120);
     background: linear-gradient(323deg, rgba(59,59,120,0.3) 16%, rgba(104,230,255,0.3) 100%);
     text-align: center;
+    vertical-align: middle;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .helper {
@@ -25,18 +54,3 @@
     vertical-align: middle;
 }
 
-.achievement img{
-    vertical-align: middle;
-    height: 80%;
-    border: double 4px transparent;
-    border-radius: 80px;
-    background-image: linear-gradient(white, gold), radial-gradient(circle at top left, white,gold);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-}
-
-table {
-    height: 100%;
-    width: 100%;
-    margin-left: 10px;
-  }

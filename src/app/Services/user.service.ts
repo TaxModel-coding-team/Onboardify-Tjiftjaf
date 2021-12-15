@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
 export class UserService {  
   
   //Url's from enviroment.ts and seperate routes
-  public API_URL: string = environment.USER_API_URL;
-  public userURL: string = this.API_URL + '/users/Login';
+  private API_URL: string = environment.USER_API_URL;
+  private userURL: string = this.API_URL + '/users/Login';
   private createURL: string = this.API_URL + '/users/create';
 
   httpOptions = {

@@ -2,10 +2,13 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
+
 body{
-    height: 830px;
+    height: 100vh;
     background: linear-gradient(154deg, #4758F3 -2.45%, rgba(243, 129, 245, 0.49) 60.55%, rgba(255, 237, 70, 0.53) 104.6%);
 }
+
 
 .list-group {
     list-style: none;
@@ -14,7 +17,6 @@ body{
     border: 1px solid #ccc;
     border-radius: .5em;
     width: 20em;
-    
 }
 
 .list-group li {
