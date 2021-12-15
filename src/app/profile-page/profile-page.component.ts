@@ -14,7 +14,7 @@ export class ProfilePageComponent implements OnInit {
   public achievementBtn: boolean = false;
   constructor(private cookieService:CookieService, private router:Router) { }
 
-  user:User = {} as User
+  public user:User = {} as User
 
 
   ngOnInit(): void {
