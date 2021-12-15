@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
+import { textChangeRangeIsUnchanged } from 'typescript';
 import { Quest } from '../Models/quest';
 import { QuestService } from '../Services/quest.service';
 
@@ -15,7 +17,8 @@ export class QuestsComponent implements OnInit, OnDestroy {
   public greeting: String = '';
   private subscription: Subscription = new Subscription();
 
-  constructor(private questService: QuestService) { }
+  constructor(private questService: QuestService,
+    private cookies: CookieService) { }
 
   ngOnInit(): void {
     this.getQuests() 
@@ -44,11 +47,18 @@ export class QuestsComponent implements OnInit, OnDestroy {
     }
   }
 
-    public completeQuest(id: number): void {
+    public completeQuest(subquestId: number): void {
       
+      let userId = JSON.parse(this.cookies.get("user")).id
+
+      this.questService.completeQuest(userId.toString(), subquestId.toString())
+        .subscribe(response =>{
+          console.log(response);
+        })
+
       var subQuest;
       this.quests.forEach(quest => {
-        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == id)){
+        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == subquestId)){
           subQuest.completed = true;
           return;
         }
