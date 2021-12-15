@@ -6,6 +6,7 @@ import { RegistrationComponent } from './Registration/registration.component';
 import { QuestsComponent } from './quests/quests.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { BadgesComponent } from './badges/badges.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 const routes: Routes = [
   { path: '', component: MicrosoftLoginComponent, pathMatch: 'full'},

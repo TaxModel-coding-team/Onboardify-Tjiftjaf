@@ -2,7 +2,7 @@
 <div class = "container"> 
     <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item" >
-            <img class="tm-logo" src="./assets/pictures/Taxmodel_logo.jpg"width="200" height="200">
+            <img class="corporation-logo" src="./assets/pictures/Taxmodel_logo.jpg"width="200" height="200">
         </li>
       </ul>
 </div>
@@ -24,11 +24,9 @@
     </div>
   </div>
 </div>
-<div *ngIf="logincheck">
-  <h3>You are logged in!</h3>
-  <button type="button" class="btn btn-primary" (click)="btnLogin()">Continue</button>
+<div *ngIf="!logincheck">
+  <app-registration></app-registration>
 </div>
 
-<app-registration></app-registration>
 
 <router-outlet></router-outlet>
