@@ -27,7 +27,26 @@ li
     color:currentColor;
 }
 
-.achievement-info
+.achievement
 {
-    padding: 10px !important;
+    padding: 0;
+    background-color: transparent;
+    color: white;
+}
+
+.achievement.header
+{
+    padding: 5px;
+}
+
+.achievement.group
+{
+    width:20em;
+    margin: auto;
+    border-radius: .5em;
+}
+
+.achievement.info
+{
+    padding-left: 10px;
 }
