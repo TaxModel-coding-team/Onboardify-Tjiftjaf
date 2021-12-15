@@ -1,11 +1,11 @@
 <app-header></app-header>
-<h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}} user!</h1>
+<h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}}!</h1>
 <h2 class="center text-white" style="margin-bottom: 2%;">Quests</h2>
   
   
   <div class="accordion list-group"  id="accordionExample">
       <div *ngFor="let quest of quests" class="accordion-item"  style="background-color: transparent;">
-          <div  class="accordion-header" attr.id="heading{{quest.title}}"  asGlass [borderRadius]=9 >
+          <div  class="accordion-header" attr.id="heading{{quest.title}}" asGlass [borderRadius]=9 >
             <button 
               class="accordion-button collapsed text-white" 
               type="button" 

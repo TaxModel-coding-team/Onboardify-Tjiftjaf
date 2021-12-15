@@ -24,7 +24,6 @@ export class MicrosoftLoginComponent implements OnInit {
   constructor(
      private msalService: MsalService,
      private userService: UserService, 
-     private http: HttpClient,
      private registration: RegistrationService,
      private router:Router,
      private cookieService: CookieService
@@ -42,9 +41,6 @@ export class MicrosoftLoginComponent implements OnInit {
       })  
   }
 
-  public btnLogin() {
-    this.router.navigateByUrl('/quests')
-  }
 
   public login() : void {
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) => 
@@ -59,11 +55,8 @@ export class MicrosoftLoginComponent implements OnInit {
       .subscribe(
       (user) => {
         this.newUser = user
-      }
-      )
-
-      this.btnLogin()
-    } )
+      })
+    })
   }
 
   public logout() : void {
@@ -75,19 +68,19 @@ export class MicrosoftLoginComponent implements OnInit {
     this.userService.verifyIfUserExists(this.newUser)
     .subscribe((user) => 
     {
-      this.newUser = user
+      this.newUser = user;
+      this.router.navigateByUrl('/quests');
     },
     (error) => 
     {
       if ( error.error === "User doesn't exist")
       {
-      this.registration.popup.next('open')
-      }     
+      this.registration.popup.next('open');
+      }
     },
     () => {
       this.cookieService.set("user", JSON.stringify(this.newUser));
-    }
-    )
+    });
 
   } 
 }

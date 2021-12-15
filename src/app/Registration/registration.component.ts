@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationService } from '../Services/registration.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class RegistrationComponent {
     private userService: UserService, 
     private modalService: NgbModal,
     private registration: RegistrationService,
+    private router: Router,
     private cookieService: CookieService) 
 
     { 
@@ -56,8 +58,8 @@ export class RegistrationComponent {
     }
 
   //On first login with microsoft account create a new User with data from Microsoft + your own username
-  public registrate(user : User) : void {
-
+  public registrate(user : User) : void 
+  {
     var _user: User = {} as User
     this.newUser.email = this.msalService.instance.getActiveAccount()!.username
     this.newUser.username = user.username 
@@ -66,7 +68,7 @@ export class RegistrationComponent {
       (user) => {
         this.newUser = user
         this.cookieService.set("user", JSON.stringify(user));
-      }
-    )
+        this.router.navigateByUrl('/quests');
+      });
   }
 }

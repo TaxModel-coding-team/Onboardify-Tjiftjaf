@@ -20,7 +20,6 @@ export class ProfileDetailsComponent implements OnInit {
   }
   private getUserDetails() : void {
     this.user = (JSON.parse(this.cookieService.get("user")));
-    console.log(this.user);
   }
   public logout() {
     this.cookieService.delete("user");

@@ -39,12 +39,13 @@ export class QuestsComponent implements OnInit, OnDestroy {
     var curHr = today.getHours()
 
     if (curHr < 12) {
-      this.greeting = 'Good morning';
+      this.greeting = 'Good morning ';
     } else if (curHr < 18) {
-      this.greeting = 'Good afternoon';
+      this.greeting = 'Good afternoon ';
     } else {
-      this.greeting = 'Good evening';
+      this.greeting = 'Good evening ';
     }
+    this.greeting += JSON.parse(this.cookies.get("user")).username
   }
 
     public completeQuest(subquestId: number): void {
