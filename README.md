@@ -1,27 +1,95 @@
-# FrontEnd
+# Welcome to Onboardify
+This is the back-end application for TaxModel Onboarding gamification
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+## Project goal
+In collaboration with TaxModel this project aims to digitalize and gamify an Onboarding process.
+Since most of this onboarding process was being done manually by someone who would be better off spending their time on other things. Our goal was to make a fun and interactive onboarding system that introduces a new colleague to the company.
 
-## Development server
+This project could be scaled up in the future so it could be used for several different companies. Since this project is a long term pilot transferability is all the more important. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Code base
+## Repositories
 
-## Code scaffolding
+- [Onboardify](https://github.com/TaxModel-coding-team/Onboardify.git)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Languages and frameworks
+**back-end**
+- Framework: .NET Core 3.1
+- Language: C#
 
-## Build
+**front-end**
+- Framework: Angular
+- Language: HTML5, CSS, TypeScript, JavaScript
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Deployment**
+- Docker
 
-## Running unit tests
+# Getting started
+For a fresh installation for developers, please make a new directory and clone the repository.
+Either by doing it yourself manually or copying the code block below into your Bash or Git Bash enviroment.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+mkdir Onboardify && cd Onboardify
+git clone https://github.com/TaxModel-coding-team/Onboardify.git
+```
+## Front-end
+Make sure to install all required packages for the front-end.
+```
+npm install
+```
 
-## Running end-to-end tests
+You will also need to install the angular CLI and Node.js.
+Angular CLI:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+npm install -g @angular/cli
+```
+Node.JS:
+[Click here to install](https://nodejs.org/en/)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**External tools needed to be installed**
+
+Ngx-cookie-service:
+
+https://www.npmjs.com/package/ngx-cookie-service 
+```
+npm install ngx-cookie-service
+```
+
+Bootstrap:
+
+https://www.techiediaries.com/angular-bootstrap/ 
+```
+npm install bootstrap
+npm install jquey
+```
+
+Microsoft Authentication:
+
+https://www.npmjs.com/package/@azure/msal-angular 
+```
+npm install @azure/msal-angular @azure/msal-browser
+```
+
+Bootstrap-icons:
+
+https://icons.getbootstrap.com/
+```
+npm install bootstrap-icons
+```
+
+The application can be run using the following:
+```
+#The -o will open the front-end in your browser
+
+ng serve -o
+```
+
+## Back-end
+After cloning the back-end it can be run inside Visual Studio.
+Note that this is only a developer enviroment, if you want to run the application in production.
+Please pull image from docker hub.
+
+# Contributions
+Please refer to the [Contibuting.md]() for more information on how to contribute to this project.
