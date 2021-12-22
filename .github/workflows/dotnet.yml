@@ -20,9 +20,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore ./TaskService/
+      run: dotnet restore **/TaskService/
     - name: Build
-      run: dotnet build TaskService/back-end.csproj --no-restore
+      run: dotnet build **/TaskService/back-end.csproj --no-restore
       
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
