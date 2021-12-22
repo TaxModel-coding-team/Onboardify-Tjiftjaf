@@ -9,7 +9,7 @@ on:
     branches: 
         - ci-cd
         - Development
-        - MergeRepoBranch
+        - MergeReposBranch
     path: "FrontEnd/**"
   pull_request:
     branches: [ main, Development ]
