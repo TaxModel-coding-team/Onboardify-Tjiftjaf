@@ -37,8 +37,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: 'FrontEnd/'
-          file: ./dockerfile
+          context: 'FrontEnd'
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/taxmodelfrontend:latest
 
