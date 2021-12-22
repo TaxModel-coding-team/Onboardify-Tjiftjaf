@@ -1,3 +1,5 @@
+![image](./assets/logo.png)
+
 # Welcome to Onboardify
 This is the back-end application for TaxModel Onboarding gamification
 
