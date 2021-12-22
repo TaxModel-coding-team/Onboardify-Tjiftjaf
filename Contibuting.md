@@ -13,7 +13,7 @@ This project is being developed by semester 3 software students of the FHICT. An
 ### <a name="Language">Language</a>
 - English
 
-### <a name="For-outside">For outside contributors</a>
+### <a name="For-outside">For contributors</a>
 #### Step 1
 Choose an existing issue or create a new issue in the repository.
 
