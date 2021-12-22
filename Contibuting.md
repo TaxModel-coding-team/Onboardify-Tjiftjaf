@@ -26,10 +26,10 @@ Create a new branch with a descriptive name.
 #### Step 4
 Commit your changes to the new branch.
 
-#### Step 3
+#### Step 5
 Create a pull request to the delivery repository and link the issue.
 
-#### Step 4
+#### Step 6
 Congratulations! You've submitted your changes. Wait for review and watch your code being merged to production!
 
 
