@@ -1,3 +1,4 @@
+![image](./assets/logo.png)
 
 # Contributing
 
