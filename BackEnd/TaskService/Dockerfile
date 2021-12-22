@@ -4,7 +4,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-COPY back-end.csproj ./
+COPY *.csproj ./
 RUN dotnet restore
 
 COPY . ./
