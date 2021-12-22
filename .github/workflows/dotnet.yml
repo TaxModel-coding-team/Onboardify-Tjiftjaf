@@ -42,4 +42,4 @@ jobs:
       with:
         context: 'TaskService'
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/taxmodelbackend:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/taxmodelbackend:latest
