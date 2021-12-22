@@ -3,8 +3,10 @@ name: .NET
 on:
   push:
     branches: [ Development ]
+    path: "BackEnd/**"
   pull_request:
     branches: [ Development ]
+    path: "BackEnd/**"
 
 jobs:
   build:

@@ -9,8 +9,10 @@ on:
     branches: 
         - ci-cd
         - Development
+    path: "FrontEnd/**"
   pull_request:
     branches: [ main, Development ]
+    path: "FrontEnd/**"
 
 jobs:
   build:
