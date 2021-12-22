@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ Development ]
+    branches: [ Development, MergeReposBranch ]
     path: "BackEnd/**"
   pull_request:
     branches: [ Development ]
@@ -40,6 +40,6 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
-        context: 'TaskService'
+        context: 'BackEnd/TaskService'
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/taxmodelbackend:latest
