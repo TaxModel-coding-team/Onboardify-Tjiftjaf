@@ -10,7 +10,7 @@ on:
         - ci-cd
         - Development
         - MergeReposBranch
-    path: "FrontEnd/**"
+    path: [ "FrontEnd/**" ]
   pull_request:
     branches: [ main, Development ]
     path: "FrontEnd/**"
