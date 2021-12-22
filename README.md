@@ -92,4 +92,4 @@ Note that this is only a developer enviroment, if you want to run the applicatio
 Please pull image from docker hub.
 
 # Contributions
-Please refer to the [Contibuting.md]() for more information on how to contribute to this project.
+Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
