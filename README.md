@@ -18,6 +18,7 @@ This project could be scaled up in the future so it could be used for several di
 **back-end**
 - Framework: .NET Core 3.1
 - Language: C#
+- Working IDE versions: Visual Studio 2019 and newer
 
 **front-end**
 - Framework: Angular
