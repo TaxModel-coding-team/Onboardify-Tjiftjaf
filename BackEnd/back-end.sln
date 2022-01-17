@@ -3,14 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "back-end", "back-end.csproj", "{1CC865FD-1E31-4DE5-ADF9-0F5AF60B335F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "back-end", "TaskService\back-end.csproj", "{1CC865FD-1E31-4DE5-ADF9-0F5AF60B335F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User Back-End", "..\User Back-End\User Back-End.csproj", "{CBFFFB66-E787-421A-AC27-A1F72482BEE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User Back-End", "User Back-End\User Back-End.csproj", "{CBFFFB66-E787-421A-AC27-A1F72482BEE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "..\TestProject\TestProject.csproj", "{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}"
-
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressionService", "..\AchievementService\ProgressionService.csproj", "{96BD3A79-EAF0-49FC-9EF6-59A14460D699}"
-
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgressionService", "AchievementService\ProgressionService.csproj", "{96BD3A79-EAF0-49FC-9EF6-59A14460D699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,17 +25,14 @@ Global
 		{CBFFFB66-E787-421A-AC27-A1F72482BEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBFFFB66-E787-421A-AC27-A1F72482BEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBFFFB66-E787-421A-AC27-A1F72482BEE1}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{96BD3A79-EAF0-49FC-9EF6-59A14460D699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96BD3A79-EAF0-49FC-9EF6-59A14460D699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BD3A79-EAF0-49FC-9EF6-59A14460D699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BD3A79-EAF0-49FC-9EF6-59A14460D699}.Release|Any CPU.Build.0 = Release|Any CPU
-
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
