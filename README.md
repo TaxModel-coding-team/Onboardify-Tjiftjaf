@@ -108,7 +108,7 @@ iisexpress /path:c:\["apppath"]\ /port:["port"] /clr:v2.0
 If running from Visual Studio please enable running multiple projects at once.
 This can be done by moving to the 'solution properties > startup settings' and setting multiple project as start.
 
-##Database initialisation
+## Database initialisation
 As a new project working on this software please host a MSSQL server either locally or through fontys services.
 Please open the console-package manager inside visual studio under 'View' > 'Console-package manager'.
 This empty database can be filled using the following command inside the console-package manager:
