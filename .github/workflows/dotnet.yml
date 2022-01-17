@@ -2,10 +2,10 @@ name: .NET
 
 on:
   push:
-    branches: [ Development, MergeReposBranch ]
+    branches: [ Main, Development, MergeReposBranch ]
     path: ["BackEnd/**"]
   pull_request:
-    branches: [ Development ]
+    branches: [ Main, Development ]
     path: ["BackEnd/**"]
 
 jobs:
