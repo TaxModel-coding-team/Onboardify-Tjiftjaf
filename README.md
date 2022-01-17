@@ -28,7 +28,7 @@ This project could be scaled up in the future so it could be used for several di
 - Docker
 
 # Getting started
-Note that for the software to work a database connection must be made. For instruction how initialize a database please refer to the [Database Initialization](#Database Initialisation)
+Note that for the software to work a database connection must be made. For instruction how initialize a database please refer to the [Database Initialization](#Database-Initialisation)
 For a fresh installation for developers, please make a new directory and clone the repository.
 Either by doing it yourself manually or copying the code block below into your Bash or Git Bash enviroment.
 
@@ -109,7 +109,7 @@ iisexpress /path:c:\["apppath"]\ /port:["port"] /clr:v2.0
 If running from Visual Studio please enable running multiple projects at once.
 This can be done by moving to the 'solution properties > startup settings' and setting multiple project as start.
 
-## <a name="Database Initialization">Database Initialization</a>
+## <a name="Database-Initialization">Database Initialization</a>
 As a new project working on this software please host a MSSQL server either locally or through fontys services.
 Please open the console-package manager inside visual studio under 'View' > 'Console-package manager'.
 This empty database can be filled using the following command inside the console-package manager:
