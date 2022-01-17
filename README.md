@@ -94,5 +94,16 @@ After cloning the back-end it can be run inside Visual Studio.
 Note that this is only a developer enviroment, if you want to run the application in production.
 Please pull image from docker hub.
 
+You could also run it without the IDE in the console.
+(iis server must be installed)
+
+```
+cd \Program Files (x86)\IIS Express
+```
+
+```
+iisexpress /path:c:\apppath\ /port:["port"] /clr:v2.0
+```
+
 # Contributions
 Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
