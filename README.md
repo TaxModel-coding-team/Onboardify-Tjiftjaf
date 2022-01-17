@@ -117,6 +117,13 @@ This empty database can be filled using the following command inside the console
 ```
 Add-Migration ['name of migration'] -Context ['DatabaseContext']
 ```
+You can view the Up and Down of the migration in Visual studio to see the made tables and changes.
+You can commit these changes by using the following:
+```
+Update-Database -Context ['DatabaseContext']
+```
+When the data tables have been made please insert some mockdata or make your own.
+After the database initialization complete please change all the connectionstrings in the AppSettings file of each project.
 
 # Contributions
 Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
