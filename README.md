@@ -105,5 +105,8 @@ cd \Program Files (x86)\IIS Express
 iisexpress /path:c:\["apppath"]\ /port:["port"] /clr:v2.0
 ```
 
+If running from Visual Studio please enable running multiple projects at once.
+This can be done by moving to the 'solution properties > startup settings' and setting multiple project as start.
+
 # Contributions
 Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
