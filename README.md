@@ -21,13 +21,14 @@ This project could be scaled up in the future so it could be used for several di
 - Working IDE versions: Visual Studio 2019 and newer
 
 **front-end**
-- Framework: Angular
+- Framework: Angular 12.2.5
 - Language: HTML5, CSS, TypeScript, JavaScript
 
 **Deployment**
 - Docker
 
 # Getting started
+Note that for the software to work a database connection must be made. For instruction how initialize a database please refer to the [Database Initialization](#Database initialisation)
 For a fresh installation for developers, please make a new directory and clone the repository.
 Either by doing it yourself manually or copying the code block below into your Bash or Git Bash enviroment.
 
