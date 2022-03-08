@@ -8,6 +8,7 @@ import { RegistrationService } from '../Services/registration.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-microsoft-login',
@@ -19,7 +20,10 @@ export class MicrosoftLoginComponent implements OnInit {
 
   //Properties
   public logincheck : boolean = false; 
-  private newUser : User = {} as User;
+  private newUser : User = {} as User; //reset to private!!
+
+  public name : string = "";
+  
 
   constructor(
      private msalService: MsalService,
@@ -41,7 +45,6 @@ export class MicrosoftLoginComponent implements OnInit {
       })  
   }
 
-
   public login() : void {
     this.msalService.loginPopup().subscribe((response: AuthenticationResult) => 
     {
@@ -56,6 +59,7 @@ export class MicrosoftLoginComponent implements OnInit {
       (user) => {
         this.newUser = user
       })
+      this.name = this.msalService.instance.getActiveAccount()!.username;
     })
   }
 
