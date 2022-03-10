@@ -10,8 +10,8 @@ using User_Back_End.DAL;
 namespace User_Back_End.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20211111132900_auto-incerement")]
-    partial class autoincerement
+    [Migration("20220308133317_UserDBContext")]
+    partial class UserDBContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,6 @@ namespace User_Back_End.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ExperiencePoints")
-                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
