@@ -17,7 +17,7 @@ namespace TestProject.Tests
         [TestMethod]
         public void NewUser()
         {
-            User expected = new User(new Guid("BD738E5E-D298-4005-BABE-3FA8E7656C00"), "MaxCool@hotmail.com", "MaxCool");
+            User expected = new User(new Guid("BD738E5E-D298-4005-BABE-3FA8E7656C00"), "MaxCool@hotmail.com", "MaxCool", 8);
             User testResult = stub.NewUser(expected);
             Assert.AreEqual(expected, testResult);
         }
@@ -33,7 +33,7 @@ namespace TestProject.Tests
         [TestMethod]
         public void GetUser()
         {
-            User expected = new User(new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A"), "464748@student.fontys.nl", "jitske");
+            User expected = new User(new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A"), "464748@student.fontys.nl", "jitske", 8);
             User testResult = stub.GetUser(expected);
             Assert.AreEqual(expected, testResult);
         }
@@ -41,7 +41,7 @@ namespace TestProject.Tests
         [TestMethod]
         public void GetFalseUser()
         {
-            User expected = new User(new Guid("575DD3B5-17F6-4531-987A-32827A769968"), "464748@student.fontys.nl", "jitske");
+            User expected = new User(new Guid("575DD3B5-17F6-4531-987A-32827A769968"), "464748@student.fontys.nl", "jitske", 0);
             User testResult = stub.GetUser(expected);
             Assert.AreNotEqual(expected, testResult);
         }

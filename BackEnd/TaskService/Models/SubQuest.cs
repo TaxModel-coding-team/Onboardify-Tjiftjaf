@@ -10,10 +10,10 @@ namespace back_end.Models
     public class SubQuest
     {
         [Key]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string Description { get; set; }
-        public int Experience { get; set; }
 
+        // Look for different approaches to check if subquests are completed.
         [NotMapped]
         public bool Completed { get; set; }
 

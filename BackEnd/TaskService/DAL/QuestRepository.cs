@@ -6,6 +6,7 @@ using back_end.Models;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using back_end.Logic;
+using Microsoft.AspNetCore.Razor.Language;
 
 namespace back_end.DAL
 {
@@ -32,30 +33,40 @@ namespace back_end.DAL
             _context.SaveChanges();
         }
 
-        public ICollection<QuestUserManagement> GetSubQuestsByUser(Guid guid)
+        /// <summary>
+        /// Gets all quests from the user.
+        /// </summary>
+        /// <param name="guid">from Quest</param>
+        /// <returns>List with Quests</returns>
+        public ICollection<QuestUserManagement> GetQuestsByUser(Guid guid)
         {
             List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
-
-            questUserManagement = _context.QuestUserManagement.Where(u => u.UserID == guid).Include(q => q.SubQuests).ToList();
+            questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == guid).Include(q => q.QuestId).ToList();
 
             return questUserManagement;
         }
 
-        public ICollection<Quest> GetQuestBySubQuest(List<SubQuest> subQuests)
+        /// <summary>
+        /// Gets all subQuests from a quest
+        /// </summary>
+        /// <param name="Id">From the quest</param>
+        /// <returns>List with subQuests</returns>
+        public ICollection<Quest> GetSubQuestByQuest(Guid Id)
         {
-            List<Quest> quests = new List<Quest>();
-
-            foreach (SubQuest subQuest in subQuests)
+            //List<SubQuest> subQuests = new List<SubQuest>();
+            
+            /*foreach (SubQuest subQuest in subQuests)
             {
-                quests.Add(_context.Quest.Where(q => q.SubQuests.Any(sq => sq.ID == subQuest.ID)).FirstOrDefault());
-            }
-
-            return quests.Distinct().ToList();
+                quests.Add(_context.Quest.Where(q => q.SubQuests.Any(sq => sq.Id == subQuest.Id)).FirstOrDefault());
+            }*/
+            
+            //TODO function for getting stuff from database
+            return subQuests;
         }
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserID == questToComplete.UserID && questUser.SubQuestID == questToComplete.SubQuestID);
+            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.SubQuestId == questToComplete.SubQuestId);
             
             if(result != null)
             {
