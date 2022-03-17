@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using User_Back_End.Models;
 
 namespace back_end.Models
 {
     public class Quest
     {
+
         //Properties
         [Key] [Required] public Guid Id { get; set; }
-        public Guid OrganisationId { get; set; }
+
         public string Title { get; set; }
+
         public string Category { get; set; }
+
         public string Description { get; set; }
+
         public int Points { get; set; }
-        public virtual ICollection<SubQuest> SubQuests { get; set; }
+
+
+        // RelationShips
+        public virtual ICollection<SubQuest> SubQuests { get; set; }   
         
+        public virtual ICollection<User> Users { get; set; }
+
+        public Guid OrganisationId { get; set; }
+
         public Quest(Guid id, Guid organisationId, string title, string category, string description, int points)
         {
             Id = id;
@@ -23,10 +35,9 @@ namespace back_end.Models
             Description = description;
             Points = points;
             OrganisationId = organisationId;
+
+            this.Users = new HashSet<User>();
         }
 
-        public Quest()
-        {
-        }
     }
 }

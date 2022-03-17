@@ -24,5 +24,9 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\User Back-End\User Back-End.csproj" />
+  </ItemGroup>
+
 
 </Project>

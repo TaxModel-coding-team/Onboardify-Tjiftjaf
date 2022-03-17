@@ -15,6 +15,9 @@ namespace User_Back_End.Models
         public string Username { get; set; }
         public int Points { get; set; }
 
+        //Relationships
+        public virtual ICollection<>
+
         public User()
         {
 

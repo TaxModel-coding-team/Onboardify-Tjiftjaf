@@ -53,7 +53,7 @@ namespace back_end.Logic
 
             foreach (QuestUserManagement quest in questsUsers)
             {
-                quest.QuestId
+                quest.QuestId = 
                 quest.SubQuests.Id.Completed = quest.Completed;
             }
 
