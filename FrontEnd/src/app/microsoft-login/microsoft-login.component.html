@@ -19,6 +19,7 @@
             <img class="mc-logo" src="./assets/pictures/mc-logo.png"width="30" height="30">
             Microsoft Login</button>
           <button (click)="logout()" *ngIf="logincheck" type="button" class="btn btn-primary btn-lg" href="#">Logout</button>
+          <h1 *ngIf="logincheck" >{{name}}</h1>
         </div>
       </div>
     </div>
