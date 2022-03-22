@@ -18,11 +18,16 @@ namespace back_end.Controllers
             _questlogic = questlogic;
         }
 
+        /// <summary>
+        /// Gets quests from the database
+        /// </summary>
+        /// <param name="id">Id of the user</param>
+        /// <returns>Page with quests</returns>
         [HttpGet]
         [Route("{ID}")]
-        public IActionResult GetQuestsByUser(Guid ID)
+        public IActionResult GetQuestsByUser(Guid id)
         {
-            var quests = _questlogic.GetQuestsByUser(ID);
+            var quests = _questlogic.GetQuestsByUser(id);
             return Ok(quests);
         }
 
@@ -54,8 +59,8 @@ namespace back_end.Controllers
             foreach (SubQuestViewModel subQuestViewModel in quest.SubQuests)
             {
                 QuestCompletionViewModel questCompletionViewModel = new QuestCompletionViewModel();
-                questCompletionViewModel.UserID = userViewModel.ID;
-                questCompletionViewModel.SubQuestID = subQuestViewModel.ID;
+                questCompletionViewModel.UserId = userViewModel.Id;
+                questCompletionViewModel.SubQuestId = subQuestViewModel.Id;
                 questCompletionViewModels.Add(questCompletionViewModel);
             }
         }

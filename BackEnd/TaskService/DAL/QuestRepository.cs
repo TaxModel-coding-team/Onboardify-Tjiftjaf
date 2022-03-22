@@ -27,6 +27,11 @@ namespace back_end.DAL
             return quests;
         }
 
+        public Quest GetQuestById(Guid id)
+        {
+            return _context.Quest.SingleOrDefault(x => x.Id == id);
+        }
+        
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
         {
             _context.QuestUserManagement.AddRange(questUserManagement);
@@ -51,7 +56,7 @@ namespace back_end.DAL
         /// </summary>
         /// <param name="Id">From the quest</param>
         /// <returns>List with subQuests</returns>
-        public ICollection<Quest> GetSubQuestByQuest(Guid Id)
+        public ICollection<SubQuest> GetSubQuestByQuest(Guid Id)
         {
             //List<SubQuest> subQuests = new List<SubQuest>();
             
@@ -61,12 +66,13 @@ namespace back_end.DAL
             }*/
             
             //TODO function for getting stuff from database
-            return subQuests;
+            //return subQuests;
+            throw new NotImplementedException();
         }
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.SubQuestId == questToComplete.SubQuestId);
+            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
             
             if(result != null)
             {

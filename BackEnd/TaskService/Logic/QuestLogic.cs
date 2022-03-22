@@ -49,17 +49,14 @@ namespace back_end.Logic
         /// <returns>List of quests</returns>
         public List<QuestViewModel> GetQuestsByUser(Guid guid)
         {
-            List<QuestUserManagement> questsUsers = _repository.GetSubQuestsByUser(guid).ToList();
-
-            foreach (QuestUserManagement quest in questsUsers)
+            List<QuestUserManagement> userQuests = _repository.GetQuestsByUser(guid).ToList(); 
+            List<Quest> quests = new List<Quest>();
+            
+            foreach (QuestUserManagement questUser in userQuests)
             {
-                quest.QuestId = 
-                quest.SubQuests.Id.Completed = quest.Completed;
+                quests.Add(_repository.GetQuestById(questUser.QuestId));
             }
-
-            List<Quest> quests = _repository.GetQuestBySubQuest(questsUsers.Select(q => q.SubQuests).ToList()).ToList();
             List<QuestViewModel> questViewModels = _mapper.Map<List<QuestViewModel>>(quests);
-
             return questViewModels;
         }
 

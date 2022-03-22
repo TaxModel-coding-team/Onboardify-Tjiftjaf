@@ -24,7 +24,7 @@ namespace TestProject.Tests
         [TestMethod]
         public void NewFalseUser()
         {
-            User expected = new User(new Guid("8A39236A-FBB0-4AC6-804D-559B8B2B1D64"), "362569@student.fontys.nl");
+            User expected = new User(new Guid("8A39236A-FBB0-4AC6-804D-559B8B2B1D64"), "362569@student.fontys.nl", "Henk", 0);
             User testResult = stub.NewUser(expected);
             Assert.AreNotEqual(expected, testResult);
         }

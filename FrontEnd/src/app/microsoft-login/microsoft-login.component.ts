@@ -18,17 +18,19 @@ import { CookieService } from 'ngx-cookie-service';
 export class MicrosoftLoginComponent implements OnInit {
 
   //Properties
-  public logincheck : boolean = false; 
+  public logincheck : boolean = false;
   private newUser : User = {} as User;
+
+  public name: string="";
 
   constructor(
      private msalService: MsalService,
-     private userService: UserService, 
+     private userService: UserService,
      private registration: RegistrationService,
      private router:Router,
      private cookieService: CookieService
      ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -37,16 +39,16 @@ export class MicrosoftLoginComponent implements OnInit {
       res => {
         if (res != null && res.account != null) {
           this.msalService.instance.setActiveAccount(res.account)
-        } 
-      })  
+        }
+      })
   }
 
 
   public login() : void {
-    this.msalService.loginPopup().subscribe((response: AuthenticationResult) => 
+    this.msalService.loginPopup().subscribe((response: AuthenticationResult) =>
     {
       this.msalService.instance.setActiveAccount(response.account)
-      this.logincheck = true     
+      this.logincheck = true
       this.newUser.email = this.msalService.instance.getActiveAccount()!.username
       this.addUser()
 
@@ -56,6 +58,7 @@ export class MicrosoftLoginComponent implements OnInit {
       (user) => {
         this.newUser = user
       })
+      this.name = this.msalService.instance.getActiveAccount()!.username;
     })
   }
 
@@ -66,12 +69,12 @@ export class MicrosoftLoginComponent implements OnInit {
 
   public addUser() : void{
     this.userService.verifyIfUserExists(this.newUser)
-    .subscribe((user) => 
+    .subscribe((user) =>
     {
       this.newUser = user;
       this.router.navigateByUrl('/quests');
     },
-    (error) => 
+    (error) =>
     {
       if ( error.error === "User doesn't exist")
       {
@@ -82,5 +85,5 @@ export class MicrosoftLoginComponent implements OnInit {
       this.cookieService.set("user", JSON.stringify(this.newUser));
     });
 
-  } 
+  }
 }
