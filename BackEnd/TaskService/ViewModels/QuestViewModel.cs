@@ -12,7 +12,7 @@ namespace back_end.ViewModels
         public string Title { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
-        public int Experience { get; set; }
+        public int Points { get; set; }
         public virtual ICollection<SubQuestViewModel> SubQuests { get; set; }
     }
 }

@@ -12,38 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AchievementService/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/AchievementService/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/Controllers/QuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/Controllers/QuestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/DAL/QuestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/DAL/QuestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/DBModels/Quest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/DBModels/Quest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/Logic/QuestLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/Logic/QuestLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/back-end.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/back-end.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211104155153_UserDb.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211104155153_UserDb.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211111132900_auto-incerement.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211111132900_auto-incerement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211222123729_removeExp.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Migrations/20211222123729_removeExp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/User Back-End/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/User Back-End.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/User Back-End/User Back-End.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User Back-End/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/User Back-End/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/Models/quest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/Models/quest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/microsoft-login/microsoft-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/microsoft-login/microsoft-login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/microsoft-login/microsoft-login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/microsoft-login/microsoft-login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/quests/quests.component.ts" afterDir="false" />
+    <list default="true" id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="Another Migration, changed descriptions of most Quest functions for extra consistency.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskService/ViewModels/QuestViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/ViewModels/QuestViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +182,7 @@
       <workItem from="1647937018341" duration="965000" />
       <workItem from="1647938492439" duration="411000" />
       <workItem from="1647938959153" duration="7032000" />
-      <workItem from="1647952515148" duration="2314000" />
+      <workItem from="1647952515148" duration="2953000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Quest and user classes + added some comments">
       <created>1647334334802</created>
@@ -234,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647938643096</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Another Migration, changed descriptions of most Quest functions for extra consistency.">
+      <created>1647955915009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647955915009</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +254,8 @@
     <MESSAGE value="Changed Quest and user classes + added some comments" />
     <MESSAGE value="Changed the way quests are shown" />
     <MESSAGE value="Updated GitIgnore for Rider IDEA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated GitIgnore for Rider IDEA" />
+    <MESSAGE value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
+    <option name="LAST_COMMIT_MESSAGE" value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
