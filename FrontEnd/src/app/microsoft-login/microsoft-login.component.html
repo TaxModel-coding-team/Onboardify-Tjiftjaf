@@ -1,5 +1,5 @@
 <meta name="referrer" content="unsafe-url">
-<div class = "container">
+<div class = "container"> 
     <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item" >
             <img class="corporation-logo" src="./assets/pictures/Taxmodel_logo.jpg"width="200" height="200">
@@ -15,11 +15,11 @@
     <div class="btnContainer">
       <div class="row">
         <div class="col text-center">
-          <button (click)="login()" *ngIf="!logincheck" type="button" class="btn btn-primary btn-lg buttoncolor" href="#">
+          <button (click)="login()" *ngIf="!logincheck" type="button" class="btn btn-primary btn-lg buttoncolor" href="#">             
             <img class="mc-logo" src="./assets/pictures/mc-logo.png"width="30" height="30">
             Microsoft Login</button>
           <button (click)="logout()" *ngIf="logincheck" type="button" class="btn btn-primary btn-lg" href="#">Logout</button>
-          <h1 *ngIf="logincheck">{{name}}</h1>
+          <h1 *ngIf="logincheck" >{{name}}</h1>
         </div>
       </div>
     </div>

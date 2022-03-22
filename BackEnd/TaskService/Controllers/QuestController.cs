@@ -19,7 +19,7 @@ namespace back_end.Controllers
         }
 
         /// <summary>
-        /// Gets quests from the database
+        /// Gets quests from the database, this is the main page
         /// </summary>
         /// <param name="id">Id of the user</param>
         /// <returns>Page with quests</returns>

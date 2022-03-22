@@ -41,12 +41,12 @@ namespace back_end.DAL
         /// <summary>
         /// Gets all quests from the user.
         /// </summary>
-        /// <param name="guid">from Quest</param>
-        /// <returns>List with Quests</returns>
-        public ICollection<QuestUserManagement> GetQuestsByUser(Guid guid)
+        /// <param name="id">From the User</param>
+        /// <returns>List with Quests from User</returns>
+        public ICollection<QuestUserManagement> GetQuestsByUser(Guid id)
         {
             List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
-            questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == guid).Include(q => q.QuestId).ToList();
+            questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == id).ToList();
 
             return questUserManagement;
         }
@@ -54,9 +54,9 @@ namespace back_end.DAL
         /// <summary>
         /// Gets all subQuests from a quest
         /// </summary>
-        /// <param name="Id">From the quest</param>
+        /// <param name="id">From the quest</param>
         /// <returns>List with subQuests</returns>
-        public ICollection<SubQuest> GetSubQuestByQuest(Guid Id)
+        public ICollection<SubQuest> GetSubQuestByQuest(Guid id)
         {
             //List<SubQuest> subQuests = new List<SubQuest>();
             

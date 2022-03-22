@@ -45,11 +45,11 @@ namespace back_end.Logic
         /// <summary>
         /// Retrieves quests for specific user
         /// </summary>
-        /// <param name="guid">the Guid from the user</param>
+        /// <param name="id">the Guid from the user</param>
         /// <returns>List of quests</returns>
-        public List<QuestViewModel> GetQuestsByUser(Guid guid)
+        public List<QuestViewModel> GetQuestsByUser(Guid id)
         {
-            List<QuestUserManagement> userQuests = _repository.GetQuestsByUser(guid).ToList(); 
+            List<QuestUserManagement> userQuests = _repository.GetQuestsByUser(id).ToList(); 
             List<Quest> quests = new List<Quest>();
             
             foreach (QuestUserManagement questUser in userQuests)

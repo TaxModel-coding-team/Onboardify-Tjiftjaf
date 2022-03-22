@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using User_Back_End.Models;
 
 namespace back_end.Models
 {
@@ -14,7 +13,7 @@ namespace back_end.Models
         public string Description { get; set; }
         public int Points { get; set; }
         
-        // RelationShips
+        // Relationships
         public virtual ICollection<SubQuest> SubQuests { get; set; }
 
         public Quest(Guid id, string title, string category, string description, int points)
