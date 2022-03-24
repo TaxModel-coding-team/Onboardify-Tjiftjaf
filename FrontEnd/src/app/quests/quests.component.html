@@ -1,45 +1,46 @@
 <app-header></app-header>
 <h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}}!</h1>
 <h2 class="center text-white" style="margin-bottom: 2%;">Quests</h2>
-  
-  
-  <div class="accordion list-group"  id="accordionExample">
-      <div *ngFor="let quest of quests" class="accordion-item"  style="background-color: transparent;">
-          <div  class="accordion-header" attr.id="heading{{quest.title}}" asGlass [borderRadius]=9 >
-            <button 
-              class="accordion-button collapsed text-white" 
-              type="button" 
-              style="background-color: transparent;"
-              data-bs-toggle="collapse" 
-              [attr.data-bs-target]="'#collapse' + quest.title" 
-              aria-expanded="true" 
-              attr.aria-controls="collapse{{quest.title}}">
-              {{quest.description}}
+
+<div class="accordion list-group"  id="accordionExample">
+  <div *ngFor="let quest of quests" class="accordion-item"  style="background-color: transparent;">
+    <div  class="accordion-header" attr.id="heading{{quest.title}}" asGlass [borderRadius]=9 >
+      <button
+        class="accordion-button collapsed text-white"
+        type="button"
+        style="background-color: transparent;"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#collapse' + quest.title"
+        aria-expanded="true"
+        attr.aria-controls="collapse{{quest.title}}">
+        {{quest.title}}
+      </button>
+    </div>
+
+    <div attr.id="collapse{{quest.title}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
+      <div class="accordion-body">
+        <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
+          <li style="text-align: left;">
+            <span class="text-white" style="max-width: 200px;">{{subquest.description}}</span>
+            <button
+              class="btn btn-success"
+              [disabled]="subquest.completed"
+              [ngClass]="{'completed': subquest.completed}"
+              (click)="completeQuest(subquest.id)" >
+              Complete
             </button>
-          </div>
-  
-      <div attr.id="collapse{{quest.title}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
-        <div class="accordion-body">
-            <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
-              <li style="text-align: left;">
-                <span class="text-white" style="max-width: 200px;">{{subquest.description}}</span>
-                <button 
-                  class="btn btn-success" 
-                  [disabled]="subquest.completed" 
-                  [ngClass]="{'completed': subquest.completed}"
-                  (click)="completeQuest(subquest.id)" >
-                	Complete
-                </button>
-              </li>              
-            </ul>         
-        </div>
+          </li>
+        </ul>
+        <div style="color: #36393F">{{quest.description}}</div>
+        <div style="text-align: end; color: #5865F2">{{quest.points}}</div>
       </div>
-    </div>  
-  </div><br/>
-  
-  <!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
-    <progress-bar progress="{{gainedExp}}"></progress-bar>
-  </div> -->
-  
+    </div>
+  </div>
+</div><br/>
+
+<!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
+  <progress-bar progress="{{gainedExp}}"></progress-bar>
+</div> -->
+
 
 

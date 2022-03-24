@@ -1,0 +1,13 @@
+﻿/BackEnd/.idea/.idea.back-end/.idea/.gitignore
+/BackEnd/.idea/.idea.back-end/.idea/.name
+/BackEnd/TaskService/Migrations/20220317104732_IntializeQuest.cs
+/BackEnd/TaskService/Migrations/20220317104732_IntializeQuest.Designer.cs
+/BackEnd/User Back-End/Migrations/20220317104836_IntializeUser.cs
+/BackEnd/User Back-End/Migrations/20220317104836_IntializeUser.Designer.cs
+/BackEnd/AchievementService/Migrations/20220317104953_IntializeProgression.cs
+/BackEnd/AchievementService/Migrations/20220317104953_IntializeProgression.Designer.cs
+/BackEnd/.idea/config/applicationhost.config
+/BackEnd/.idea/.idea.back-end/.idea/encodings.xml
+/BackEnd/.idea/.idea.back-end/.idea/indexLayout.xml
+/BackEnd/TaskService/Migrations/QuestContextModelSnapshot.cs
+/BackEnd/.idea/.idea.back-end/.idea/vcs.xml

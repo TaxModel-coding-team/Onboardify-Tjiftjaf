@@ -9,9 +9,9 @@ namespace back_end.ViewModels
     public class QuestCompletionViewModel
     {
         [Required]
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
         [Required]
-        public Guid SubQuestID { get; set; }
+        public Guid SubQuestId { get; set; }
         public bool Completed { get; set; }
     }
 }

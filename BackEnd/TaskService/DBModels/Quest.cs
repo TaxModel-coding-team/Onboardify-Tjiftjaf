@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace back_end.Models
 {
     public class Quest
     {
         //Properties
-        [Key]
-        [Required]
-        public Guid ID { get; set; }
+        [Key] [Required] public Guid Id { get; set; }
         public string Title { get; set; }
+        public string Category { get; set; }
         public string Description { get; set; }
+        public int Points { get; set; }
+        
+        // Relationships
         public virtual ICollection<SubQuest> SubQuests { get; set; }
 
-        public Quest(Guid iD, string title, string description)
+        public Quest(Guid id, string title, string category, string description, int points)
         {
-            ID = iD;
+            Id = id;
             Title = title;
+            Category = category;
             Description = description;
-        }
-
-        public Quest()
-        {
-
+            Points = points;
         }
     }
 }
