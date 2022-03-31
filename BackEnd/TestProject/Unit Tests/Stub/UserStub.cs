@@ -14,7 +14,6 @@ namespace TestProject.Stub
 
         public User NewUser(User user)
         {
-            Tests.Add(new User(new Guid("BD738E5E-D298-4005-BABE-3FA8E7656C00"), "MaxCool@hotmail.com", "MaxCool"));
             if (user.Username != null)
             {
                 Tests.Add(user);
