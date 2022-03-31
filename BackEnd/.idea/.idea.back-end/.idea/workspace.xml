@@ -12,9 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="Another Migration, changed descriptions of most Quest functions for extra consistency.">
+    <list default="true" id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TestProject/Stub/QuestStub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject/Tests/QuestTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskService/ViewModels/QuestViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/ViewModels/QuestViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskService/DBModels/QuestUserManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/DBModels/QuestUserManagement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +31,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8c54972f91e9f1369a47cbb0a8a950e5e423d1e344b06b2fe0849c2f6189f0/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ff3f16e49894c252287d83e4d97db5a56beaaa8cb7dfa786b2a2ac7c370/IMapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b72f4ab7fcc44274bdd1a4e8db5db571f627c5b9a1fe60a320c6e65727c03d/NavigationExpandingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TaskService/DAL/QuestRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TaskService/Logic/QuestLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e54fec4597f74a4b865d31f47b54f4fa11188/2b/e8e480ee/Assert.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -182,7 +186,12 @@
       <workItem from="1647937018341" duration="965000" />
       <workItem from="1647938492439" duration="411000" />
       <workItem from="1647938959153" duration="7032000" />
-      <workItem from="1647952515148" duration="2953000" />
+      <workItem from="1647952515148" duration="3700000" />
+      <workItem from="1647957883292" duration="188000" />
+      <workItem from="1648110028457" duration="1305000" />
+      <workItem from="1648124365097" duration="966000" />
+      <workItem from="1648456604351" duration="19000" />
+      <workItem from="1648540346531" duration="6426000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Quest and user classes + added some comments">
       <created>1647334334802</created>
@@ -256,25 +265,6 @@
     <MESSAGE value="Updated GitIgnore for Rider IDEA" />
     <MESSAGE value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
     <option name="LAST_COMMIT_MESSAGE" value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/User Back-End/Controllers/UserController.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\Users\SKIKK\Documents\Soft p3\Proftaak\Onboardify\Onboardify-Tjiftjaf\BackEnd\User Back-End\Controllers\UserController.cs" initialLine="36" containingFunctionPresentation="method 'Login'">
-            <startOffsets>
-              <option value="1042" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1043" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
