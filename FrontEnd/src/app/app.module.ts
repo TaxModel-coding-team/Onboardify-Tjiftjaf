@@ -18,6 +18,7 @@ import { AchievementsComponent } from './achievements/achievements.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { QRCodeModule } from 'angular2-qrcode';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -51,7 +52,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     FormsModule,
     GlassModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    QRCodeModule
   ],
   providers: [
     {
