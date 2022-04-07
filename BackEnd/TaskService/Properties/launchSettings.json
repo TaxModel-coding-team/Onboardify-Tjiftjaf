@@ -19,7 +19,6 @@
     },
     "back_end": {
       "commandName": "Project",
-      "launchBrowser": false,
       "launchUrl": "quests",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
