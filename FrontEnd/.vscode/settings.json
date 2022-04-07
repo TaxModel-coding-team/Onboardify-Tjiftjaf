@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/ead3961e-20b0-45df-a0d8-390726034869/resourceGroups/Onboardify2Resources/providers/Microsoft.Web/sites/Onboardify2",
+    "appService.deploySubpath": "."
 }
