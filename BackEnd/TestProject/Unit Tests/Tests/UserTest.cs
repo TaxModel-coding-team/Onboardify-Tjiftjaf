@@ -16,15 +16,10 @@ namespace TestProject.Tests
     [TestClass]
     public class UserTest
     {
-        /// <summary>
-        /// All Unit tests work but you need to Run them by pressing debug all. 
-        /// If you run them normally you get an ironbar error for a QR code license
-        /// </summary>
-        private static UserStub stub = new UserStub();
         IMapper _mapper;
 
         [TestMethod]
-        public void NewUser()
+        public void SuccesfullyCreateNewUserWithAllData()
         {
             //Arrange
             UserViewModel userviewmodel = new UserViewModel();
@@ -42,7 +37,8 @@ namespace TestProject.Tests
                 _mapper = mapper;
             }
 
-            UserLogic userlogic = new UserLogic(stub, _mapper);
+           UserStub stub = new UserStub();
+           UserLogic userlogic = new UserLogic(stub, _mapper);
             //Act
             var Result =  userlogic.NewUser(userviewmodel);
             
@@ -56,12 +52,11 @@ namespace TestProject.Tests
         }
 
         [TestMethod]
-        public void NewFalseUser()
+        public void FailCreatingNewUserWithoutEmail()
         {
             //Arrange
             UserViewModel userviewmodel = new UserViewModel();
             userviewmodel.ID = new Guid("8A39236A-FBB0-4AC6-804D-559B8B2B1D64");
-            userviewmodel.Email = "362569@student.fontys.nl";
             userviewmodel.Username = "Pietje";
 
             if (_mapper == null)
@@ -74,6 +69,7 @@ namespace TestProject.Tests
                 _mapper = mapper;
             }
 
+            UserStub stub = new UserStub();
             UserLogic userlogic = new UserLogic(stub, _mapper);
             //Act
             var Result = userlogic.NewUser(userviewmodel);
@@ -91,8 +87,6 @@ namespace TestProject.Tests
             //Arrange
             UserViewModel userviewmodel = new UserViewModel();
             userviewmodel.ID = new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A");
-            userviewmodel.Email = "464748@student.fontys.nl";
-            userviewmodel.Username = "jitske";
 
             if (_mapper == null)
             {
@@ -104,27 +98,24 @@ namespace TestProject.Tests
                 _mapper = mapper;
             }
 
+            UserStub stub = new UserStub();
             UserLogic userlogic = new UserLogic(stub, _mapper);
             //Act
             var Result = userlogic.GetUser(userviewmodel);
 
             //Assert
             Assert.AreEqual(userviewmodel.ID, Result.ID);
-            Assert.AreEqual(userviewmodel.Username, Result.Username);
-            Assert.AreEqual(userviewmodel.Email, Result.Email);
             Assert.AreEqual(userviewmodel.ID, stub.Tests[0].ID);
-            Assert.AreEqual(userviewmodel.Username, stub.Tests[0].Username);
-            Assert.AreEqual(userviewmodel.Email, stub.Tests[0].Email);
+            Assert.AreEqual("464748@student.fontys.nl", Result.Email);
+            Assert.AreEqual("jitske", Result.Username);
         }
 
         [TestMethod]
-        public void GetFalseUser()
+        public void GetNonExistingUser()
         {
             //Arrange
             UserViewModel userviewmodel = new UserViewModel();
             userviewmodel.ID = new Guid("5535aE6B-D4AE-4293-A493-1064FBD36B7A");
-            userviewmodel.Email = "464748@student.fontys.nl";
-            userviewmodel.Username = "jitske";
 
             if (_mapper == null)
             {
@@ -136,6 +127,7 @@ namespace TestProject.Tests
                 _mapper = mapper;
             }
 
+            UserStub stub = new UserStub();
             UserLogic userlogic = new UserLogic(stub, _mapper);
             //Act
             var Result = userlogic.GetUser(userviewmodel);
