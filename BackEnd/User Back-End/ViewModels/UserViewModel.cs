@@ -12,6 +12,6 @@ namespace User_Back_End.ViewModels
         public string Email { get; set; }
         public string Username { get; set; }
         public int ExperiencePoints { get; set; }
-        public Image qrCode { get; set; }
+        public Image QrCode { get; set; }
     }
 }

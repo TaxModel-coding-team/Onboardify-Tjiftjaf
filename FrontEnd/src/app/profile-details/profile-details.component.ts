@@ -14,12 +14,14 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(private cookieService: CookieService, private router:Router) { }
 
   public user: User = {} as User
+  public href: string =  "";
 
   ngOnInit(): void {
     this.getUserDetails();
   }
   private getUserDetails() : void {
     this.user = (JSON.parse(this.cookieService.get("user")));
+    this.href = window.location.href + "/?id=" + this.user.id;
   }
   public logout(): void {
     this.cookieService.delete("user");

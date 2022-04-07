@@ -27,7 +27,7 @@ namespace User_Back_End.Logic
             userViewModel = _mapper.Map<UserViewModel>(_repository.GetUser(user));
             if (userViewModel != null)
             {
-                userViewModel.qrCode = CreateQRCode(userViewModel);
+                userViewModel.QrCode = CreateQRCode(userViewModel);
             }
             return userViewModel;
         }
@@ -37,7 +37,7 @@ namespace User_Back_End.Logic
             userViewModel.ExperiencePoints = 0;
             var user = _mapper.Map<User>(userViewModel);
             userViewModel =  _mapper.Map<UserViewModel>(_repository.NewUser(user));
-            userViewModel.qrCode = CreateQRCode(userViewModel);
+            userViewModel.QrCode = CreateQRCode(userViewModel);
             return userViewModel;
         }
 
@@ -45,5 +45,6 @@ namespace User_Back_End.Logic
         {       
             return QRCodeWriter.CreateQrCode(userViewModel.ID.ToString(), 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).ToImage();
         }
+        
     }
 }
