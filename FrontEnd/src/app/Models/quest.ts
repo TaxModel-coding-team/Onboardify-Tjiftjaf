@@ -4,8 +4,8 @@ import { Subquest } from "./subquest";
 export interface Quest {
     id: number;
     title: string;
+    category: string;
     description: string;
-    exp: number;
+    points: number;
     subQuests: Subquest[];
-    
   }

@@ -7,6 +7,6 @@ namespace back_end.ViewModels
 {
     public class UserViewModel
     {
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
     }
 }

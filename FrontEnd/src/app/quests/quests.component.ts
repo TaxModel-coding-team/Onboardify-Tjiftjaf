@@ -21,20 +21,20 @@ export class QuestsComponent implements OnInit, OnDestroy {
     private cookies: CookieService) { }
 
   ngOnInit(): void {
-    this.getQuests() 
+    this.getQuests()
     this.getGreeting();
-    
+
   }
 
   //Getting all quests from API and caching to observable
   public getQuests(): void {
       this.subscription.add(this.questService.getQuests()
-      .subscribe(quest => this.quests = quest))     
+      .subscribe(quest => this.quests = quest))
   }
 
   //Simple greeting based on your time of day
   public getGreeting(): void{
-    
+
     var today = new Date()
     var curHr = today.getHours()
 
@@ -49,7 +49,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
   }
 
     public completeQuest(subquestId: number): void {
-      
+
       let userId = JSON.parse(this.cookies.get("user")).id
 
       this.questService.completeQuest(userId.toString(), subquestId.toString())

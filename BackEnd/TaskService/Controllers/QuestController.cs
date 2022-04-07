@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using back_end.ViewModels;
-using back_end.DAL;
 using back_end.Logic;
-using AutoMapper;
 
 
 namespace back_end.Controllers
@@ -16,7 +11,6 @@ namespace back_end.Controllers
     [ApiController]
     public class QuestController : ControllerBase
     {
-
         private readonly QuestLogic _questlogic;
 
         public QuestController(QuestLogic questlogic)
@@ -24,12 +18,16 @@ namespace back_end.Controllers
             _questlogic = questlogic;
         }
 
-
+        /// <summary>
+        /// Gets quests from the database, this is the main page
+        /// </summary>
+        /// <param name="id">Id of the user</param>
+        /// <returns>Page with quests</returns>
         [HttpGet]
         [Route("{ID}")]
-        public IActionResult GetQuestsByUser(Guid ID)
+        public IActionResult GetQuestsByUser(Guid id)
         {
-            var quests = _questlogic.GetQuestsByUser(ID);
+            var quests = _questlogic.GetQuestsByUser(id);
             return Ok(quests);
         }
 
@@ -40,6 +38,8 @@ namespace back_end.Controllers
             return Ok(_questlogic.CompleteQuest(completedQuest));
         }
 
+        
+        //TODO Assign all the basic quests to user instead of going through all created quests (assign the list to user)
         [HttpPost]
         [Route("assignQuests")]
         public ActionResult<UserViewModel> AssignQuests([FromBody] UserViewModel userViewModel)
@@ -59,8 +59,8 @@ namespace back_end.Controllers
             foreach (SubQuestViewModel subQuestViewModel in quest.SubQuests)
             {
                 QuestCompletionViewModel questCompletionViewModel = new QuestCompletionViewModel();
-                questCompletionViewModel.UserID = userViewModel.ID;
-                questCompletionViewModel.SubQuestID = subQuestViewModel.ID;
+                questCompletionViewModel.UserId = userViewModel.Id;
+                questCompletionViewModel.SubQuestId = subQuestViewModel.Id;
                 questCompletionViewModels.Add(questCompletionViewModel);
             }
         }

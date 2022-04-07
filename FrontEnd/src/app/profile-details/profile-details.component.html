@@ -2,7 +2,7 @@
 </button>
 
 <div class="shell">
-    <img class="qrcode" src="./assets/pictures/qrcode.png" alt="qr-cde"/>
+    <qr-code class="qrcode" [value]="'{{user.username}}'" [size]=75></qr-code>
     <div class="profiledetails">
         {{user.username}}<br/>
         {{user.email}}<br/>

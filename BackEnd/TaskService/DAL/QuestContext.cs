@@ -19,9 +19,9 @@ namespace back_end.DAL
         {
             base.OnModelCreating(modelBuilder);
     
-            modelBuilder.Entity<Quest>().Property(Quest => Quest.ID).HasDefaultValueSql("NEWID()");
-            modelBuilder.Entity<SubQuest>().Property(SubQuest => SubQuest.ID).HasDefaultValueSql("NEWID()");
-            modelBuilder.Entity<QuestUserManagement>().Property(QuestUserManagement => QuestUserManagement.ID).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<Quest>().Property(Quest => Quest.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<SubQuest>().Property(SubQuest => SubQuest.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<QuestUserManagement>().HasNoKey();
         }
     }
 }

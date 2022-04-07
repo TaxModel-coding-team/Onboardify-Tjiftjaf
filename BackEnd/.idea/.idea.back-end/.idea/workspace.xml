@@ -8,13 +8,15 @@
     <projectFile profileName="IIS Express">AchievementService/ProgressionService.csproj</projectFile>
     <projectFile profileName="AchievementService">AchievementService/ProgressionService.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="82f9f034-37f7-4376-9537-1a41893ef192" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TestProject/Stub/QuestStub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject/Tests/QuestTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.back-end/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskService/DBModels/QuestUserManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TaskService/DBModels/QuestUserManagement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,26 +24,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8c54972f91e9f1369a47cbb0a8a950e5e423d1e344b06b2fe0849c2f6189f0/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ff3f16e49894c252287d83e4d97db5a56beaaa8cb7dfa786b2a2ac7c370/IMapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b72f4ab7fcc44274bdd1a4e8db5db571f627c5b9a1fe60a320c6e65727c03d/NavigationExpandingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TaskService/DAL/QuestRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TaskService/Logic/QuestLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e54fec4597f74a4b865d31f47b54f4fa11188/2b/e8e480ee/Assert.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="266Qkzt1fKVqXaFXEbfGYRVijZ7" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
+  <component name="ProjectId" id="259KSQIE6PzPYdb4l0xIDOLDUpa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.jsOptions" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.ProgressionService: AchievementService">
+  <component name="RiderProblemsViewState">
+    <option name="contextShortcutLearned" value="true" />
+  </component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.User Back-End: User_Back_End">
     <configuration name="ProgressionService: AchievementService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AchievementService/ProgressionService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
@@ -103,17 +128,19 @@
       </method>
     </configuration>
     <configuration name="back-end: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/TaskService/back-end.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AchievementService/ProgressionService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
-      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="LAUNCH_PROFILE_NAME" value="AchievementService" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
       <method v="2">
+        <option name="LaunchBrowser.Before.Run" browser="37cae5b9-e8b2-4949-9172-aafa37fbc09c" url="localhost:4200" />
         <option name="Build" />
       </method>
     </configuration>
@@ -132,31 +159,100 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.back-end: back_end" />
+      <item itemvalue=".NET Launch Settings Profile.back-end: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.ProgressionService: AchievementService" />
+      <item itemvalue=".NET Launch Settings Profile.ProgressionService: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.User Back-End: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.User Back-End: User_Back_End" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="82f9f034-37f7-4376-9537-1a41893ef192" name="Changes" comment="" />
-      <created>1646741708693</created>
+      <changelist id="bc29debc-248a-40dc-a660-29396d3fdf6a" name="Changes" comment="" />
+      <created>1644933865053</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646741708693</updated>
-      <workItem from="1646741709726" duration="1399000" />
+      <updated>1644933865053</updated>
+      <workItem from="1644933870249" duration="826000" />
+      <workItem from="1645086227597" duration="3227000" />
+      <workItem from="1645692020768" duration="2294000" />
+      <workItem from="1646732759128" duration="10928000" />
+      <workItem from="1646900975664" duration="14193000" />
+      <workItem from="1647334291767" duration="1002000" />
+      <workItem from="1647506620960" duration="15592000" />
+      <workItem from="1647937018341" duration="965000" />
+      <workItem from="1647938492439" duration="411000" />
+      <workItem from="1647938959153" duration="7032000" />
+      <workItem from="1647952515148" duration="3700000" />
+      <workItem from="1647957883292" duration="188000" />
+      <workItem from="1648110028457" duration="1305000" />
+      <workItem from="1648124365097" duration="966000" />
+      <workItem from="1648456604351" duration="19000" />
+      <workItem from="1648540346531" duration="6426000" />
     </task>
+    <task id="LOCAL-00001" summary="Changed Quest and user classes + added some comments">
+      <created>1647334334802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647334334802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changed the way quests are shown">
+      <created>1647938139416</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647938139416</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated GitIgnore for Rider IDEA">
+      <created>1647938643096</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647938643096</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Another Migration, changed descriptions of most Quest functions for extra consistency.">
+      <created>1647955915009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1647955915009</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="3-quests-inzien" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -164,5 +260,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Changed Quest and user classes + added some comments" />
+    <MESSAGE value="Changed the way quests are shown" />
+    <MESSAGE value="Updated GitIgnore for Rider IDEA" />
+    <MESSAGE value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
+    <option name="LAST_COMMIT_MESSAGE" value="Another Migration, changed descriptions of most Quest functions for extra consistency." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
