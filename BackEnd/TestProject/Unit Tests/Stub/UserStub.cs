@@ -14,7 +14,6 @@ namespace TestProject.Stub
 
         public User NewUser(User user)
         {
-            Tests.Add(new User(new Guid("BD738E5E-D298-4005-BABE-3FA8E7656C00"), "MaxCool@hotmail.com", "MaxCool"));
             if (user.Username != null)
             {
                 Tests.Add(user);
@@ -30,19 +29,14 @@ namespace TestProject.Stub
         public User GetUser(User user)
         {
             Tests.Add(new User(new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A"), "464748@student.fontys.nl", "jitske"));
-            if(Tests == null)
+            if (user.ID == Tests[0].ID)
             {
-                throw new NullReferenceException("Failed to return a value.");
+                return Tests[0];
             }
-
-            foreach(User test in Tests)
+            else
             {
-                if(user.ID == test.ID)
-                {
-                    return user;
-                }
+                return null;
             }
-            return null;
         }
     }
 }
