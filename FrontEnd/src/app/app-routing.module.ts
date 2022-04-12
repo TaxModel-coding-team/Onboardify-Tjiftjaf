@@ -16,7 +16,10 @@ const routes: Routes = [
     { path: '', component: BadgesComponent, pathMatch: 'full' },
     { path: 'badges', component: BadgesComponent },
     { path: 'achievements', component: AchievementsComponent }] },
-  { path: 'public', component: ProfilePublicComponent }
+  { path: 'public', component: ProfilePublicComponent, children: [
+      { path: '', component: BadgesComponent, pathMatch: 'full' },
+      { path: 'badges', component: BadgesComponent },
+      { path: 'achievements', component: AchievementsComponent }] }
 ];
 
 @NgModule({
