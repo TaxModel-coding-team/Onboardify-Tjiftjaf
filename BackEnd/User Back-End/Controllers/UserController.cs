@@ -58,11 +58,11 @@ namespace User_Back_End.Controllers
 
         [HttpPost]
         [Route("Get")]
-        public async Task<ActionResult<UserViewModel>> GetUser([FromBody] Guid userID)
+        public async Task<ActionResult<UserViewModel>> GetUser([FromBody] UserByIdModel userID)
         {
-            if(userID != Guid.Empty)
+            if(userID.ID != Guid.Empty)
             {
-                return Ok(_userLogic.GetUserByID(userID));
+                return Ok(_userLogic.GetUserByID(userID.ID));
 
             }
             return StatusCode(500, "Internal server error");
