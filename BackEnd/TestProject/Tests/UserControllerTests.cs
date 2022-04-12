@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestProject.TestModels;
 using Xunit;
 
 namespace TestProject.Tests
@@ -19,13 +20,7 @@ namespace TestProject.Tests
         private HttpClient client;
 
         [TestInitialize]
-        public void Init()
-        {
-
-        }
-
-        [TestMethod]
-        public async Task GetUser_ReturnsUser_WhenReceivesUserId()
+        public async void Init()
         {
             var hostBuilder = new HostBuilder()
             .ConfigureWebHost(webHost =>
@@ -40,6 +35,14 @@ namespace TestProject.Tests
             });
             var host = await hostBuilder.StartAsync();
             client = host.GetTestClient();
+        }
+
+        [TestMethod]
+        public async Task GetUser_ReturnsUser_WhenReceivesUserId()
+        {
+            TestGetUserByIdModel testModel = new TestGetUserByIdModel();
+            
+            var response = await client.PostAsJsonAsync("/users/Get", );
         }
 
 
