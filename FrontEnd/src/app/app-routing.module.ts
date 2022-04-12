@@ -7,6 +7,7 @@ import { QuestsComponent } from './quests/quests.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { BadgesComponent } from './badges/badges.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { QRDownloadComponent } from './QRDownload-page/QRDownload-page.component';
 
 const routes: Routes = [
   { path: '', component: MicrosoftLoginComponent, pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent, children: [
     { path: '', component: BadgesComponent, pathMatch: 'full'},
     { path: 'badges', component: BadgesComponent},
-    { path: 'achievements', component: AchievementsComponent} ]
+    { path: 'achievements', component: AchievementsComponent},
+    {path: 'QRDownload-page', component: QRDownloadComponent}]
   }
 ];
 

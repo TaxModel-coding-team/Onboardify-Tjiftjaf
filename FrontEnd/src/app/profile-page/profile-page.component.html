@@ -2,6 +2,7 @@
 <app-profile-details></app-profile-details>
 <div class="pillshell">
     <button class="btn btn-primary" id="btnBadge" type="submit" style="margin-right: 10px;" [disabled]="badgeBtn" (click)="badgeBtnClick()" routerLink='/profile/badges' asGlass>Badges</button>
-    <button class="btn btn-primary" type="submit" [disabled]="achievementBtn" (click)="achievementBtnClick()" routerLink='/profile/achievements' asGlass>Achievements</button>
+    <button class="btn btn-primary" type="submit" style="margin-right: 10px;" [disabled]="achievementBtn" (click)="achievementBtnClick()" routerLink='/profile/achievements' asGlass>Achievements</button>
+    <button class="btn btn-primary" type="submit" [disabled]="QRDownloadBtn" (click)="QRDownloadBtnClick()" routerLink="/profile/QRDownload-page" asGlass>QRDownload</button>
 </div>
 <router-outlet></router-outlet>

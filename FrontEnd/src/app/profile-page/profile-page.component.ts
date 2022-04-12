@@ -12,6 +12,7 @@ export class ProfilePageComponent implements OnInit {
 
   public badgeBtn: boolean = true;
   public achievementBtn: boolean = false;
+  public QRDownloadBtn: boolean = false; 
   constructor(private cookieService:CookieService, private router:Router) { }
 
   public user:User = {} as User
@@ -23,12 +24,21 @@ export class ProfilePageComponent implements OnInit {
   public badgeBtnClick() : void {
     this.achievementBtn = false;
     this.badgeBtn = true;
+    this.QRDownloadBtn = false;
 
   }
   public achievementBtnClick() : void {
     this.achievementBtn = true;
     this.badgeBtn = false;
+    this.QRDownloadBtn = false;
 
+  }
+
+  public QRDownloadBtnClick(): void{
+    this.QRDownloadBtn = true;
+    this.badgeBtn = false;
+    this.achievementBtn = false;
+ 
   }
 
 }
