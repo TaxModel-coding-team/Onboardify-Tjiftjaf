@@ -19,6 +19,7 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QRCodeModule } from 'angular2-qrcode';
+import {ProfilePublicComponent} from "./profile-public/profile-public.component";
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -41,6 +42,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     BadgesComponent,
     AchievementsComponent,
     ProfileDetailsComponent,
+    ProfilePublicComponent,
     
   ],
   imports: [
