@@ -14,6 +14,12 @@ namespace User_Back_End.DAL
             _context = context;
         }   
 
+        public User GetUserByID(Guid userId)
+        {
+            return _context.User.SingleOrDefault(q => q.ID == userId);
+        }
+        
+
         public User GetUser(User user)
         {
             return _context.User.SingleOrDefault(q => q.Email == user.Email);

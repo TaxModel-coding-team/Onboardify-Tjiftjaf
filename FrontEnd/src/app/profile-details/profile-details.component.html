@@ -3,9 +3,10 @@
 
 <div class="shell">
     <p id="pdf">
-    <qr-code class="qrcode" [value]="'{{user.username}}'" [size]=75 level="H"></qr-code>
+    <qr-code class="qrcode" [value]=href [size]=90></qr-code>
     </p>
-    <div class="profiledetails">
+    <div class="profile-details">  
+    
         {{user.username}}<br/>
         {{user.email}}<br/>
         <div class="progress">

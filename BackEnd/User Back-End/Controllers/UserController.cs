@@ -56,6 +56,18 @@ namespace User_Back_End.Controllers
             return StatusCode(404, "Not all fields are filled in");
         }
 
+        [HttpPost]
+        [Route("Get")]
+        public async Task<ActionResult<UserViewModel>> GetUser([FromBody] UserByIdModel userID)
+        {
+            if(userID.ID != Guid.Empty)
+            {
+                return Ok(_userLogic.GetUserByID(userID.ID));
+
+            }
+            return StatusCode(500, "Internal server error");
+        }
+
         static async Task<Uri> CreateUserQuests(UserViewModel userViewModel)
         {
             NewUserViewModel newUserViewModel = new NewUserViewModel();
