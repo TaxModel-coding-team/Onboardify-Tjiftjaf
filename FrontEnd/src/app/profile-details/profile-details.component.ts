@@ -14,12 +14,22 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(private cookieService: CookieService, private router:Router) { }
 
   public user: User = {} as User
+  public href: string =  window.location.href;
+  private urlParams = new URLSearchParams(window.location.search);
 
   ngOnInit(): void {
-    this.getUserDetails();
+    if(this.urlParams.has('id')){
+      this.redirectToPublicProfile(this.urlParams.get('id'));
+    } else {
+      this.getUserDetails();
+    }
   }
   private getUserDetails() : void {
     this.user = (JSON.parse(this.cookieService.get("user")));
+    this.href = this.href + "/?id=" + this.user.id;
+  }
+  private redirectToPublicProfile(id: string | null): void {
+    this.router.navigateByUrl("public"+"?id="+id);
   }
   public logout(): void {
     this.cookieService.delete("user");

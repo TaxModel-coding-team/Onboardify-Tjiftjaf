@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace User_Back_End.Logic
 {
-    public class UserLogic
+    public class UserLogic 
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
@@ -21,13 +21,19 @@ namespace User_Back_End.Logic
             _mapper = mapper;
         }
 
+        public UserViewModel GetUserByID(Guid userId)
+        {
+            UserViewModel userViewModel = _mapper.Map<UserViewModel>(_repository.GetUserByID(userId));
+            return userViewModel;
+        }
+
         public UserViewModel GetUser(UserViewModel userViewModel)
         {
             User user = _mapper.Map<User>(userViewModel);
             userViewModel = _mapper.Map<UserViewModel>(_repository.GetUser(user));
             if (userViewModel != null)
             {
-                userViewModel.qrCode = CreateQRCode(userViewModel);
+                userViewModel.QrCode = CreateQRCode(userViewModel);
             }
             return userViewModel;
         }
@@ -37,7 +43,7 @@ namespace User_Back_End.Logic
             userViewModel.ExperiencePoints = 0;
             var user = _mapper.Map<User>(userViewModel);
             userViewModel =  _mapper.Map<UserViewModel>(_repository.NewUser(user));
-            userViewModel.qrCode = CreateQRCode(userViewModel);
+            userViewModel.QrCode = CreateQRCode(userViewModel);
             return userViewModel;
         }
 
@@ -45,5 +51,6 @@ namespace User_Back_End.Logic
         {       
             return QRCodeWriter.CreateQrCode(userViewModel.ID.ToString(), 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).ToImage();
         }
+        
     }
 }

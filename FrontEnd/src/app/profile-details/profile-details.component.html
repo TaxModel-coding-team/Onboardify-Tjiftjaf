@@ -2,8 +2,11 @@
 </button>
 
 <div class="shell">
-    <qr-code class="qrcode" [value]="'{{user.username}}'" [size]=75></qr-code>
-    <div class="profiledetails">
+    <p id="pdf">
+    <qr-code class="qrcode" [value]=href [size]=90></qr-code>
+    </p>
+    <div class="profile-details">  
+    
         {{user.username}}<br/>
         {{user.email}}<br/>
         <div class="progress">

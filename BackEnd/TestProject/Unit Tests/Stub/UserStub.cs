@@ -38,5 +38,10 @@ namespace TestProject.Stub
                 return null;
             }
         }
+
+        public User GetUserByID(Guid userId)
+        {
+            return Tests.Find(u => u.ID.Equals(userId));
+        }
     }
 }
