@@ -1,12 +1,13 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using User_Back_End.ViewModels;
 
 namespace User_Back_End.Logic.LogicInterfaces
 {
-    public interface IUserLogic
+    public interface IUserSetter
     {
-        UserViewModel GetUser(UserViewModel userViewModel);
-        UserViewModel GetUserByID(Guid userId);
         UserViewModel NewUser(UserViewModel userViewModel);
     }
 }

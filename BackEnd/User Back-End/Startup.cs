@@ -42,7 +42,7 @@ namespace User_Back_End
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserLogic, UserLogic>();
+            services.AddScoped<IUserGetter, UserContainer>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
