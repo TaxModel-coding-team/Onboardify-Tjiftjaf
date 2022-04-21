@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using User_Back_End.Logic;
+using User_Back_End.Logic.LogicInterfaces;
 using User_Back_End.Models;
 using User_Back_End.ViewModels;
 
@@ -14,7 +15,7 @@ namespace User_Back_End.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly UserLogic _userLogic;
+        private readonly IUserLogic _userLogic;
         static HttpClient client = new HttpClient();
 
         static async Task RunAsync()
@@ -25,7 +26,7 @@ namespace User_Back_End.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public UserController(UserLogic userlogic)
+        public UserController(IUserLogic userlogic)
         {
             _userLogic = userlogic;
             RunAsync();

@@ -9,23 +9,21 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Xunit;
+using TestProject.TestModels;
+using TestProject.Stub;
+using User_Back_End.ViewModels;
+
 
 namespace TestProject.Tests
 {
     [TestClass]
-    class UserControllerTests
+    public class UserControllerTests
     {
         private HttpClient client;
+        private UserLogicStub stub;
 
         [TestInitialize]
-        public void Init()
-        {
-
-        }
-
-        [TestMethod]
-        public async Task GetUser_ReturnsUser_WhenReceivesUserId()
+        public async void Init()
         {
             var hostBuilder = new HostBuilder()
             .ConfigureWebHost(webHost =>
@@ -40,6 +38,27 @@ namespace TestProject.Tests
             });
             var host = await hostBuilder.StartAsync();
             client = host.GetTestClient();
+            List<UserViewModel> testData = new List<UserViewModel>();
+            for (int i = 0; i <= 5; i++)
+            {
+                Guid guid = Guid.NewGuid();
+                UserViewModel testModel = new UserViewModel();
+                testModel.ID = guid;
+                testData.Add(testModel);
+            }
+        }
+
+        [TestMethod]
+        public async void GetUser_ReturnsUser_WhenReceivesUserId()
+        {
+            Init();
+            Guid guid = Guid.NewGuid();
+            Console.WriteLine(guid);
+            TestGetUserByIdModel testModel = new TestGetUserByIdModel(guid);
+            
+            var response = await client.PostAsJsonAsync("/users/Get", testModel);
+
+            Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK);
         }
 
 
