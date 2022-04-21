@@ -32,15 +32,19 @@
           </li>
         </ul>
         <div style="color: #36393F">{{quest.description}}</div>
-        <div style="text-align: end; color: #5865F2">{{quest.points}}</div>
-      </div>
+        <div class="break"></div>
+        <button
+          class="accordion-scan-btn"
+          type="button"
+          (click)="ScanQRBtnClick(quest.id)">
+          Scan QR
+        </button>
+        <div style="align-self: flex-end; color: #5865F2">{{quest.points}}</div>
     </div>
   </div>
+</div>
 </div><br/>
 
 <!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
   <progress-bar progress="{{gainedExp}}"></progress-bar>
 </div> -->
-
-
-

@@ -20,6 +20,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { QRCodeModule } from 'angular2-qrcode';
 import {ProfilePublicComponent} from "./profile-public/profile-public.component";
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ScannerModalComponent} from "./Scanner/scanner-modal.component";
+import {MatOptionModule} from "@angular/material/core";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -43,10 +50,13 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     AchievementsComponent,
     ProfileDetailsComponent,
     ProfilePublicComponent,
-    
+    ScannerModalComponent,
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
     AppRoutingModule,
     HttpClientModule,
     ProgressBarModule,
@@ -55,7 +65,11 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     GlassModule,
     NgbModule,
     RouterModule,
-    QRCodeModule
+    QRCodeModule,
+    ZXingScannerModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     {

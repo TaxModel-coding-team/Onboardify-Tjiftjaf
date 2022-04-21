@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Scan QR Code</h2>
+<div>
+  <div class="scan-dropdown">
+    <mat-form-field>
+      <mat-label>Choose Cam</mat-label>
+      <mat-select [(ngModel)]="currentDevice" name="Device">
+        <mat-option *ngFor="let Device of availableCameras" [value]="Device.deviceId">
+          {{Device.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <zxing-scanner
+    [(device)]="currentDevice"
+    (camerasFound)="camerasFound($event)"
+    (scanSuccess)="onScanSuccess($event)">
+  </zxing-scanner>
+</div>
+<mat-dialog-actions>
+  <button mat-dialog-close class="dialog-close">Cancel</button>
+</mat-dialog-actions>

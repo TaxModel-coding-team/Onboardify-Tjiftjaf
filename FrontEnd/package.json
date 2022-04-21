@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
+    "@angular/cdk": "^13.3.4",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
@@ -25,6 +26,9 @@
     "@azure/msal-browser": "^2.22.1",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@nguniversal/express-engine": "^13.0.1",
+    "@zxing/browser": "^0.1.1",
+    "@zxing/library": "^0.19.1",
+    "@zxing/ngx-scanner": "^3.5.0",
     "angular-glass": "^1.0.1",
     "angular-progress-bar": "^1.0.11",
     "angular2-qrcode": "^2.0.3",

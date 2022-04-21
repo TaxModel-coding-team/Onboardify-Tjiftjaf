@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { Quest } from '../Models/quest';
 import { QuestService } from '../Services/quest.service';
+import { ScannerModalComponent } from '../Scanner/scanner-modal.component'
+import { MatDialog } from  '@angular/material/dialog';
 
 @Component({
   selector: 'app-quests',
@@ -18,7 +20,8 @@ export class QuestsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   constructor(private questService: QuestService,
-    private cookies: CookieService) { }
+    private cookies: CookieService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getQuests()
@@ -65,6 +68,13 @@ export class QuestsComponent implements OnInit, OnDestroy {
         }
       })
 
+    }
+
+    public ScanQRBtnClick(questId: number): void{
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+        data: { QuestId: questId },
+      });
     }
 
   //Unsubscribe from all made subscriptions to prevent background processes and possible memory leakage.
