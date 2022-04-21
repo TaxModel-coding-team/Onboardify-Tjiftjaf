@@ -16,7 +16,7 @@ export class QRDownloadComponent implements OnInit {
     public PreviewQRCodeDiv(){
       let Data: any = document.getElementById('pdf');
       html2canvas(Data).then((canvas => {
-        let fileWidth = 4000;
+        let fileWidth = 3500;
         let fileHeight = (canvas.height * fileWidth) / canvas.width;
       const  FileURI = canvas.toDataURL('image/png');
       let pdf = new jsPDF('p', 'mm', 'a4');
