@@ -27,6 +27,7 @@ import {ScannerModalComponent} from "./Scanner/scanner-modal.component";
 import {MatOptionModule} from "@angular/material/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import { QRDownloadComponent } from './QRDownload-page/QRDownload-page.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -51,7 +52,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     ProfileDetailsComponent,
     ProfilePublicComponent,
     ScannerModalComponent,
-
+    QRDownloadComponent,
+    
   ],
   imports: [
     BrowserModule,
