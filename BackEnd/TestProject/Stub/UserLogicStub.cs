@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using User_Back_End.ViewModels;
+using User_Back_End.Logic.LogicInterfaces;
 
 namespace TestProject.Stub
 {
-    public class UserLogicStub : User_Back_End.Logic.LogicInterfaces.IUserLogic
+    public class UserLogicStub : IUserGetter, IUserSetter
     {
         public List<UserViewModel> viewModels;
 

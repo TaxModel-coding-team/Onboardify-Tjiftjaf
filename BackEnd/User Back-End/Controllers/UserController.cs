@@ -15,7 +15,8 @@ namespace User_Back_End.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly IUserLogic _userLogic;
+        private readonly IUserGetter _userLogic;
+        private readonly IUserSetter _userSetter;
         static HttpClient client = new HttpClient();
 
         static async Task RunAsync()
@@ -26,8 +27,9 @@ namespace User_Back_End.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public UserController(IUserLogic userlogic)
+        public UserController(IUserGetter userlogic, IUserSetter userSetter)
         {
+            _userSetter = userSetter;
             _userLogic = userlogic;
             RunAsync();
         }
@@ -50,7 +52,7 @@ namespace User_Back_End.Controllers
         {
             if (userViewModel.Username != null && userViewModel.Email != null)
             {
-                userViewModel = _userLogic.NewUser(userViewModel);
+                userViewModel = _userSetter.NewUser(userViewModel);
                 await CreateUserQuests(userViewModel);
                 return CreatedAtAction("CreateUser", userViewModel);
             }
