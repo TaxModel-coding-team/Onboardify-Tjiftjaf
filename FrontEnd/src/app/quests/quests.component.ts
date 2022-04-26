@@ -70,6 +70,12 @@ export class QuestsComponent implements OnInit, OnDestroy {
 
     }
 
+    public ScanQRBtnClickNew(): void {
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+      });
+    }
+
     public ScanQRBtnClick(questId: number): void{
       const dialogRef = this.dialog.open(ScannerModalComponent, {
         width: '600px',
