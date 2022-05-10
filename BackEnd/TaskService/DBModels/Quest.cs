@@ -12,6 +12,8 @@ namespace back_end.Models
         public string Category { get; set; }
         public string Description { get; set; }
         public int Points { get; set; }
+
+        public string niveau { get; set; }
         
         // Relationships
         public virtual ICollection<SubQuest> SubQuests { get; set; }

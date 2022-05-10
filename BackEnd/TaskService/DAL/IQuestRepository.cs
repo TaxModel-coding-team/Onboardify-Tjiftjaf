@@ -12,7 +12,9 @@ namespace back_end.DAL
         ICollection<Quest> GetAllQuests();
         Quest GetQuestById(Guid id);
         bool CompleteQuest(QuestUserManagement questToComplete);
-    
         void NewUserQuests(List<QuestUserManagement> questUserManagement);
+        ICollection<Quest> GetAllBeginnerQuests();
+        bool AssignNewUserQuests(List<QuestUserManagement> beginnerQuests);
+        bool AssignQRQuest(QuestUserManagement questUserManagement);
     }
 }

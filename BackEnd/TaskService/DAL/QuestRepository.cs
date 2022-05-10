@@ -83,5 +83,48 @@ namespace back_end.DAL
 
             return false;
         }
+
+        /// <summary>
+        /// Gets all beginner quests
+        /// </summary>
+        /// <returns>List with subQuests</returns>
+        public ICollection<Quest> GetAllBeginnerQuests()
+        {
+            List<Quest> result = _context.Quest.Where(q => q.niveau == "Beginner").ToList();
+            return result;
+            
+        }
+
+        /// <summary>
+        /// Assign new user quests
+        /// </summary>
+        /// <param name="beginnerQuests">List with quests to assign</param>
+        /// <returns>Boolean</returns>
+        public bool AssignNewUserQuests(List<QuestUserManagement> beginnerQuests)
+        {
+            _context.QuestUserManagement.AddRange(beginnerQuests);
+            var result =_context.SaveChanges();
+            if(result != 0 && result < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
+        }
+
+        /// <summary>
+        /// Assign one quest to a user
+        /// </summary>
+        /// <param name="questUserManagement">From the quest</param>
+        /// <returns>List with subQuests</returns>
+        public bool AssignQRQuest(QuestUserManagement questUserManagement)
+        {
+            _context.QuestUserManagement.AddRange(questUserManagement);
+            return true;
+        }
     }
 }
