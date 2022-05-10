@@ -7,12 +7,11 @@ namespace back_end.Models
     public class Quest
     {
         //Properties
-        [Key] [Required] public Guid QuestId { get; set; }
+        [Key] [Required] public Guid Id { get; set; }
         public string Title { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
         public int Points { get; set; }
-
         public string Niveau { get; set; }
         
         // Relationships
@@ -20,15 +19,15 @@ namespace back_end.Models
 
         public Quest(Guid id, string title, string category, string description, int points)
         {
-            QuestId = id;
+            Id = id;
             Title = title;
             Category = category;
             Description = description;
-            Points = points;  
+            Points = points;
         }
         public Quest(Guid id, string title, string category, string description, int points, string niveau)
         {
-            QuestId = id;
+            Id = id;
             Title = title;
             Category = category;
             Description = description;

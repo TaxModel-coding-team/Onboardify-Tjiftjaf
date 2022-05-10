@@ -50,7 +50,7 @@ namespace TestProject.Stub
         public Quest GetQuestById(Guid id)
         {
             _quests.Add(new Quest(new Guid("623B71BF-C284-47DC-8C22-0AD583393221"), "Test1", "Test1", "Test1", 10));
-            if (id == _quests[^1].QuestId)
+            if (id == _quests[^1].Id)
             {
                 return _quests[^1];
             }

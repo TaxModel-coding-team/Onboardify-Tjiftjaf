@@ -29,7 +29,7 @@ namespace back_end.DAL
 
         public Quest GetQuestById(Guid id)
         {
-            return _context.Quest.SingleOrDefault(x => x.QuestId == id);
+            return _context.Quest.SingleOrDefault(x => x.Id == id);
         }
         
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)

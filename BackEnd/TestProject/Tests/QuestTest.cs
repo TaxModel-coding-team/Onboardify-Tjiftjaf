@@ -56,7 +56,7 @@ namespace TestProject.Tests
         {
             Quest expected = new Quest(new Guid("623B71BF-C284-47DC-8C22-0AD583393221"), "Test1", "Test1", "Test1", 10);
             Quest result = _questStub.GetQuestById(new Guid("623B71BF-C284-47DC-8C22-0AD583393221"));
-            Assert.AreEqual(expected.QuestId, result.QuestId);
+            Assert.AreEqual(expected.Id, result.Id);
             Assert.AreEqual(expected.Title, result.Title);
             Assert.AreEqual(expected.Description, result.Description);
             Assert.AreEqual(expected.Category, result.Category);
@@ -68,7 +68,7 @@ namespace TestProject.Tests
         {
             Quest expected = new Quest(new Guid("72809FF9-D05A-40CA-B44E-6E4753F211BA"), "Test2", "Test2", "Test2", 20);
             Quest result = _questStub.GetQuestById(new Guid("72809FF9-D05A-40CA-B44E-6E4753F211BA"));
-            Assert.AreNotEqual(expected.QuestId, result.QuestId);
+            Assert.AreNotEqual(expected.Id, result.Id);
             Assert.AreNotEqual(expected.Title, result.Title);
             Assert.AreNotEqual(expected.Description, result.Description);
             Assert.AreNotEqual(expected.Category, result.Category);
@@ -100,7 +100,7 @@ namespace TestProject.Tests
 
             //assert
             Assert.AreEqual(userViewModel.Id, _questStub.questusermanagement[0].UserId);
-            Assert.AreEqual(quest.QuestId, _questStub.questusermanagement[0].QuestId);
+            Assert.AreEqual(quest.Id, _questStub.questusermanagement[0].QuestId);
             Assert.IsTrue(Result);
         }
 
