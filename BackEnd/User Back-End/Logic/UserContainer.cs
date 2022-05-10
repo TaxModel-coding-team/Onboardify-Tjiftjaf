@@ -12,7 +12,7 @@ using User_Back_End.Logic.LogicInterfaces;
 
 namespace User_Back_End.Logic
 {
-    public class UserContainer : IUserGetter
+    public class UserContainer : IUserGetter, IUserSetter
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;

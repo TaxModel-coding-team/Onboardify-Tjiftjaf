@@ -16,6 +16,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
 
   //Fields
   public quests: Quest[] = [];
+  public completeQuests: Quest[] = [];
   public greeting: String = '';
   private subscription: Subscription = new Subscription();
 
@@ -27,12 +28,17 @@ export class QuestsComponent implements OnInit, OnDestroy {
     this.getQuests()
     this.getGreeting();
 
+
   }
 
   //Getting all quests from API and caching to observable
   public getQuests(): void {
       this.subscription.add(this.questService.getQuests()
-      .subscribe(quest => this.quests = quest))
+      .subscribe(quest => 
+        quest.forEach(element =>{
+          if(element.completed != true) this.quests = quest;
+        })
+        ));
   }
 
   //Simple greeting based on your time of day

@@ -7,5 +7,6 @@ export interface Quest {
     category: string;
     description: string;
     points: number;
+    completed: boolean;
     subQuests: Subquest[];
   }
