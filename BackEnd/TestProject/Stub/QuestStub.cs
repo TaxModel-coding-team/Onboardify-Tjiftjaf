@@ -8,7 +8,8 @@ namespace TestProject.Stub
     public class QuestStub : IQuestRepository
     {
         private ICollection<QuestUserManagement> _test = new List<QuestUserManagement>();
-        private List<Quest> _quests = new List<Quest>();
+        public List<Quest> _quests = new List<Quest>();
+        public List<QuestUserManagement> questusermanagement = new List<QuestUserManagement>();
 
         public QuestStub()
         {
@@ -49,7 +50,7 @@ namespace TestProject.Stub
         public Quest GetQuestById(Guid id)
         {
             _quests.Add(new Quest(new Guid("623B71BF-C284-47DC-8C22-0AD583393221"), "Test1", "Test1", "Test1", 10));
-            if (id == _quests[^1].Id)
+            if (id == _quests[^1].QuestId)
             {
                 return _quests[^1];
             }
@@ -69,6 +70,28 @@ namespace TestProject.Stub
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
         {
             throw new NotImplementedException();
+        }
+
+        public ICollection<Quest> GetAllBeginnerQuests()
+        {
+            ICollection<Quest> quests = new List<Quest>();
+            foreach(Quest quest in _quests)
+            {
+                if(quest.Niveau == "Beginner")
+                {
+                    quests.Add(quest);
+                }
+            }
+            return quests;
+        }
+
+        public bool AssignUserQuests(List<QuestUserManagement> quests)
+        {
+            foreach(QuestUserManagement quest in quests)
+            {
+                questusermanagement.Add(quest);
+            }
+            return true;
         }
     }
 }

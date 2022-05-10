@@ -14,9 +14,9 @@ namespace back_end.Profiles
         {
             //source <--> target
             CreateMap<Quest, QuestViewModel>().ReverseMap();
-            CreateMap<SubQuest, SubQuestViewModel>().ReverseMap();
+            CreateMap<SubQuest, UserViewModel>().ReverseMap();
             //CreateMap<QuestUserManagement, QuestCompletionViewModel>().ReverseMap();
-            CreateMap<List<SubQuest>, List<SubQuestViewModel>>().ReverseMap();
+            CreateMap<List<SubQuest>, List<UserViewModel>>().ReverseMap();
         }
         
     }

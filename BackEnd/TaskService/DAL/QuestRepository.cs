@@ -29,7 +29,7 @@ namespace back_end.DAL
 
         public Quest GetQuestById(Guid id)
         {
-            return _context.Quest.SingleOrDefault(x => x.Id == id);
+            return _context.Quest.SingleOrDefault(x => x.QuestId == id);
         }
         
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
@@ -82,6 +82,60 @@ namespace back_end.DAL
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Gets all beginner quests
+        /// </summary>
+        /// <returns>List with subQuests</returns>
+        public ICollection<Quest> GetAllBeginnerQuests()
+        {
+            List<Quest> result = _context.Quest.Where(q => q.Niveau == "Beginner").ToList();
+            return result;
+            
+        }
+
+        /// <summary>
+        /// Assign new user quests
+        /// </summary>
+        /// <param name="beginnerQuests">List with quests to assign</param>
+        /// <returns>Boolean</returns>
+        public bool AssignUserQuests(List<QuestUserManagement> quests)
+        {
+            foreach(QuestUserManagement quest in quests)
+            {
+                _context.QuestUserManagement.AddRange(quest);
+            }
+            var result =_context.SaveChanges();
+            if(result != 0 && result < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
+        }
+
+        /// <summary>
+        /// Assign one quest to a user
+        /// </summary>
+        /// <param name="questUserManagement">From the quest</param>
+        /// <returns>List with subQuests</returns>
+        public bool AssignQRQuest(QuestUserManagement questUserManagement)
+        {
+            _context.QuestUserManagement.AddRange(questUserManagement);
+            var result = _context.SaveChanges();
+            if (result != 0 && result < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -18,17 +18,6 @@ namespace back_end.Logic
             this._repository = repository;
             _mapper = mapper;
         }
-        
-        //TODO find out what this is.
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newUserQuests"></param>
-        public void NewUserQuests(List<QuestCompletionViewModel> newUserQuests)
-        {
-            List<QuestUserManagement> userManagements = _mapper.Map<List<QuestUserManagement>>(newUserQuests);
-            _repository.NewUserQuests(userManagements);
-        }
 
         /// <summary>
         /// Gets all the quests from the database
@@ -40,6 +29,61 @@ namespace back_end.Logic
             List<QuestViewModel> questViewModels = _mapper.Map<List<QuestViewModel>>(quests);
 
             return questViewModels;
+        }
+
+        /// <summary>
+        /// Assigns BeginnerqQuests for specific user
+        /// </summary>
+        /// <param name="userViewModel">the Guid from the user in a userViewModel</param>
+        /// <returns>Boolean true</returns>
+        public bool AssignBeginnerQuestForUser(UserViewModel userViewModel)
+        {
+            Guid id = new Guid("00000000-0000-0000-0000-000000000000");
+            if (userViewModel.Id != id)
+            {
+                List<QuestUserManagement> beginnerQuests = new List<QuestUserManagement>();
+                foreach (Quest beginnerquest in _repository.GetAllBeginnerQuests())
+                {
+                    beginnerQuests.Add(_mapper.Map<QuestUserManagement>(beginnerquest));
+
+                }
+
+                foreach (QuestUserManagement quest in beginnerQuests)
+                {
+                    quest.UserId = userViewModel.Id;
+                }
+                return _repository.AssignUserQuests(beginnerQuests);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Assigns quests for specific user
+        /// </summary>
+        /// <param name="questUserViewModel">the Guid from the user and Guid from a quest in a questUserViewmodel</param>
+        /// <returns>Boolean true</returns>
+        public bool AssignQRQuestForUser(QuestUserViewModel questUserViewModel)
+        {
+            Guid id = new Guid("00000000-0000-0000-0000-000000000000");
+            if (questUserViewModel.Id != id && questUserViewModel.QuestId != id)
+            {
+                List<QuestUserManagement> quests = new List<QuestUserManagement>();
+                quests.Add(_mapper.Map<QuestUserManagement>(questUserViewModel));
+                foreach(QuestUserManagement quest in quests)
+                {
+                    quest.UserId = questUserViewModel.Id;
+                }
+                return _repository.AssignUserQuests(quests);
+            }
+            else
+            {
+                return false;
+            }
+            
+
         }
 
         /// <summary>
