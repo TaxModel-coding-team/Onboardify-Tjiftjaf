@@ -38,8 +38,26 @@ namespace back_end.Logic
         /// <returns>Boolean true</returns>
         public bool AssignBeginnerQuestForUser(UserViewModel userViewModel)
         {
-            List<QuestUserManagement> beginnerQuests = _mapper.Map<List<QuestUserManagement>>(_repository.GetAllBeginnerQuests());
-            return _repository.AssignNewUserQuests(beginnerQuests, userViewModel);
+            Guid id = new Guid("00000000-0000-0000-0000-000000000000");
+            if (userViewModel.Id != id)
+            {
+                List<QuestUserManagement> beginnerQuests = new List<QuestUserManagement>();
+                foreach (Quest beginnerquest in _repository.GetAllBeginnerQuests())
+                {
+                    beginnerQuests.Add(_mapper.Map<QuestUserManagement>(beginnerquest));
+
+                }
+
+                foreach (QuestUserManagement quest in beginnerQuests)
+                {
+                    quest.UserId = userViewModel.Id;
+                }
+                return _repository.AssignUserQuests(beginnerQuests);
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -49,7 +67,23 @@ namespace back_end.Logic
         /// <returns>Boolean true</returns>
         public bool AssignQRQuestForUser(QuestUserViewModel questUserViewModel)
         {
-            return _repository.AssignQRQuest(_mapper.Map<QuestUserManagement>(questUserViewModel));
+            Guid id = new Guid("00000000-0000-0000-0000-000000000000");
+            if (questUserViewModel.Id != id && questUserViewModel.QuestId != id)
+            {
+                List<QuestUserManagement> quests = new List<QuestUserManagement>();
+                quests.Add(_mapper.Map<QuestUserManagement>(questUserViewModel));
+                foreach(QuestUserManagement quest in quests)
+                {
+                    quest.UserId = questUserViewModel.Id;
+                }
+                return _repository.AssignUserQuests(quests);
+            }
+            else
+            {
+                return false;
+            }
+            
+
         }
 
         /// <summary>

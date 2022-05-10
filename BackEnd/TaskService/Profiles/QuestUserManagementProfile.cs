@@ -13,6 +13,7 @@ namespace back_end.Profiles
     {
         public QuestUserManagementProfile(){
             CreateMap<QuestUserViewModel, QuestUserManagement>().ReverseMap();
+            CreateMap<QuestUserManagement, Quest>().ReverseMap();
         }
     }
 }

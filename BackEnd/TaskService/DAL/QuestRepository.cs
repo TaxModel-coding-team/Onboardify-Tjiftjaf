@@ -29,7 +29,7 @@ namespace back_end.DAL
 
         public Quest GetQuestById(Guid id)
         {
-            return _context.Quest.SingleOrDefault(x => x.Id == id);
+            return _context.Quest.SingleOrDefault(x => x.QuestId == id);
         }
         
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
@@ -90,7 +90,7 @@ namespace back_end.DAL
         /// <returns>List with subQuests</returns>
         public ICollection<Quest> GetAllBeginnerQuests()
         {
-            List<Quest> result = _context.Quest.Where(q => q.niveau == "Beginner").ToList();
+            List<Quest> result = _context.Quest.Where(q => q.Niveau == "Beginner").ToList();
             return result;
             
         }
@@ -100,9 +100,12 @@ namespace back_end.DAL
         /// </summary>
         /// <param name="beginnerQuests">List with quests to assign</param>
         /// <returns>Boolean</returns>
-        public bool AssignNewUserQuests(List<QuestUserManagement> beginnerQuests)
+        public bool AssignUserQuests(List<QuestUserManagement> quests)
         {
-            _context.QuestUserManagement.AddRange(beginnerQuests);
+            foreach(QuestUserManagement quest in quests)
+            {
+                _context.QuestUserManagement.AddRange(quest);
+            }
             var result =_context.SaveChanges();
             if(result != 0 && result < 0)
             {
@@ -124,7 +127,15 @@ namespace back_end.DAL
         public bool AssignQRQuest(QuestUserManagement questUserManagement)
         {
             _context.QuestUserManagement.AddRange(questUserManagement);
-            return true;
+            var result = _context.SaveChanges();
+            if (result != 0 && result < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

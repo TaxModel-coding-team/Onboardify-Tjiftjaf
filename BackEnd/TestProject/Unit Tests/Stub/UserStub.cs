@@ -28,7 +28,7 @@ namespace TestProject.Stub
 
         public User GetUser(User user)
         {
-            Tests.Add(new User(new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A"), "464748@student.fontys.nl", "jitske"));
+            Tests.Add(new User(new Guid("55358E6B-D4AE-4293-A493-1061FBD36B7A"), "464748@student.fontys.nl", "jitske", 6));
             if (user.ID == Tests[0].ID)
             {
                 return Tests[0];

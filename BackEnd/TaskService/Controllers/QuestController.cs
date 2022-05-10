@@ -49,7 +49,7 @@ namespace back_end.Controllers
 
         [HttpPost]
         [Route("assignQRQuests")]
-        public ActionResult<QuestUserViewModel> assignQRQuest([FromBody] QuestUserViewModel questUserViewModel)
+        public ActionResult<QuestUserViewModel> AssignQRQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
             return Ok(_questlogic.AssignQRQuestForUser(questUserViewModel));
         }
