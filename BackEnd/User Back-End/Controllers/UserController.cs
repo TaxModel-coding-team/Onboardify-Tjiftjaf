@@ -38,7 +38,8 @@ namespace User_Back_End.Controllers
         [Route("Login")]
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
         {
-            if (userViewModel != null)
+            Guid guid = userViewModel.ID;
+            if (userViewModel.ID != guid) 
             {
                 userViewModel = _userLogic.GetUser(userViewModel);
                 return Ok(userViewModel);

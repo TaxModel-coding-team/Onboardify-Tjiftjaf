@@ -44,13 +44,10 @@ namespace back_end.Logic
                 List<QuestUserManagement> beginnerQuests = new List<QuestUserManagement>();
                 foreach (Quest beginnerquest in _repository.GetAllBeginnerQuests())
                 {
-                    beginnerQuests.Add(_mapper.Map<QuestUserManagement>(beginnerquest));
-
-                }
-
-                foreach (QuestUserManagement quest in beginnerQuests)
-                {
-                    quest.UserId = userViewModel.Id;
+                    QuestUserManagement questusermanagement = new QuestUserManagement();
+                    questusermanagement.QuestId = beginnerquest.Id;
+                    questusermanagement.UserId = userViewModel.Id;
+                    beginnerQuests.Add(questusermanagement);
                 }
                 return _repository.AssignUserQuests(beginnerQuests);
             }

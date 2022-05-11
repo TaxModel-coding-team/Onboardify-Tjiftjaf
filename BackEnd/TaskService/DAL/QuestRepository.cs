@@ -104,7 +104,7 @@ namespace back_end.DAL
         {
             foreach(QuestUserManagement quest in quests)
             {
-                _context.QuestUserManagement.AddRange(quest);
+                _context.QuestUserManagement.Add(quest);
             }
             var result =_context.SaveChanges();
             if(result != 0 && result < 0)
@@ -126,7 +126,7 @@ namespace back_end.DAL
         /// <returns>List with subQuests</returns>
         public bool AssignQRQuest(QuestUserManagement questUserManagement)
         {
-            _context.QuestUserManagement.AddRange(questUserManagement);
+            _context.QuestUserManagement.Add(questUserManagement);
             var result = _context.SaveChanges();
             if (result != 0 && result < 0)
             {
