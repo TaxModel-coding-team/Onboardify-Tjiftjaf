@@ -10,8 +10,8 @@ using User_Back_End.DAL;
 namespace User_Back_End.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20220510134742_DB-User")]
-    partial class DBUser
+    [Migration("20220511082902_User")]
+    partial class User
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

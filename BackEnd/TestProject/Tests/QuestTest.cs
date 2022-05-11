@@ -21,11 +21,14 @@ namespace TestProject.Tests
         public void GetQuestsByUserCorrect()
         {
             List<QuestUserManagement> expected = new List<QuestUserManagement>() {
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("A9099ADA-B338-4ACE-B6BC-E13EC0BC1FE9"), false),
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("B776559F-81D3-41A9-91ED-7E22DA41F763"), false),
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("1EC79F65-9E4D-4B2F-9AB8-C373F6D849B5"), false)
             };
             List<QuestUserManagement> result = _questStub.GetQuestsByUser(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A")).ToList();
@@ -40,11 +43,14 @@ namespace TestProject.Tests
         public void GetQuestsByUserFalse()
         {
             List<QuestUserManagement> expected = new List<QuestUserManagement>() {
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("A9099ADA-B338-4ACE-B6BC-E13EC0BC1FE9"), false),
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("B776559F-81D3-41A9-91ED-7E22DA41F763"), false),
-                new QuestUserManagement(new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
+                new QuestUserManagement(new Guid("b9b9a3b2-9301-4376-b5f7-7bb9d5d8c8ea"),
+                new Guid("A48B0235-5A95-4735-A05D-5AB20D08392A"),
                     new Guid("1EC79F65-9E4D-4B2F-9AB8-C373F6D849B5"), false)
             };
             List<QuestUserManagement> result = _questStub.GetQuestsByUser(new Guid("8D2F1CAF-B64C-4B78-A758-24F0084E36A2")).ToList();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace back_end.Migrations
 {
-    public partial class DB : Migration
+    public partial class QuestUserManagement : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,12 +27,14 @@ namespace back_end.Migrations
                 name: "QuestUserManagement",
                 columns: table => new
                 {
+                    QuestUserManagementId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     QuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Completed = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_QuestUserManagement", x => x.QuestUserManagementId);
                 });
 
             migrationBuilder.CreateTable(

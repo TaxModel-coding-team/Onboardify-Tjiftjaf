@@ -10,8 +10,8 @@ using back_end.DAL;
 namespace back_end.Migrations
 {
     [DbContext(typeof(QuestContext))]
-    [Migration("20220510134348_DB")]
-    partial class DB
+    [Migration("20220511082758_QuestUserManagement")]
+    partial class QuestUserManagement
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,6 +50,11 @@ namespace back_end.Migrations
 
             modelBuilder.Entity("back_end.Models.QuestUserManagement", b =>
                 {
+                    b.Property<Guid>("QuestUserManagementId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
                     b.Property<bool>("Completed")
                         .HasColumnType("bit");
 
@@ -58,6 +63,8 @@ namespace back_end.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("QuestUserManagementId");
 
                     b.ToTable("QuestUserManagement");
                 });
