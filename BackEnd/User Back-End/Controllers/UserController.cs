@@ -38,10 +38,9 @@ namespace User_Back_End.Controllers
         [Route("Login")]
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
         {
-            Guid guid = userViewModel.ID;
-            if (userViewModel.ID != guid) 
+            userViewModel = _userLogic.GetUser(userViewModel);
+            if (userViewModel.Username != null) 
             {
-                userViewModel = _userLogic.GetUser(userViewModel);
                 return Ok(userViewModel);
             }
             return StatusCode(404, "User doesn't exist");

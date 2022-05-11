@@ -107,13 +107,13 @@ namespace back_end.DAL
                 _context.QuestUserManagement.Add(quest);
             }
             var result =_context.SaveChanges();
-            if(result != 0 && result < 0)
+            if(result != 0 && result > 0)
             {
                 return true;
             }
             else
             {
-                return false;
+                return false ;
             }
 
             
@@ -126,11 +126,18 @@ namespace back_end.DAL
         /// <returns>List with subQuests</returns>
         public bool AssignQRQuest(QuestUserManagement questUserManagement)
         {
-            _context.QuestUserManagement.Add(questUserManagement);
-            var result = _context.SaveChanges();
-            if (result != 0 && result < 0)
+            if (_context.QuestUserManagement.Any(o => o.QuestId != questUserManagement.QuestId) == true)
             {
-                return true;
+                _context.QuestUserManagement.Add(questUserManagement);
+                var result = _context.SaveChanges();
+                if (result != 0 && result < 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
