@@ -104,7 +104,10 @@ namespace back_end.DAL
         {
             foreach(QuestUserManagement quest in quests)
             {
-                _context.QuestUserManagement.Add(quest);
+                if (_context.QuestUserManagement.Any(o => o.QuestId == quest.QuestId && o.UserId == quest.UserId) == false)
+                    {
+                    _context.QuestUserManagement.Add(quest);
+                }
             }
             var result =_context.SaveChanges();
             if(result != 0 && result > 0)
@@ -114,35 +117,7 @@ namespace back_end.DAL
             else
             {
                 return false ;
-            }
-
-            
-        }
-
-        /// <summary>
-        /// Assign one quest to a user
-        /// </summary>
-        /// <param name="questUserManagement">From the quest</param>
-        /// <returns>List with subQuests</returns>
-        public bool AssignQRQuest(QuestUserManagement questUserManagement)
-        {
-            if (_context.QuestUserManagement.Any(o => o.QuestId != questUserManagement.QuestId) == true)
-            {
-                _context.QuestUserManagement.Add(questUserManagement);
-                var result = _context.SaveChanges();
-                if (result != 0 && result < 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            }   
         }
     }
 }

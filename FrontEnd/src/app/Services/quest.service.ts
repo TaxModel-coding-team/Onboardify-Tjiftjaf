@@ -4,6 +4,7 @@ import { Quest } from '../Models/quest';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
+import { questUserViewModel } from '../Models/QuestUserViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class QuestService {
   private API_URL= environment.API_URL;
   private questURL= this.API_URL + '/quests'
   private completeQuestURL = this.questURL + '/complete'
+  private assignQuestURL = this.questURL + '/assignQRQuests'
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -33,4 +35,16 @@ export class QuestService {
   {
     return this.http.put<Boolean>(this.completeQuestURL, {userId, subquestId});
   }
+
+  
+  public assignQuestByQR(questUserViewModel: questUserViewModel): Boolean
+  {
+    console.log("Api call");
+    console.log(questUserViewModel.QuestId)
+    //let model = {Id: questUserViewModel.Id, QuestId: questUserViewModel.QuestId}
+   this.http.post<boolean>(this.assignQuestURL, questUserViewModel, this.httpOptions).subscribe(response =>  {
+    console.log(response + " " + new Date()); 
+    return response.valueOf()})
+   return false;    
+    }
 }

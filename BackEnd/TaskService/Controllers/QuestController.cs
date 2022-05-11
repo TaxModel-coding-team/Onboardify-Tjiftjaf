@@ -51,6 +51,8 @@ namespace back_end.Controllers
         [Route("assignQRQuests")]
         public ActionResult<QuestUserViewModel> AssignQRQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
+            Console.WriteLine("Assign QR Quest");
+            
             return Ok(_questlogic.AssignQRQuestForUser(questUserViewModel));
         }
     }
