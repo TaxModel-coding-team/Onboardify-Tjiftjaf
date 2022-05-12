@@ -33,9 +33,9 @@ namespace back_end.Controllers
 
         [HttpPut]
         [Route("complete")]
-        public IActionResult CompleteQuest([FromBody] QuestCompletionViewModel completedQuest)
+        public IActionResult CompleteQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
-            return Ok(_questlogic.CompleteQuest(completedQuest));
+            return Ok(_questlogic.CompleteQuest(questUserViewModel));
         }
 
         

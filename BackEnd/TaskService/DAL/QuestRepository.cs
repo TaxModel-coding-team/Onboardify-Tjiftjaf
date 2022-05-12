@@ -72,15 +72,13 @@ namespace back_end.DAL
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
-            
-            if(result != null)
+            var Result = _context.QuestUserManagement.Where(o => o.QuestId == questToComplete.QuestId && o.UserId == questToComplete.UserId).First();//_context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
+           if(Result != null)
             {
-                result.Completed = true;
+                Result.Completed = true;
                 _context.SaveChanges();
                 return true;
             }
-
             return false;
         }
 

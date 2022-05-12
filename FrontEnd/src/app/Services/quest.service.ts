@@ -31,9 +31,15 @@ export class QuestService {
     return this.http.get<Quest[]>(this.questURL + "/" + JSON.parse(this.cookies.get("user")).id);
   }
 
-  public completeQuest(userId: string, subquestId: string): Observable<Boolean>
+  public completeQuest(questUserViewModel: questUserViewModel): Boolean
   {
-    return this.http.put<Boolean>(this.completeQuestURL, {userId, subquestId});
+    console.log("Api call");
+    console.log(questUserViewModel.QuestId)
+    //let model = {Id: questUserViewModel.Id, QuestId: questUserViewModel.QuestId}
+   this.http.put<boolean>(this.completeQuestURL, questUserViewModel, this.httpOptions).subscribe(response =>  {
+    console.log(response); 
+    return response.valueOf()})
+   return false;    
   }
 
   
@@ -43,7 +49,7 @@ export class QuestService {
     console.log(questUserViewModel.QuestId)
     //let model = {Id: questUserViewModel.Id, QuestId: questUserViewModel.QuestId}
    this.http.post<boolean>(this.assignQuestURL, questUserViewModel, this.httpOptions).subscribe(response =>  {
-    console.log(response + " " + new Date()); 
+    console.log(response); 
     return response.valueOf()})
    return false;    
     }

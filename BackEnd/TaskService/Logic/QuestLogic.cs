@@ -65,13 +65,13 @@ namespace back_end.Logic
         public bool AssignQRQuestForUser(QuestUserViewModel questUserViewModel)
         {
             Guid id = new Guid("00000000-0000-0000-0000-000000000000");
-            if (questUserViewModel.Id != id && questUserViewModel.QuestId != id)
+            if (questUserViewModel.UserId != id && questUserViewModel.QuestId != id)
             {
                 List<QuestUserManagement> quests = new List<QuestUserManagement>();
                 quests.Add(_mapper.Map<QuestUserManagement>(questUserViewModel));
                 foreach(QuestUserManagement quest in quests)
                 {
-                    quest.UserId = questUserViewModel.Id;
+                    quest.UserId = questUserViewModel.UserId;
                 }
                 return _repository.AssignUserQuests(quests);
             }
@@ -106,9 +106,9 @@ namespace back_end.Logic
         /// </summary>
         /// <param name="questToComplete">This is the quest that gets completed</param>
         /// <returns>bool</returns>
-        public bool CompleteQuest(QuestCompletionViewModel questToComplete)
+        public bool CompleteQuest(QuestUserViewModel questUserViewModel)
         {
-            return _repository.CompleteQuest(_mapper.Map<QuestUserManagement>(questToComplete));
+            return _repository.CompleteQuest(_mapper.Map<QuestUserManagement>(questUserViewModel));
         }
     }
 }

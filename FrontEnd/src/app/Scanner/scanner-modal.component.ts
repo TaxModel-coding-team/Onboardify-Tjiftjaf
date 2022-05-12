@@ -36,10 +36,11 @@ export class ScannerModalComponent {
     let userId = JSON.parse(this.cookieService.get("user")).id
     if(result.includes("complete") == true)
     {
-      this.questUserViewModel.Id = userId;
+      this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(0,-9);
+      console.log(this.questService.completeQuest(this.questUserViewModel))
     } else{
-      this.questUserViewModel.Id = userId;
+      this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(1,-1);
       console.log(this.questService.assignQuestByQR(this.questUserViewModel));
     } 

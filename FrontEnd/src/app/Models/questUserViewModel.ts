@@ -1,4 +1,4 @@
 export interface questUserViewModel{
-    Id: number
+    UserId: number
     QuestId: string
 }
