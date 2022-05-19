@@ -40,10 +40,10 @@ namespace User_Back_End.Controllers
         {   
             try
             {
-                UserViewModel userViewModelinDB = _userLogic.GetUser(userViewModel);
-                if (userViewModelinDB != null)
+                UserViewModel userViewModelInDB = _userLogic.GetUser(userViewModel);
+                if (userViewModelInDB != null)
                 {
-                    return Ok(userViewModel);
+                    return Ok(userViewModelInDB);
                 }
                 else throw new Exception();
             }

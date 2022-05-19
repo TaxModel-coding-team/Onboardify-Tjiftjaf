@@ -45,6 +45,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
   // Sorting Quests based on completion\
   private sortQuests(unsortedQuests : Quest[]): void{
     unsortedQuests.forEach(element => {
+      console.log(element.completed);
       if(element.completed === true) this.completedQuests.push(element);
       else this.quests.push(element);
     });
@@ -65,25 +66,6 @@ export class QuestsComponent implements OnInit, OnDestroy {
     }
     this.greeting += JSON.parse(this.cookies.get("user")).username
   }
-
-    public completeQuest(subquestId: number): void {
-
-      let userId = JSON.parse(this.cookies.get("user")).id
-
-      this.questService.completeQuest(userId.toString())
-        .subscribe((response) =>{
-          console.log(response);
-        })
-
-      var subQuest;
-      this.quests.forEach(quest => {
-        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == subquestId)){
-          subQuest.completed = true;
-          return;
-        }
-      })
-
-    }
 
     public ScanQRBtnClickNew(): void {
       const dialogRef = this.dialog.open(ScannerModalComponent, {
