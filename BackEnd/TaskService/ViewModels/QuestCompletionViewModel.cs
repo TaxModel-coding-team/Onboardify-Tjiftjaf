@@ -10,7 +10,6 @@ namespace back_end.ViewModels
     {
         [Required]
         public Guid UserId { get; set; }
-        [Required]
         public Guid SubQuestId { get; set; }
         public bool Completed { get; set; }
     }

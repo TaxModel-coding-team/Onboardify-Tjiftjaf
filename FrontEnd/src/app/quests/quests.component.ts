@@ -57,24 +57,7 @@ export class QuestsComponent implements OnInit, OnDestroy {
     this.greeting += JSON.parse(this.cookies.get("user")).username
   }
 
-    public completeQuest(subquestId: number): void {
 
-      let userId = JSON.parse(this.cookies.get("user")).id
-
-      this.questService.completeQuest(userId.toString(), subquestId.toString())
-        .subscribe(response =>{
-          console.log(response);
-        })
-
-      var subQuest;
-      this.quests.forEach(quest => {
-        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == subquestId)){
-          subQuest.completed = true;
-          return;
-        }
-      })
-
-    }
 
     public ScanQRBtnClickNew(): void {
       const dialogRef = this.dialog.open(ScannerModalComponent, {

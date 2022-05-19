@@ -44,13 +44,10 @@ namespace back_end.Logic
                 List<QuestUserManagement> beginnerQuests = new List<QuestUserManagement>();
                 foreach (Quest beginnerquest in _repository.GetAllBeginnerQuests())
                 {
-                    beginnerQuests.Add(_mapper.Map<QuestUserManagement>(beginnerquest));
-
-                }
-
-                foreach (QuestUserManagement quest in beginnerQuests)
-                {
-                    quest.UserId = userViewModel.Id;
+                    QuestUserManagement questusermanagement = new QuestUserManagement();
+                    questusermanagement.QuestId = beginnerquest.Id;
+                    questusermanagement.UserId = userViewModel.Id;
+                    beginnerQuests.Add(questusermanagement);
                 }
                 return _repository.AssignUserQuests(beginnerQuests);
             }
@@ -68,13 +65,13 @@ namespace back_end.Logic
         public bool AssignQRQuestForUser(QuestUserViewModel questUserViewModel)
         {
             Guid id = new Guid("00000000-0000-0000-0000-000000000000");
-            if (questUserViewModel.Id != id && questUserViewModel.QuestId != id)
+            if (questUserViewModel.UserId != id && questUserViewModel.QuestId != id)
             {
                 List<QuestUserManagement> quests = new List<QuestUserManagement>();
                 quests.Add(_mapper.Map<QuestUserManagement>(questUserViewModel));
                 foreach(QuestUserManagement quest in quests)
                 {
-                    quest.UserId = questUserViewModel.Id;
+                    quest.UserId = questUserViewModel.UserId;
                 }
                 return _repository.AssignUserQuests(quests);
             }
@@ -109,9 +106,9 @@ namespace back_end.Logic
         /// </summary>
         /// <param name="questToComplete">This is the quest that gets completed</param>
         /// <returns>bool</returns>
-        public bool CompleteQuest(QuestCompletionViewModel questToComplete)
+        public bool CompleteQuest(QuestUserViewModel questUserViewModel)
         {
-            return _repository.CompleteQuest(_mapper.Map<QuestUserManagement>(questToComplete));
+            return _repository.CompleteQuest(_mapper.Map<QuestUserManagement>(questUserViewModel));
         }
     }
 }

@@ -13,6 +13,7 @@ namespace back_end.ViewModels
         public string Category { get; set; }
         public string Description { get; set; }
         public int Points { get; set; }
+        public string Niveau { get; set; }
         public virtual ICollection<UserViewModel> SubQuests { get; set; }
     }
 }

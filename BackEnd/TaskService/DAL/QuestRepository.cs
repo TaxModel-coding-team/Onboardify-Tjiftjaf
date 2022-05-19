@@ -29,7 +29,7 @@ namespace back_end.DAL
 
         public Quest GetQuestById(Guid id)
         {
-            return _context.Quest.SingleOrDefault(x => x.QuestId == id);
+            return _context.Quest.SingleOrDefault(x => x.Id == id);
         }
         
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
@@ -72,15 +72,13 @@ namespace back_end.DAL
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
-            
-            if(result != null)
+            var Result = _context.QuestUserManagement.Where(o => o.QuestId == questToComplete.QuestId && o.UserId == questToComplete.UserId).First();//_context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
+           if(Result != null)
             {
-                result.Completed = true;
+                Result.Completed = true;
                 _context.SaveChanges();
                 return true;
             }
-
             return false;
         }
 
@@ -104,38 +102,20 @@ namespace back_end.DAL
         {
             foreach(QuestUserManagement quest in quests)
             {
-                _context.QuestUserManagement.AddRange(quest);
+                if (_context.QuestUserManagement.Any(o => o.QuestId == quest.QuestId && o.UserId == quest.UserId) == false)
+                    {
+                    _context.QuestUserManagement.Add(quest);
+                }
             }
             var result =_context.SaveChanges();
-            if(result != 0 && result < 0)
+            if(result != 0 && result > 0)
             {
                 return true;
             }
             else
             {
-                return false;
-            }
-
-            
-        }
-
-        /// <summary>
-        /// Assign one quest to a user
-        /// </summary>
-        /// <param name="questUserManagement">From the quest</param>
-        /// <returns>List with subQuests</returns>
-        public bool AssignQRQuest(QuestUserManagement questUserManagement)
-        {
-            _context.QuestUserManagement.AddRange(questUserManagement);
-            var result = _context.SaveChanges();
-            if (result != 0 && result < 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                return false ;
+            }   
         }
     }
 }
