@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
 import {UserService} from "../Services/user.service";
+import { PopUpComplete } from "./pop-up-complete.component";
+import { PopUpGetQuest } from "./pop-up-getquest.component"
 import { MatDialogRef } from "@angular/material/dialog";
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { QuestService } from "../Services/quest.service";
@@ -21,6 +23,7 @@ export class ScannerModalComponent {
               public dialogRef: MatDialogRef<ScannerModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {  }
   public currentDevice: MediaDeviceInfo | undefined;
+  //public popupComplete: PopUpComplete,
   public availableCameras: MediaDeviceInfo[] = [];
   public hasDevices: boolean = false;
   public returnedvalue: boolean = false;
@@ -38,11 +41,21 @@ export class ScannerModalComponent {
     {
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(0,-9);
-      console.log(this.questService.completeQuest(this.questUserViewModel))
+      if(this.questService.completeQuest(this.questUserViewModel) == true)
+      {
+       // this.PopUpComplete.open();
+      } else{
+        //this.popupComplete.open(false)
+      }
     } else{
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(1,-1);
-      console.log(this.questService.assignQuestByQR(this.questUserViewModel));
+      if(this.questService.assignQuestByQR(this.questUserViewModel) == true)
+      {
+        //this.popupGetQuest.open(true)
+      }else{
+        //this.popupGetQuest.open(false)
+      }
     } 
    
   }
