@@ -72,16 +72,50 @@ namespace back_end.DAL
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            QuestUserManagement result = _context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
-            
-            if(result != null)
+            var Result = _context.QuestUserManagement.Where(o => o.QuestId == questToComplete.QuestId && o.UserId == questToComplete.UserId).First();//_context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
+           if(Result != null)
             {
-                result.Completed = true;
+                Result.Completed = true;
                 _context.SaveChanges();
                 return true;
             }
-
             return false;
+        }
+
+        /// <summary>
+        /// Gets all beginner quests
+        /// </summary>
+        /// <returns>List with subQuests</returns>
+        public ICollection<Quest> GetAllBeginnerQuests()
+        {
+            List<Quest> result = _context.Quest.Where(q => q.Niveau == "Beginner").ToList();
+            return result;
+            
+        }
+
+        /// <summary>
+        /// Assign new user quests
+        /// </summary>
+        /// <param name="beginnerQuests">List with quests to assign</param>
+        /// <returns>Boolean</returns>
+        public bool AssignUserQuests(List<QuestUserManagement> quests)
+        {
+            foreach(QuestUserManagement quest in quests)
+            {
+                if (_context.QuestUserManagement.Any(o => o.QuestId == quest.QuestId && o.UserId == quest.UserId) == false)
+                    {
+                    _context.QuestUserManagement.Add(quest);
+                }
+            }
+            var result =_context.SaveChanges();
+            if(result != 0 && result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false ;
+            }   
         }
     }
 }

@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'badges', component: BadgesComponent},
     { path: 'achievements', component: AchievementsComponent},
     {path: 'QRDownload-page', component: QRDownloadComponent}]
-  }
+  },
   { path: 'public', component: ProfilePublicComponent, children: [
       { path: '', component: BadgesComponent, pathMatch: 'full' },
       { path: 'badges', component: BadgesComponent },

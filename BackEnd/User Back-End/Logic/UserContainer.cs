@@ -8,14 +8,15 @@ using User_Back_End.Models;
 using User_Back_End.ViewModels;
 using IronBarCode;
 using System.Drawing;
+using User_Back_End.Logic.LogicInterfaces;
 
 namespace User_Back_End.Logic
 {
-    public class UserLogic 
+    public class UserContainer : IUserGetter, IUserSetter
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
-        public UserLogic(IUserRepository repository, IMapper mapper)
+        public UserContainer(IUserRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -31,10 +32,6 @@ namespace User_Back_End.Logic
         {
             User user = _mapper.Map<User>(userViewModel);
             userViewModel = _mapper.Map<UserViewModel>(_repository.GetUser(user));
-            if (userViewModel != null)
-            {
-                userViewModel.QrCode = CreateQRCode(userViewModel);
-            }
             return userViewModel;
         }
 
@@ -43,14 +40,7 @@ namespace User_Back_End.Logic
             userViewModel.ExperiencePoints = 0;
             var user = _mapper.Map<User>(userViewModel);
             userViewModel =  _mapper.Map<UserViewModel>(_repository.NewUser(user));
-            userViewModel.QrCode = CreateQRCode(userViewModel);
             return userViewModel;
         }
-
-        public Image CreateQRCode(UserViewModel userViewModel)
-        {       
-            return QRCodeWriter.CreateQrCode(userViewModel.ID.ToString(), 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).ToImage();
-        }
-        
     }
 }

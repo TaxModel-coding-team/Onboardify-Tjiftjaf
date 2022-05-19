@@ -19,28 +19,30 @@
 
     <div attr.id="collapse{{quest.title}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
       <div class="accordion-body">
-        <ul *ngFor="let subquest of quest.subQuests" style="padding-left: 0px;">
-          <li style="text-align: left;">
-            <span class="text-white" style="max-width: 200px;">{{subquest.description}}</span>
-            <button
-              class="btn btn-success"
-              [disabled]="subquest.completed"
-              [ngClass]="{'completed': subquest.completed}"
-              (click)="completeQuest(subquest.id)" >
-              Complete
-            </button>
-          </li>
-        </ul>
+        
         <div style="color: #36393F">{{quest.description}}</div>
-        <div style="text-align: end; color: #5865F2">{{quest.points}}</div>
-      </div>
+        <div class="break"></div>
+        <button
+          class="accordion-scan-btn"
+          type="button"
+          (click)="ScanQRBtnClick(quest.id)">
+          Scan QR
+        </button>
+        <div style="align-self: flex-end; color: #5865F2">{{quest.points}}</div>
     </div>
   </div>
+</div>
 </div><br/>
+
+<div class="bottom-btn-group">
+  <button
+  class="scan-btn"
+  type="button"
+  (click)="ScanQRBtnClickNew()">
+    Scan for new Quests
+  </button>
+</div>
 
 <!-- <div class="list-group" style="border: none; padding-bottom: 50px;">
   <progress-bar progress="{{gainedExp}}"></progress-bar>
 </div> -->
-
-
-

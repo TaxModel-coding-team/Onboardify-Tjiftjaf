@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { Quest } from '../Models/quest';
 import { QuestService } from '../Services/quest.service';
+import { ScannerModalComponent } from '../Scanner/scanner-modal.component'
+import { MatDialog } from  '@angular/material/dialog';
 
 @Component({
   selector: 'app-quests',
@@ -14,22 +16,39 @@ export class QuestsComponent implements OnInit, OnDestroy {
 
   //Fields
   public quests: Quest[] = [];
+  public completedQuests: Quest[] = [];
   public greeting: String = '';
   private subscription: Subscription = new Subscription();
 
   constructor(private questService: QuestService,
-    private cookies: CookieService) { }
+    private cookies: CookieService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getQuests()
+    this.getQuests();
     this.getGreeting();
+
 
   }
 
   //Getting all quests from API and caching to observable
   public getQuests(): void {
       this.subscription.add(this.questService.getQuests()
-      .subscribe(quest => this.quests = quest))
+      .subscribe((_quests) => {
+        console.log(_quests);
+        this.sortQuests(_quests);
+        console.log(this.completedQuests);
+        console.log(this.quests);
+      }));
+        
+  }
+  // Sorting Quests based on completion\
+  private sortQuests(unsortedQuests : Quest[]): void{
+    unsortedQuests.forEach(element => {
+      console.log(element.completed);
+      if(element.completed === true) this.completedQuests.push(element);
+      else this.quests.push(element);
+    });
   }
 
   //Simple greeting based on your time of day
@@ -48,23 +67,17 @@ export class QuestsComponent implements OnInit, OnDestroy {
     this.greeting += JSON.parse(this.cookies.get("user")).username
   }
 
-    public completeQuest(subquestId: number): void {
+    public ScanQRBtnClickNew(): void {
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+      });
+    }
 
-      let userId = JSON.parse(this.cookies.get("user")).id
-
-      this.questService.completeQuest(userId.toString(), subquestId.toString())
-        .subscribe(response =>{
-          console.log(response);
-        })
-
-      var subQuest;
-      this.quests.forEach(quest => {
-        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == subquestId)){
-          subQuest.completed = true;
-          return;
-        }
-      })
-
+    public ScanQRBtnClick(questId: number): void{
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+        data: { QuestId: questId },
+      });
     }
 
   //Unsubscribe from all made subscriptions to prevent background processes and possible memory leakage.
