@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { Quest } from '../Models/quest';
 import { QuestService } from '../Services/quest.service';
+import { ScannerModalComponent } from '../Scanner/scanner-modal.component'
+import { MatDialog } from  '@angular/material/dialog';
 
 @Component({
   selector: 'app-quests',
@@ -14,22 +16,29 @@ export class QuestsComponent implements OnInit, OnDestroy {
 
   //Fields
   public quests: Quest[] = [];
+  public completeQuests: Quest[] = [];
   public greeting: String = '';
   private subscription: Subscription = new Subscription();
 
   constructor(private questService: QuestService,
-    private cookies: CookieService) { }
+    private cookies: CookieService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getQuests()
     this.getGreeting();
+
 
   }
 
   //Getting all quests from API and caching to observable
   public getQuests(): void {
       this.subscription.add(this.questService.getQuests()
-      .subscribe(quest => this.quests = quest))
+      .subscribe(quest => 
+        quest.forEach(element =>{
+          if(element.completed != true) this.quests = quest;
+        })
+        ));
   }
 
   //Simple greeting based on your time of day
@@ -48,23 +57,19 @@ export class QuestsComponent implements OnInit, OnDestroy {
     this.greeting += JSON.parse(this.cookies.get("user")).username
   }
 
-    public completeQuest(subquestId: number): void {
 
-      let userId = JSON.parse(this.cookies.get("user")).id
 
-      this.questService.completeQuest(userId.toString(), subquestId.toString())
-        .subscribe(response =>{
-          console.log(response);
-        })
+    public ScanQRBtnClickNew(): void {
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+      });
+    }
 
-      var subQuest;
-      this.quests.forEach(quest => {
-        if (subQuest = quest.subQuests.find(subQuest => subQuest.id == subquestId)){
-          subQuest.completed = true;
-          return;
-        }
-      })
-
+    public ScanQRBtnClick(questId: number): void{
+      const dialogRef = this.dialog.open(ScannerModalComponent, {
+        width: '600px',
+        data: { QuestId: questId },
+      });
     }
 
   //Unsubscribe from all made subscriptions to prevent background processes and possible memory leakage.

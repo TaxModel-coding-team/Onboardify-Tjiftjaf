@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { isJSDocTypedefTag } from 'typescript';
 import {jsPDF} from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -10,13 +11,16 @@ import html2canvas from 'html2canvas';
 })
 
 export class QRDownloadComponent implements OnInit {
+
+
     ngOnInit(): void {
         
     }
+
     public PreviewQRCodeDiv(){
       let Data: any = document.getElementById('pdf');
       html2canvas(Data).then((canvas => {
-        let fileWidth = 4000;
+        let fileWidth = Data.size;
         let fileHeight = (canvas.height * fileWidth) / canvas.width;
       const  FileURI = canvas.toDataURL('image/png');
       let pdf = new jsPDF('p', 'mm', 'a4');
@@ -30,7 +34,7 @@ export class QRDownloadComponent implements OnInit {
     public saveDiv(){
       let Data: any = document.getElementById('pdf');
       html2canvas(Data).then((canvas => {
-        let fileWidth = 4000;
+        let fileWidth = Data.size;
         let fileHeight = (canvas.height * fileWidth) / canvas.width;
       const  FileURI = canvas.toDataURL('image/png');
       let pdf = new jsPDF('p', 'mm', 'a4');

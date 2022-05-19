@@ -38,7 +38,7 @@ namespace TestProject.Tests
             }
 
            UserStub stub = new UserStub();
-           UserLogic userlogic = new UserLogic(stub, _mapper);
+           UserContainer userlogic = new UserContainer(stub, _mapper);
             //Act
             var Result =  userlogic.NewUser(userviewmodel);
             
@@ -70,7 +70,7 @@ namespace TestProject.Tests
             }
 
             UserStub stub = new UserStub();
-            UserLogic userlogic = new UserLogic(stub, _mapper);
+            UserContainer userlogic = new UserContainer(stub, _mapper);
             //Act
             var Result = userlogic.NewUser(userviewmodel);
 
@@ -99,7 +99,7 @@ namespace TestProject.Tests
             }
 
             UserStub stub = new UserStub();
-            UserLogic userlogic = new UserLogic(stub, _mapper);
+            UserContainer userlogic = new UserContainer(stub, _mapper);
             //Act
             var Result = userlogic.GetUser(userviewmodel);
 
@@ -128,7 +128,7 @@ namespace TestProject.Tests
             }
 
             UserStub stub = new UserStub();
-            UserLogic userlogic = new UserLogic(stub, _mapper);
+            UserContainer userlogic = new UserContainer(stub, _mapper);
             //Act
             var Result = userlogic.GetUser(userviewmodel);
 

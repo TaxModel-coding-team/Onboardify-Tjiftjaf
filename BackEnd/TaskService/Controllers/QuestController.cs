@@ -33,36 +33,27 @@ namespace back_end.Controllers
 
         [HttpPut]
         [Route("complete")]
-        public IActionResult CompleteQuest([FromBody] QuestCompletionViewModel completedQuest)
+        public IActionResult CompleteQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
-            return Ok(_questlogic.CompleteQuest(completedQuest));
+            return Ok(_questlogic.CompleteQuest(questUserViewModel));
         }
 
         
         //TODO Assign all the basic quests to user instead of going through all created quests (assign the list to user)
         [HttpPost]
         [Route("assignQuests")]
-        public ActionResult<UserViewModel> AssignQuests([FromBody] UserViewModel userViewModel)
+        public ActionResult<QuestUserViewModel> AssignQuests([FromBody] UserViewModel userViewModel)
         {
-            List<QuestViewModel> quests =  _questlogic.GetAllQuests();
-            List<QuestCompletionViewModel> questCompletionViewModels = new List<QuestCompletionViewModel>();
-            foreach(QuestViewModel quest in quests)
-            {
-                AssignQuestForUser(userViewModel, questCompletionViewModels, quest);
-            }
-            _questlogic.NewUserQuests(questCompletionViewModels);
-            return Ok(quests);
+            return Ok(_questlogic.AssignBeginnerQuestForUser(userViewModel));
         }
 
-        private void AssignQuestForUser(UserViewModel userViewModel, List<QuestCompletionViewModel> questCompletionViewModels, QuestViewModel quest)
+        [HttpPost]
+        [Route("assignQRQuests")]
+        public ActionResult<QuestUserViewModel> AssignQRQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
-            foreach (SubQuestViewModel subQuestViewModel in quest.SubQuests)
-            {
-                QuestCompletionViewModel questCompletionViewModel = new QuestCompletionViewModel();
-                questCompletionViewModel.UserId = userViewModel.Id;
-                questCompletionViewModel.SubQuestId = subQuestViewModel.Id;
-                questCompletionViewModels.Add(questCompletionViewModel);
-            }
+            Console.WriteLine("Assign QR Quest");
+            
+            return Ok(_questlogic.AssignQRQuestForUser(questUserViewModel));
         }
     }
 }

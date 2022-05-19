@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using User_Back_End.Logic;
+using User_Back_End.Logic.LogicInterfaces;
 using User_Back_End.Models;
 using User_Back_End.ViewModels;
 
@@ -14,7 +15,8 @@ namespace User_Back_End.Controllers
 
     public class UserController : ControllerBase
     {
-        private readonly UserLogic _userLogic;
+        private readonly IUserGetter _userLogic;
+        private readonly IUserSetter _userSetter;
         static HttpClient client = new HttpClient();
 
         static async Task RunAsync()
@@ -25,8 +27,9 @@ namespace User_Back_End.Controllers
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public UserController(UserLogic userlogic)
+        public UserController(IUserGetter userlogic, IUserSetter userSetter)
         {
+            _userSetter = userSetter;
             _userLogic = userlogic;
             RunAsync();
         }
@@ -36,7 +39,7 @@ namespace User_Back_End.Controllers
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
         {
             userViewModel = _userLogic.GetUser(userViewModel);
-            if (userViewModel != null)
+            if (userViewModel.Username != null) 
             {
                 return Ok(userViewModel);
             }
@@ -49,7 +52,7 @@ namespace User_Back_End.Controllers
         {
             if (userViewModel.Username != null && userViewModel.Email != null)
             {
-                userViewModel = _userLogic.NewUser(userViewModel);
+                userViewModel = _userSetter.NewUser(userViewModel);
                 await CreateUserQuests(userViewModel);
                 return CreatedAtAction("CreateUser", userViewModel);
             }

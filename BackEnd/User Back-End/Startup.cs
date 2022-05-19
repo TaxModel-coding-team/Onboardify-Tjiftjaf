@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using User_Back_End.DAL;
 using User_Back_End.Logic;
+using User_Back_End.Logic.LogicInterfaces;
 
 namespace User_Back_End
 {
@@ -41,7 +42,7 @@ namespace User_Back_End
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<UserLogic>();
+            services.AddScoped<IUserGetter, UserContainer>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 

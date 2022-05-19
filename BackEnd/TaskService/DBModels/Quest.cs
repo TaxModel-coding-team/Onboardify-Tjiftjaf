@@ -12,6 +12,7 @@ namespace back_end.Models
         public string Category { get; set; }
         public string Description { get; set; }
         public int Points { get; set; }
+        public string Niveau { get; set; }
         
         // Relationships
         public virtual ICollection<SubQuest> SubQuests { get; set; }
@@ -24,5 +25,15 @@ namespace back_end.Models
             Description = description;
             Points = points;
         }
+        public Quest(Guid id, string title, string category, string description, int points, string niveau)
+        {
+            Id = id;
+            Title = title;
+            Category = category;
+            Description = description;
+            Points = points;
+            Niveau = niveau;
+        }
+
     }
 }

@@ -12,3 +12,39 @@ button{
     border:1px solid rgba(255, 255, 255, 0.18)
 }
 
+.qrcode{
+    height: inherit;
+    padding: 0%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: inline-block;
+}
+
+.pageSpacing{
+    padding: 5%;
+}
+
+.shell{
+    justify-content: center;
+    align-items: center;
+    height: 55%;
+    background: rgba(255, 255, 255, 0.199);
+    border-radius: 10px;
+    margin: 2%;
+    margin-top: 2%;
+    display: block;
+    backdrop-filter: none;
+    box-shadow: rgba(31, 38, 135, 0.37) 0px 8px 32px 0px; 
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow-x: hidden;
+}
+
+.text-style{
+    font-weight: bold;
+  font-size: larger;
+  color: white;
+  margin-left: 2%;
+  vertical-align: middle;
+  display: inline-block;
+}
+

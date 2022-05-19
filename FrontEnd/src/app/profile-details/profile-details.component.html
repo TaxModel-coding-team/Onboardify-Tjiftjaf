@@ -2,9 +2,9 @@
 </button>
 
 <div class="shell">
-    <p id="pdf">
-    <qr-code class="qrcode" [value]=href [size]=90></qr-code>
-    </p>
+    <div id="profileQR">
+    <qr-code id="profileQR" class="qrcode" [value]=href [size]=90></qr-code>
+
     <div class="profile-details">  
     
         {{user.username}}<br/>
@@ -13,6 +13,7 @@
             <div class="progress-bar" role="progressbar" style="width: 100px" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
     </div>
+</div>
 </div>
 
 <br/>
