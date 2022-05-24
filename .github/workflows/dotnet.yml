@@ -8,7 +8,17 @@ on:
     branches: [ main, Development ]
     path: ["BackEnd/**"]
   workflow_dispatch:
-    path: ["BackEnd/**"]
+    inputs:
+        logLevel:
+          description: 'Log level'     
+          required: true
+          default: 'warning' 
+          type: choice
+          options:
+          - info
+          - warning
+          - debug 
+      
 
 jobs:
   build:
