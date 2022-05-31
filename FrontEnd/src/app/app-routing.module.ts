@@ -9,10 +9,16 @@ import { BadgesComponent } from './badges/badges.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { QRDownloadComponent } from './QRDownload-page/QRDownload-page.component';
 import {ProfilePublicComponent} from "./profile-public/profile-public.component";
+import {CompletedQuestsComponent} from "./completed-quests/completed-quests.component";
+import {QuestPageComponent} from "./quest-page/quest-page.component";
 
 const routes: Routes = [
   { path: '', component: MicrosoftLoginComponent, pathMatch: 'full' },
-  { path: 'quests', component: QuestsComponent },
+  { path: 'quests', component: QuestPageComponent, children: [
+      {path: '', component: QuestsComponent, pathMatch: 'full'},
+      { path: 'active', component: QuestsComponent },
+      { path: 'completed', component: CompletedQuestsComponent}
+    ] },
   { path: 'profile', component: ProfilePageComponent, children: [
     { path: '', component: BadgesComponent, pathMatch: 'full'},
     { path: 'badges', component: BadgesComponent},

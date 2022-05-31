@@ -1,0 +1,27 @@
+<h2 class="center text-white title" style="margin-bottom: 2%;">Completed Quests:</h2>
+
+<div class="accordion list-group"  id="accordionExample">
+  <div *ngFor="let quest of quests" class="accordion-item">
+    <div  class="accordion-header" attr.id="heading{{quest.title}}Completed" asGlass [borderRadius]=9>
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#collapse' + quest.title + 'Completed'"
+        aria-expanded="true"
+        attr.aria-controls="collapse{{quest.title}}Completed">
+        {{quest.title}}
+        <div class="completed-text">Completed!</div>
+      </button>
+    </div>
+
+    <div attr.id="collapse{{quest.title}}Completed" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}Completed" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
+      <div class="accordion-body">
+
+        <div style="color: #36393F">{{quest.description}}</div>
+        <div class="break"></div>
+        <div class="quest-points" style="align-self: flex-end;">{{quest.points}} Points earned!</div>
+      </div>
+    </div>
+  </div>
+</div><br/>

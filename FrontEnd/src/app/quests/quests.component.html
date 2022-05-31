@@ -1,6 +1,4 @@
-<app-header></app-header>
-<h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}}!</h1>
-<h2 class="center text-white" style="margin-bottom: 2%;">Quests</h2>
+<h2 class="center text-white title" style="margin-bottom: 2%;">Current Quests:</h2>
 
 <div class="accordion list-group"  id="accordionExample">
   <div *ngFor="let quest of quests" class="accordion-item"  style="background-color: transparent;">
@@ -19,7 +17,7 @@
 
     <div attr.id="collapse{{quest.title}}" class="accordion-collapse collapse" attr.aria-labelledby="heading{{quest.title}}" data-bs-parent="#accordionExample" asGlass [borderRadius]=9>
       <div class="accordion-body">
-        
+
         <div style="color: #36393F">{{quest.description}}</div>
         <div class="break"></div>
         <button
