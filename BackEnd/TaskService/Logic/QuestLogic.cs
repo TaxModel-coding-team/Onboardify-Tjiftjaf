@@ -90,6 +90,7 @@ namespace back_end.Logic
         /// <returns>List of quests</returns>
         public List<QuestViewModel> GetQuestsByUser(Guid id)
         {
+            
             List<QuestUserManagement> userQuests = _repository.GetQuestsByUser(id).ToList(); 
             List<Quest> quests = new List<Quest>();
             

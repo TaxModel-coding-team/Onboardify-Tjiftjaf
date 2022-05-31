@@ -39,7 +39,7 @@ namespace User_Back_End.Controllers
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
         {
             userViewModel = _userLogic.GetUser(userViewModel);
-            if (userViewModel.Username != null) 
+            if (userViewModel != null) 
             {
                 return Ok(userViewModel);
             }
