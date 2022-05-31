@@ -47,7 +47,6 @@ namespace back_end.DAL
         {
             List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
             questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == id).ToList();
-
             return questUserManagement;
         }
 
