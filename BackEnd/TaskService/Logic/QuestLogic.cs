@@ -99,6 +99,12 @@ namespace back_end.Logic
                 quests.Add(_repository.GetQuestById(questUser.QuestId));
             }
             List<QuestViewModel> questViewModels = _mapper.Map<List<QuestViewModel>>(quests);
+            foreach(QuestUserManagement questUser in userQuests)
+            {
+                questViewModels.
+                    Find(q => q.Id.Equals(questUser.QuestId)).
+                    Completed = questUser.Completed;
+            }
             return questViewModels;
         }
 
