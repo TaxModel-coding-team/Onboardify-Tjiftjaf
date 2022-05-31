@@ -96,7 +96,9 @@ namespace back_end.Logic
             
             foreach (QuestUserManagement questUser in userQuests)
             {
-                quests.Add(_repository.GetQuestById(questUser.QuestId));
+                Quest quest = _repository.GetQuestById(questUser.QuestId);
+                quest.Completed = questUser.Completed;
+                quests.Add(quest);
             }
             List<QuestViewModel> questViewModels = _mapper.Map<List<QuestViewModel>>(quests);
             foreach(QuestUserManagement questUser in userQuests)

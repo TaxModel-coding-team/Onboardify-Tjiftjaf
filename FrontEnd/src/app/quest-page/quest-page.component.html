@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<h1 class="center text-white" style="padding-bottom: 40px; padding-top: 40px;">{{greeting}}!</h1>
+
+<div class="pillshell">
+  <a class="button pill" routerLink="/quests/active" routerLinkActive="activepill">Current</a>
+  <a class="button pill" routerLink="/quests/completed" routerLinkActive="activepill">Completed</a>
+</div>
+
+<router-outlet></router-outlet>

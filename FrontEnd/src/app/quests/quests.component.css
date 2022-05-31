@@ -1,22 +1,20 @@
 
+.title {
+  margin-top: 2%;
+}
+
 .list-group {
   width: 350px;
   list-style: none;
   margin: auto;
   padding: 0;
-  border: 0px solid #ccc;
 }
 
 .list-group li {
-  border-top: 0px solid #ccc;
   padding: .5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.list-group li:first-child {
-  border-top: 0;
 }
 
 .list-group .badge {
@@ -24,7 +22,6 @@
   color: #fff;
   font-weight: bold;
   font-size: 80%;
-  border-radius: 10em;
   min-width: 1.5em;
   padding: .25em;
   text-align: center

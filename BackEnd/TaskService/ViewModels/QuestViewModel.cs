@@ -17,5 +17,6 @@ namespace back_end.ViewModels
 
         public bool Completed { get; set; }
         public virtual ICollection<UserViewModel> SubQuests { get; set; }
+        public bool Completed { get; set; }
     }
 }
