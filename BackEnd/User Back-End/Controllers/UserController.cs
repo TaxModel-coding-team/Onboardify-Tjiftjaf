@@ -37,7 +37,6 @@ namespace User_Back_End.Controllers
         [HttpPost]
         [Route("Login")]
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
-        {   
             try
             {
                 UserViewModel userViewModelInDB = _userLogic.GetUser(userViewModel);

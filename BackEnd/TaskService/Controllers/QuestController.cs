@@ -38,8 +38,6 @@ namespace back_end.Controllers
             return Ok(_questlogic.CompleteQuest(questUserViewModel));
         }
 
-        
-        //TODO Assign all the basic quests to user instead of going through all created quests (assign the list to user)
         [HttpPost]
         [Route("assignQuests")]
         public ActionResult<QuestUserViewModel> AssignQuests([FromBody] UserViewModel userViewModel)

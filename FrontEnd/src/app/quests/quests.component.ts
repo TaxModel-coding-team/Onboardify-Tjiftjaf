@@ -73,7 +73,8 @@ export class QuestsComponent implements OnInit, OnDestroy {
       });
     }
 
-    public ScanQRBtnClick(questId: number): void{
+    public ScanQRBtnClick(questId: number, questtitle: string): void{
+      localStorage.setItem("QuestTitle", questtitle);
       const dialogRef = this.dialog.open(ScannerModalComponent, {
         width: '600px',
         data: { QuestId: questId },
