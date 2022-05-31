@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1 as build-env
 WORKDIR /app
 
 EXPOSE 80
-EXPOSE 443
+EXPOSE 44329
 
 COPY back-end.csproj ./
 RUN dotnet restore
