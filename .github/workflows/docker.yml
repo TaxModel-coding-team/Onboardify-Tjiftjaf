@@ -14,7 +14,17 @@ on:
   pull_request:
     branches: [ main, Development ]
     path: [ FrontEnd/** ]
-
+  workflow_dispatch:
+    inputs:
+        logLevel:
+          description: 'Log level'     
+          required: true
+          default: 'warning' 
+          type: choice
+          options:
+          - info
+          - warning
+          - debug 
 jobs:
   build:
     runs-on: ubuntu-latest
