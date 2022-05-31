@@ -1,5 +1,5 @@
 #when running container make sure to set port to: anynumber:4200 
-FROM node:16.13.2 as build-step
+FROM node:lts-alpine as build-step
 RUN apk update && apk add bash
 RUN mkdir -p /app
 WORKDIR /app
