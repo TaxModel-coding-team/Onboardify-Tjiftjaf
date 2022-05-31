@@ -4,7 +4,7 @@ import { Quest } from '../Models/quest';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
-import { questUserViewModel } from '../Models/QuestUserViewModel';
+import { questUserViewModel } from '../Models/questUserViewModel';
 import { response } from 'express';
 
 @Injectable({

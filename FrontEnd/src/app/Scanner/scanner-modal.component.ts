@@ -7,7 +7,7 @@ import { PopUpGetQuestComponent } from "./pop-up-getquest.component"
 import { MatDialogRef } from "@angular/material/dialog";
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { QuestService } from "../Services/quest.service";
-import { questUserViewModel } from "../Models/QuestUserViewModel";
+import { questUserViewModel } from "../Models/questUserViewModel";
 import { MatDialog } from  '@angular/material/dialog';
 import { PopUpError } from "./Pop-up-error";
 import { PopupClient } from "@azure/msal-browser";
