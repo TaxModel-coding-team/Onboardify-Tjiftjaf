@@ -38,13 +38,23 @@ namespace User_Back_End.Controllers
         [Route("Login")]
         public async Task<ActionResult<User>> Login([FromBody] UserViewModel userViewModel)
         {
-            userViewModel = _userLogic.GetUser(userViewModel);
-            if (userViewModel.Username != null) 
+            try
             {
-                return Ok(userViewModel);
+                UserViewModel userViewModelInDB = _userLogic.GetUser(userViewModel);
+                if (userViewModelInDB != null)
+                {
+                    return Ok(userViewModelInDB);
+                }
+                else throw new Exception();
             }
-            return StatusCode(404, "User doesn't exist");
+
+
+            catch (Exception ex)
+            {
+                return StatusCode(404, "User doesn't exist");
+            }
         }
+
 
         [HttpPost]
         [Route("Create")]
@@ -63,7 +73,7 @@ namespace User_Back_End.Controllers
         [Route("Get")]
         public async Task<ActionResult<UserViewModel>> GetUser([FromBody] UserByIdModel userID)
         {
-            if(userID.ID != Guid.Empty)
+            if (userID.ID != Guid.Empty)
             {
                 return Ok(_userLogic.GetUserByID(userID.ID));
 
@@ -84,3 +94,4 @@ namespace User_Back_End.Controllers
 
     }
 }
+

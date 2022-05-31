@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { questUserViewModel } from '../Models/QuestUserViewModel';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class QuestService {
   constructor(
     private http: HttpClient,
     private cookies: CookieService){ }
+ 
   
   //GET: fetches all quests
   public getQuests(): Observable<Quest[]> 
@@ -31,26 +33,30 @@ export class QuestService {
     return this.http.get<Quest[]>(this.questURL + "/" + JSON.parse(this.cookies.get("user")).id);
   }
 
-  public completeQuest(questUserViewModel: questUserViewModel): Boolean
+  public async completeQuest(questUserViewModel: questUserViewModel): Promise<Boolean>
   {
     console.log("Api call");
     console.log(questUserViewModel.QuestId)
-    //let model = {Id: questUserViewModel.Id, QuestId: questUserViewModel.QuestId}
-   this.http.put<boolean>(this.completeQuestURL, questUserViewModel, this.httpOptions).subscribe(response =>  {
-    console.log(response); 
-    return response.valueOf()})
-   return false;    
+    var Result : Boolean = false;
+    try{
+      Result =  await this.http.put<boolean>(this.completeQuestURL, questUserViewModel, this.httpOptions).toPromise();
+    } catch(Exception){
+      return false;
+    }
+    return Result;
   }
 
   
-  public assignQuestByQR(questUserViewModel: questUserViewModel): Boolean
+  public async assignQuestByQR(questUserViewModel: questUserViewModel): Promise<Boolean>
   {
     console.log("Api call");
     console.log(questUserViewModel.QuestId)
-    //let model = {Id: questUserViewModel.Id, QuestId: questUserViewModel.QuestId}
-   this.http.post<boolean>(this.assignQuestURL, questUserViewModel, this.httpOptions).subscribe(response =>  {
-    console.log(response); 
-    return response.valueOf()})
-   return false;    
+    var Result : Boolean = false;
+    try{
+      Result = await this.http.post<boolean>(this.assignQuestURL, questUserViewModel, this.httpOptions).toPromise();
+    }catch(Exception){
+      return false;
+    }
+    return Result;
     }
 }
