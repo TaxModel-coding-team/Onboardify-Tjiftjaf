@@ -30,11 +30,9 @@ export class QuestsComponent implements OnInit, OnDestroy {
       this.subscription.add(this.questService.getQuests()
       .subscribe(quest =>
         quest.forEach(element =>{
-          console.log(element.completed);
             if(!element.completed) this.quests.push(element);
         })
       ));
-      console.log(this.quests);
   }
 
     public ScanQRBtnClickNew(): void {
