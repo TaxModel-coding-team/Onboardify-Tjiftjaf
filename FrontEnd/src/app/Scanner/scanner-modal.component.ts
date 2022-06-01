@@ -10,8 +10,10 @@ import { QuestService } from "../Services/quest.service";
 import { questUserViewModel } from "../Models/questUserViewModel";
 import { MatDialog } from  '@angular/material/dialog';
 import { PopUpError } from "./Pop-up-error";
+const confetti = require('canvas-confetti');
 import { PopupClient } from "@azure/msal-browser";
 import { Console } from "console";
+import {document} from "ngx-bootstrap/utils";
 
 @Component({
   selector: 'app-scanner-modal',
@@ -33,9 +35,10 @@ export class ScannerModalComponent implements OnInit {
   public popupComplete: PopUpCompleteComponent = {} as PopUpCompleteComponent;
   public popupGetQuest: PopUpGetQuestComponent = {} as PopUpGetQuestComponent;
   private questUserViewModel : questUserViewModel = {} as questUserViewModel;
+  private myCanvas = document.createElement('canvas');
 
   ngOnInit(): void {
-    
+
   }
 
   camerasFound(cameras: MediaDeviceInfo[]){
@@ -47,25 +50,26 @@ export class ScannerModalComponent implements OnInit {
   async onScanSuccess(result: string){
     this.dialogRef.close();
     let userId = JSON.parse(this.cookieService.get("user")).id
-    if(result.includes("complete") == true)
+    if(result.includes("complete"))
     {
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(0,-9);
       var Result : Boolean;
       Result = await this.questService.completeQuest(this.questUserViewModel);
-      if(Result == true)
+      if(Result)
       {
         this.dialog.open(PopUpCompleteComponent , {
           data: {
             QuestTitle : localStorage.getItem("QuestTitle")},
         });
+        this.MakeConfetti();
       } else{
         this.dialog.open(PopUpError, { panelClass: '.e-dialog'});
       }
     } else{
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(1,-1);
-      if(await this.questService.assignQuestByQR(this.questUserViewModel) == true)
+      if(await this.questService.assignQuestByQR(this.questUserViewModel))
       {
         this.dialog.open(PopUpGetQuestComponent, {
           data: { QuestTitle : localStorage.getItem("QuestTitle")},
@@ -73,7 +77,23 @@ export class ScannerModalComponent implements OnInit {
       }else{
         this.dialog.open(PopUpError, { panelClass: '.e-dialog'});
       }
-    } 
+    }
+  }
+
+  MakeConfetti() {
+    const myConfetti = confetti.create(null, { resize: true });
+    myConfetti({
+      particleCount: 250,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0, y: 1 },
+    });
+    myConfetti({
+      particleCount: 250,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1, y: 1 },
+    });
   }
 
   closeDialog() {
@@ -81,6 +101,6 @@ export class ScannerModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  
+
 
 }

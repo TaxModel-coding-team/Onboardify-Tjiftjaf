@@ -18,14 +18,12 @@ export class CompletedQuestsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getCompletedQuests()
-    console.log(this.quests);
   }
 
   public getCompletedQuests(): void {
     this.subscription.add(this.questService.getQuests()
       .subscribe(quest => {
         quest.forEach(element => {
-          console.log(element)
           if(element.completed) this.quests.push(element);
         })
       }));
