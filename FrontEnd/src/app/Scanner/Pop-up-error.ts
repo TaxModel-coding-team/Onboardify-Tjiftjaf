@@ -10,5 +10,5 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 
 export class PopUpError {
-    
+    Eror = localStorage.getItem("Error")
 }

@@ -14,9 +14,7 @@ namespace back_end.ViewModels
         public string Description { get; set; }
         public int Points { get; set; }
         public string Niveau { get; set; }
-
         public bool Completed { get; set; }
         public virtual ICollection<UserViewModel> SubQuests { get; set; }
-        public bool Completed { get; set; }
     }
 }

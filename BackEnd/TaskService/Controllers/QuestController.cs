@@ -28,30 +28,59 @@ namespace back_end.Controllers
         public IActionResult GetQuestsByUser(Guid id)
         {
             var quests = _questlogic.GetQuestsByUser(id);
-            return Ok(quests);
+            if (quests[0].Description == null && quests[0].Category == null)
+            {
+                return StatusCode(405, "Data incorrect");
+            }
+            else if(quests == null)
+            {
+                return StatusCode(503, Console.ReadLine());
+            }else
+            {
+                return (IActionResult)quests;
+            }
         }
 
         [HttpPut]
         [Route("complete")]
         public IActionResult CompleteQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
-            return Ok(_questlogic.CompleteQuest(questUserViewModel));
+            if (_questlogic.CompleteQuest(questUserViewModel) ==  true)
+            {
+                return Ok(_questlogic.CompleteQuest(questUserViewModel));
+            }
+            else
+            {
+                return StatusCode(503, Console.ReadLine());
+            }
         }
 
         [HttpPost]
         [Route("assignQuests")]
         public ActionResult<QuestUserViewModel> AssignQuests([FromBody] UserViewModel userViewModel)
         {
-            return Ok(_questlogic.AssignBeginnerQuestForUser(userViewModel));
+            if(_questlogic.AssignBeginnerQuestForUser(userViewModel)== true)
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return StatusCode(503, Console.ReadLine());
+            }
         }
 
         [HttpPost]
         [Route("assignQRQuests")]
         public ActionResult<QuestUserViewModel> AssignQRQuest([FromBody] QuestUserViewModel questUserViewModel)
         {
-            Console.WriteLine("Assign QR Quest");
-            
-            return Ok(_questlogic.AssignQRQuestForUser(questUserViewModel));
+            if(_questlogic.AssignQRQuestForUser(questUserViewModel) == true)
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return StatusCode(503, Console.ReadLine());
+            }
         }
     }
 }

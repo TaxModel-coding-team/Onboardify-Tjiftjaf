@@ -112,11 +112,11 @@ namespace back_end.DAL
                     _context.SaveChanges();
                     return true;
                 }
-                return false;
             } catch(Exception ex)
             {
                 return false;
             }
+            return false;
         }
 
         /// <summary>
