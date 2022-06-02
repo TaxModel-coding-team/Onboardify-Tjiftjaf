@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
     selector: 'pop-up-complete-error',
-    templateUrl: './pop-up-error.html',
+    templateUrl: 'pop-up-error.html',
     styleUrls: ['./scanner-modal.component.css']
     
 })

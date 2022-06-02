@@ -39,7 +39,7 @@ export class ScannerModalComponent {
     {
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(0,-9);
-      if(this.questService.completeQuest(this.questUserViewModel).valueOf() == true)
+      if(this.questService.completeQuest(this.questUserViewModel) == true)
       {
        // this.PopUpComplete.open();
       } else{
@@ -48,7 +48,7 @@ export class ScannerModalComponent {
     } else{
       this.questUserViewModel.UserId = userId;
       this.questUserViewModel.QuestId = result.slice(1,-1);
-      if(this.questService.assignQuestByQR(this.questUserViewModel).valueOf() == true)
+      if(this.questService.assignQuestByQR(this.questUserViewModel) == true)
       {
         //this.popupGetQuest.open(true)
       }else{
