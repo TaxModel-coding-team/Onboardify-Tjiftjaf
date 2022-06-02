@@ -10,8 +10,8 @@
 }
 
 .pillshell{
-  display: inline-block;
-  padding-left: 42%;
+  display: flex;
+  justify-content: center;
 }
 
 .pill{
