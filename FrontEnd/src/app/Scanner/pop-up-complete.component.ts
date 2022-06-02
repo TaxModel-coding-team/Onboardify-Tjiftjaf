@@ -11,4 +11,8 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 export class PopUpCompleteComponent {
     QuestTitle = localStorage.getItem("QuestTitle")
+
+    refresh(): void {
+        window.location.reload();
+    }
 }

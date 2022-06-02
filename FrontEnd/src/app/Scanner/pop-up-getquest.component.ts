@@ -8,5 +8,9 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
     styleUrls: ['scanner-modal.component.css']
 })
 export class PopUpGetQuestComponent {
+
+    refresh(): void {
+        window.location.reload();
+    }
 }
 

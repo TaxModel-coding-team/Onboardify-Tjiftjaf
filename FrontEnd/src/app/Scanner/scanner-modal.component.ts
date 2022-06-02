@@ -78,6 +78,7 @@ export class ScannerModalComponent implements OnInit {
         this.dialog.open(PopUpError, { panelClass: '.e-dialog'});
       }
     }
+    this.questService.getQuests();
   }
 
   MakeConfetti() {
