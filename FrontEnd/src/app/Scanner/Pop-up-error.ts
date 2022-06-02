@@ -10,5 +10,5 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 
 export class PopUpError {
-    
+    Error =  "Can't connect to server, please try again";
 }

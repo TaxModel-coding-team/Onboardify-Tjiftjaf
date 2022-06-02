@@ -64,7 +64,7 @@ export class ScannerModalComponent implements OnInit {
         });
         this.MakeConfetti();
       } else{
-        this.dialog.open(PopUpError, { panelClass: '.e-dialog'});
+        this.dialog.open(PopUpError, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
       }
     } else{
       this.questUserViewModel.UserId = userId;
@@ -75,7 +75,7 @@ export class ScannerModalComponent implements OnInit {
           data: { QuestTitle : localStorage.getItem("QuestTitle")},
         });
       }else{
-        this.dialog.open(PopUpError, { panelClass: '.e-dialog'});
+        this.dialog.open(PopUpError, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
       }
     }
     this.questService.getQuests();
