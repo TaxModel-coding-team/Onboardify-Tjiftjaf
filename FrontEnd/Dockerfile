@@ -6,11 +6,5 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
-RUN npm run build
-
-
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-step /app/dist /usr/share/nginx/html
 EXPOSE 4200
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
