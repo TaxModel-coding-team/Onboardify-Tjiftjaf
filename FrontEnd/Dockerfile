@@ -7,7 +7,10 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build
-RUN chmod +X /app/entrypoint.sh
+
+
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 4200
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
 
