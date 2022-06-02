@@ -1,0 +1,36 @@
+.button {
+  background-color: #F0EFEF;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pillshell{
+  display: flex;
+  justify-content: center;
+}
+
+.pill{
+  color: black;
+  position: relative;
+  font-weight: bold;
+  display: inline-block;
+  width: 160px;
+  border-radius: 15px;
+  margin-right: -20px;
+  z-index: 0;
+}
+
+.activepill{
+  background: gray;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: 160px;
+  border-radius: 15px;
+  z-index: 1;
+}

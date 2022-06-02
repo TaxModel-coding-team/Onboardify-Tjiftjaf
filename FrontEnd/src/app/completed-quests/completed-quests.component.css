@@ -1,0 +1,23 @@
+.accordion-item {
+  background-color: transparent;
+}
+
+.accordion-button {
+  background-color: transparent;
+  border-radius: 9px;
+  color: forestgreen;
+  position: relative;
+}
+.completed-text {
+  position: absolute;
+  right: 20%;
+}
+
+.accordion-body {
+  background-color: transparent;
+  border-radius: 9px;
+}
+
+.quest-points {
+  color: forestgreen;
+}

@@ -28,6 +28,11 @@ import {MatOptionModule} from "@angular/material/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { QRDownloadComponent } from './QRDownload-page/QRDownload-page.component';
+import {CompletedQuestsComponent} from "./completed-quests/completed-quests.component";
+import {QuestPageComponent} from "./quest-page/quest-page.component";
+import { PopUpCompleteComponent } from './Scanner/pop-up-complete.component';
+import { PopUpGetQuestComponent } from './Scanner/pop-up-getquest.component';
+import { PopUpError } from './Scanner/Pop-up-error';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -53,8 +58,14 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     ProfilePublicComponent,
     ScannerModalComponent,
     QRDownloadComponent,
-    
+    CompletedQuestsComponent,
+    QuestPageComponent,
+    PopUpCompleteComponent,
+    PopUpGetQuestComponent,
+    PopUpError,
+
   ],
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

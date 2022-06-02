@@ -9,3 +9,28 @@
   background-color: gray;
   color: white;
 }
+
+.error-dialog{
+  font-size: 12px;
+  color: red;
+}
+
+.div-close-error{
+  padding-left: 30%;
+}
+
+.div-close-complete{
+  padding-left: 30%;
+}
+
+.div-close-get{
+  padding-left: 30%;
+}
+
+.div-questtitle{
+  text-align: center;
+}
+
+.h1-get{
+  text-align: center;
+}

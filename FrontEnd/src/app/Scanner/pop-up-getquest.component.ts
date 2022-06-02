@@ -1,10 +1,16 @@
-import { MatDialogRef } from "@angular/material/dialog";
+import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-export class PopUpGetQuest {
-    open(result: Boolean){
-        
+@Component({
+    selector: 'pop-up-getquest',
+    templateUrl: 'pop-up-getquest.component.html',
+    styleUrls: ['scanner-modal.component.css']
+})
+export class PopUpGetQuestComponent {
+
+    refresh(): void {
+        window.location.reload();
     }
 }
 
-export class PopUpGetQuestDialog { }

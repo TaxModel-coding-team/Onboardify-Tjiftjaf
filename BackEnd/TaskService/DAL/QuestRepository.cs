@@ -21,21 +21,45 @@ namespace back_end.DAL
 
         public ICollection<Quest> GetAllQuests()
         {
-            List<Quest> quests = new List<Quest>();
-            quests = _context.Quest.Include(q => q.SubQuests).ToList();
-
-            return quests;
+            try
+            {
+                List<Quest> quests = new List<Quest>();
+                quests = _context.Quest.Include(q => q.SubQuests).ToList();
+                return quests;
+            }
+            catch (Exception ex)
+            {
+                List<Quest> quests = new List<Quest>();
+                Quest quest = new Quest(new Guid(), null, Convert.ToString(ex), null, 0);
+                quests.Add(quest);
+                return quests;
+            }
+     
         }
 
         public Quest GetQuestById(Guid id)
         {
-            return _context.Quest.SingleOrDefault(x => x.Id == id);
+            try
+            {
+                return _context.Quest.SingleOrDefault(x => x.Id == id);
+            }
+            catch (Exception ex)
+            {
+                Quest quest = new Quest(new Guid("00000000-0000-0000-0000-000000000000"), null, Convert.ToString(ex), null, 0);
+                return quest;
+            }
         }
         
         public void NewUserQuests(List<QuestUserManagement> questUserManagement)
         {
-            _context.QuestUserManagement.AddRange(questUserManagement);
-            _context.SaveChanges();
+            try
+            {
+                _context.QuestUserManagement.AddRange(questUserManagement);
+                _context.SaveChanges();
+            } catch(Exception ex)
+            {
+
+            }
         }
 
         /// <summary>
@@ -45,10 +69,17 @@ namespace back_end.DAL
         /// <returns>List with Quests from User</returns>
         public ICollection<QuestUserManagement> GetQuestsByUser(Guid id)
         {
-            List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
-            questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == id).ToList();
+            try{
+                List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
+                questUserManagement = _context.QuestUserManagement.Where(u => u.UserId == id).ToList();
 
-            return questUserManagement;
+                return questUserManagement;
+            }
+            catch (Exception ex)
+            {
+                List<QuestUserManagement> questUserManagement = new List<QuestUserManagement>();
+                return questUserManagement;
+            }
         }
 
         /// <summary>
@@ -72,14 +103,20 @@ namespace back_end.DAL
 
         public bool CompleteQuest(QuestUserManagement questToComplete)
         {
-            var Result = _context.QuestUserManagement.Where(o => o.QuestId == questToComplete.QuestId && o.UserId == questToComplete.UserId).First();//_context.QuestUserManagement.SingleOrDefault(questUser => questUser.UserId == questToComplete.UserId && questUser.QuestId == questToComplete.QuestId);
-           if(Result != null)
+            try
             {
-                Result.Completed = true;
-                _context.SaveChanges();
-                return true;
+                var Result = _context.QuestUserManagement.Where(o => o.QuestId == questToComplete.QuestId && o.UserId == questToComplete.UserId).First();
+                if (Result != null)
+                {
+                    Result.Completed = true;
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            } catch(Exception ex)
+            {
+                return false;
             }
-            return false;
         }
 
         /// <summary>
@@ -88,9 +125,16 @@ namespace back_end.DAL
         /// <returns>List with subQuests</returns>
         public ICollection<Quest> GetAllBeginnerQuests()
         {
-            List<Quest> result = _context.Quest.Where(q => q.Niveau == "Beginner").ToList();
-            return result;
-            
+            try
+            {
+                List<Quest> result = _context.Quest.Where(q => q.Niveau == "Beginner").ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                List<Quest> fakeresult = new List<Quest>();
+                return fakeresult;
+            }           
         }
 
         /// <summary>
@@ -100,22 +144,30 @@ namespace back_end.DAL
         /// <returns>Boolean</returns>
         public bool AssignUserQuests(List<QuestUserManagement> quests)
         {
-            foreach(QuestUserManagement quest in quests)
+            try
             {
-                if (_context.QuestUserManagement.Any(o => o.QuestId == quest.QuestId && o.UserId == quest.UserId) == false)
+                foreach (QuestUserManagement quest in quests)
+                {
+                    if (_context.QuestUserManagement.Any(o => o.QuestId == quest.QuestId && o.UserId == quest.UserId) == false)
                     {
-                    _context.QuestUserManagement.Add(quest);
+                        _context.QuestUserManagement.Add(quest);
+                    }
+                }
+                var result = _context.SaveChanges();
+                if (result != 0 && result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-            var result =_context.SaveChanges();
-            if(result != 0 && result > 0)
+            catch (Exception ex)
             {
-                return true;
+                return false;
             }
-            else
-            {
-                return false ;
-            }   
+          
         }
     }
 }
