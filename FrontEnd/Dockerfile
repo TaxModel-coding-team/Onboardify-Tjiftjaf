@@ -1,5 +1,5 @@
 #when running container make sure to set port to: anynumber:4200 
-FROM node:lts-alpine as build-step
+FROM node:14.17.6-alpine as build-step
 RUN apk update && apk add bash
 RUN mkdir -p /app
 WORKDIR /app
@@ -8,5 +8,6 @@ RUN npm install
 COPY . /app
 RUN npm run build
 RUN chmod +X /app/entrypoint.sh
+EXPOSE 4200
 ENTRYPOINT ["/app/entrypoint.sh"]
 
