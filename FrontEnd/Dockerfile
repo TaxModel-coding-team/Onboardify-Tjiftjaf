@@ -11,7 +11,7 @@ RUN npm run build
 
 FROM node:14.17.6-alpine as production-stage
 COPY --from=build-step /app/dist /usr/share/nginx/html
+COPY --from=build-step /app/package.json /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
 EXPOSE 4200
-RUN dir
 CMD ["npm", "start"]
