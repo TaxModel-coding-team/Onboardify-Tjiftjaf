@@ -14,4 +14,4 @@ COPY --from=build-step /app/dist /usr/share/nginx/html
 COPY --from=build-step /app/entrypoint.sh /usr/share/nginx/html
 RUN chmod +X /usr/share/nginx/html/entrypoint.sh
 EXPOSE 4200
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/share/nginx/html/entrypoint.sh"]
