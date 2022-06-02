@@ -12,6 +12,6 @@ RUN npm run build
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-step /app/dist /usr/share/nginx/html
 COPY --from=build-step /app/entrypoint.sh ./
-RUN chmod +X /usr/share/nginx/html/entrypoint.sh
+RUN chmod +X /entrypoint.sh
 EXPOSE 4200
 ENTRYPOINT ["/entrypoint.sh"]
