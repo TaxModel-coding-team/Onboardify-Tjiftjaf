@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { GlassModule } from 'angular-glass';
@@ -32,7 +32,7 @@ import {CompletedQuestsComponent} from "./completed-quests/completed-quests.comp
 import {QuestPageComponent} from "./quest-page/quest-page.component";
 import { PopUpCompleteComponent } from './Scanner/pop-up-complete.component';
 import { PopUpGetQuestComponent } from './Scanner/pop-up-getquest.component';
-import { PopUpError } from './Scanner/Pop-up-error';
+import { PopUpErrorComponent } from './Scanner/Pop-up-error.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication{
   return new PublicClientApplication({
@@ -62,7 +62,7 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     QuestPageComponent,
     PopUpCompleteComponent,
     PopUpGetQuestComponent,
-    PopUpError,
+    PopUpErrorComponent,
 
   ],
   
@@ -91,6 +91,8 @@ export function MSALInstanceFactory(): IPublicClientApplication{
     },
     MsalService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
 })
 export class AppModule { }

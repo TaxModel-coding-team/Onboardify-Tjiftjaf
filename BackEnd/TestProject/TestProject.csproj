@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaskService\back-end.csproj" />
-    <ProjectReference Include="..\User Back-End\User Back-End.csproj" />
+    <ProjectReference Include="..\User Back-End\User-Back-End.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "back-end", "TaskService\back-end.csproj", "{1CC865FD-1E31-4DE5-ADF9-0F5AF60B335F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User Back-End", "User Back-End\User Back-End.csproj", "{CBFFFB66-E787-421A-AC27-A1F72482BEE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User-Back-End", "User Back-End\User-Back-End.csproj", "{CBFFFB66-E787-421A-AC27-A1F72482BEE1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{61E9CE6B-8EAA-42BA-B812-2B3E281E4771}"
 EndProject
