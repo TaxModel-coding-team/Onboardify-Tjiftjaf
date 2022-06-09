@@ -6,7 +6,5 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
-RUN npm run build
-RUN chmod +X /app/entrypoint.sh
-ENTRYPOINT ["/app/entrypoint.sh"]
-
+EXPOSE 4200
+CMD ["npm", "start"]

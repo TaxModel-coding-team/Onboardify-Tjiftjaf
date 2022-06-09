@@ -25,7 +25,6 @@ on:
           - info
           - warning
           - debug 
-
 jobs:
   build:
     runs-on: ubuntu-latest
