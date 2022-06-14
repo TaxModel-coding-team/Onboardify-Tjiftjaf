@@ -84,11 +84,18 @@ https://icons.getbootstrap.com/
 npm install bootstrap-icons
 ```
 
-QR Code Scanning and Creation:
+QR Code Scanning:
 
 https://medium.com/swlh/scanning-barcode-or-qr-code-in-an-angular-app-with-zxing-9d3c8dfd5b96 
 ```
-npm i @zxing/ngx-scanner@latest --save
+npm install @zxing/ngx-scanner@latest --save
+```
+
+QR Code Creation:
+
+https://github.com/SuperiorJT/angular2-qrcode#readme
+```
+npm install angular2-qrcode
 ```
 
 Confetti effect for QR Code completion:
@@ -102,13 +109,13 @@ npm install --save canvas-confetti
 
 The application can be run using the following command:
 
-#The -o will open the front-end in your browser
+# The -o will open the front-end in your browser
 
 ```
 ng serve -o
 ```
 
-#On error use: 
+# On error use: 
 
 ```
 npm start
@@ -154,4 +161,4 @@ When the data tables have been made please insert some mockdata or make your own
 After the database initialization is complete, please change all the connectionstrings in the AppSettings files of every project to your own credentials.
 
 # Contributions
-Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
+Please refer to the [Contributing.md](https://github.com/TaxModel-coding-team/Onboardify-Tjiftjaf/blob/main/Contributing.md) for more information on how to contribute to this project.
