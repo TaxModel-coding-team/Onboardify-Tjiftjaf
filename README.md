@@ -34,7 +34,8 @@ Either by doing it yourself manually or copying the code block below into your B
 
 ```
 mkdir Onboardify && cd Onboardify
-git clone https://github.com/TaxModel-coding-team/Onboardify.git
+git clone https://github.com/TaxModel-coding-team/Onboardify-Tjiftjaf.git
+
 ```
 ## Front-end
 Make sure to install all required packages for the front-end.
@@ -58,7 +59,7 @@ Ngx-cookie-service:
 
 https://www.npmjs.com/package/ngx-cookie-service 
 ```
-npm install ngx-cookie-service
+npm install ngx-cookie-service --legacy-peer-deps
 ```
 
 Bootstrap:
@@ -88,6 +89,10 @@ The application can be run using the following:
 #The -o will open the front-end in your browser
 
 ng serve -o
+
+#On error use: 
+
+npm start
 ```
 
 ## Back-end
