@@ -28,7 +28,7 @@ This project could be scaled up in the future so it could be used for several di
 - Docker
 
 # Getting started
-Note that for the software to work a database connection must be made. For instruction how initialize a database please refer to the [Database Initialization](#Database-Initialisation)
+Note that for the Software to work a database connection is required. For instruction on how to initialize a Database please refer to the [Database Initialization](#Database-Initialisation)
 For a fresh installation for developers, please make a new directory and clone the repository.
 Either by doing it yourself manually or copying the code block below into your Bash or Git Bash enviroment.
 
@@ -84,19 +84,38 @@ https://icons.getbootstrap.com/
 npm install bootstrap-icons
 ```
 
-The application can be run using the following:
+QR Code Scanning and Creation:
+
+https://medium.com/swlh/scanning-barcode-or-qr-code-in-an-angular-app-with-zxing-9d3c8dfd5b96 
 ```
+npm i @zxing/ngx-scanner@latest --save
+```
+
+Confetti effect for QR Code completion:
+
+https://www.npmjs.com/package/canvas-confetti
+
+```
+npm install --save canvas-confetti
+```
+
+
+The application can be run using the following command:
+
 #The -o will open the front-end in your browser
 
+```
 ng serve -o
+```
 
 #On error use: 
 
+```
 npm start
 ```
 
 ## Back-end
-After cloning the back-end it can be run inside Visual Studio.
+After cloning the Back-end it can be run inside Visual Studio.
 Note that this is only a developer enviroment, if you want to run the application in production.
 Please pull image from docker hub.
 
@@ -115,8 +134,10 @@ If running from Visual Studio please enable running multiple projects at once.
 This can be done by moving to the 'solution properties > startup settings' and setting multiple project as start.
 
 ## <a name="Database-Initialization">Database Initialization</a>
-As a new project working on this software please host a MSSQL server either locally or through fontys services.
+As a new project working on this software please host a MSSQL server either locally or through Fontys services.
 Please open the console-package manager inside visual studio under 'View' > 'Console-package manager'.
+
+Make sure that the project at the top of your solution matches the default project in the package manager console, otherwise it will not be able to make a migration.
 This empty database can be filled using the following command inside the console-package manager:
 
 ```
@@ -127,8 +148,10 @@ You can commit these changes by using the following:
 ```
 Update-Database -Context ['DatabaseContext']
 ```
+
+If there is no code present in the Up and Down methods of the Migration, delete the previous migrations and the snapshot in the Migratations folder.
 When the data tables have been made please insert some mockdata or make your own.
-After the database initialization complete please change all the connectionstrings in the AppSettings file of each project.
+After the database initialization is complete, please change all the connectionstrings in the AppSettings files of every project to your own credentials.
 
 # Contributions
 Please refer to the [Contibuting.md](https://github.com/TaxModel-coding-team/Onboardify/blob/main/Contibuting.md) for more information on how to contribute to this project.
