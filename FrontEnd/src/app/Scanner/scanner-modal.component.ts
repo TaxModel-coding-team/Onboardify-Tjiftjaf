@@ -9,10 +9,8 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { QuestService } from "../Services/quest.service";
 import { questUserViewModel } from "../Models/questUserViewModel";
 import { MatDialog } from  '@angular/material/dialog';
-import { PopUpError } from "./Pop-up-error";
+import { PopUpErrorComponent } from "./Pop-up-error.component";
 const confetti = require('canvas-confetti');
-import { PopupClient } from "@azure/msal-browser";
-import { Console } from "console";
 import {document} from "ngx-bootstrap/utils";
 
 @Component({
@@ -64,7 +62,7 @@ export class ScannerModalComponent implements OnInit {
         });
         this.MakeConfetti();
       } else{
-        this.dialog.open(PopUpError, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
+        this.dialog.open(PopUpErrorComponent, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
       }
     } else{
       this.questUserViewModel.UserId = userId;
@@ -75,7 +73,7 @@ export class ScannerModalComponent implements OnInit {
           data: { QuestTitle : localStorage.getItem("QuestTitle")},
         });
       }else{
-        this.dialog.open(PopUpError, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
+        this.dialog.open(PopUpErrorComponent, { panelClass: '.e-dialog', data: { Error: "Can't connect to server, please try again"}});
       }
     }
     this.questService.getQuests();

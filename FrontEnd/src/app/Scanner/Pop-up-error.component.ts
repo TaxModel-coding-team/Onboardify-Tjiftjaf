@@ -1,14 +1,12 @@
 import {Component} from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
     selector: 'pop-up-complete-error',
-    templateUrl: 'pop-up-error.html',
+    templateUrl: 'Pop-up-error.component.html',
     styleUrls: ['./scanner-modal.component.css']
-    
+
 })
 
-export class PopUpError {
+export class PopUpErrorComponent {
     Error =  "Can't connect to server, please try again";
 }
