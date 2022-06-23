@@ -1,0 +1,8 @@
+-Hoe lang duurt een onboarding periode? Zijn de quests gebasseerd op dagelijke of wekelijkse taken?
+-Is een confirmation dat een quest is uitgevoerd nodig door de persoon waardoor de quest gegeven is?
+-Willen jullie graag een progressbar zien, waarop je voortgang zichtbaar is als werknemer?
+-Wat is de betekenis van de badges? Zijn het een soort rewards of dient het als een identificatie?
+-Ligt de prioriteit op het eerst werkend maken van het werk van de vorige groep of op die van het toevoegen van onze eigen nieuwe functionaliteit?
+
+-Extra beloning voor- en nadelen
+-lijst van defaults/presets aan kunnen maken
